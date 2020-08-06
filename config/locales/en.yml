@@ -160,7 +160,7 @@ en:
         username: نام کاربری
       title: مدیریت کاربران
   add_to_google_calendar: "افزودن تقویم گوگل"
-  bigbluebutton: بیمارستان امام سجاد -نرسینو
+  bigbluebutton: وبینار
   bigbluebutton_exception: اوپس، خطایی در هنگام شروع جلسه رخ داده است!
   cancel: لغو
   cookies:
@@ -234,7 +234,7 @@ en:
     email: ایمیل
     submit: ارسال
   go_back: بازگشت
-  greenlight: بیمارستان امام سجاد -نرسینو
+  greenlight: وبینار
   header:
     all_recordings: تمام جلسات ضبط شده
     dropdown:
