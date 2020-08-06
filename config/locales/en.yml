@@ -20,575 +20,537 @@ en:
   activerecord:
     attributes:
       user:
-        accepted_terms: "Terms and Conditions"
-        email: Email
-        name: Name
-        password: Password
-        password_confirmation: Password Confirmation
+        accepted_terms: "شرایط و قوانین"
+        email: ایمیل
+        name: نام
+        password: رمز عبور
+        password_confirmation: تایید رمز عبور
     errors:
       models:
         user:
-          confirmation: doesn't match Password
+          confirmation: رمز عبور با هم یکسان نیستند
   administrator:
     site_settings:
       authentication:
-        disabled: Disabled
-        enabled: Enabled
-        info: Only allow authenticated users to join a room
-        title: Require Authentication for Rooms
-        user-info: You must sign in to Greenlight to join this room
+        disabled: غیرفعال شده
+        enabled: فعال شده
+        info: تنها به کاربران احراز هویت شده اجازه پیوستن به اتاق را بده
+        title: نیازمند احراز هویت برای اتاق ها
+        user-info: شما می بایست برای پیوستن به این اتاق وارد نرسینو شوید
       branding:
-        change: Change Image
-        info: Change the branding image that appears in the top left corner
-        placeholder: Image Url...
-        title: Branding Image
-        invalid: Invalid URL
-      legal:
-        change: Change URL
-        info: Change the Legal Link that appears in the bottom of the page
-        placeholder: Legal URL...
-        title: Legal
-        invalid: Invalid URL
-      privpolicy:
-        change: Change URL
-        info: Change the Privacy Policy Link that appears in the bottom of the page
-        placeholder: Privacy Policy URL...
-        title: Privacy Policy
-        invalid: Invalid URL
+        change: تغییر تصویر
+        info: تغییر تصویر شخصی سازی که در گوشه بالای سمت چپ به نمایش در می آید
+        placeholder: ادرس تصویر ...
+        title: تصویر شخصی سازی
       cache:
-        info: Clears the stored provider cache which forces a new request for the updated info
-        title: Clear Provider Cache
-        button: Clear Cache
+        info: کش ارائه دهنده ذخیره شده را حذف می کند تا اجبار به یک درخواست جدید برای اطلاعات به روز رسانی شده کند
+        title: پاک کردن کش ارائه دهنده
+        button: پاک کردن کش
       clear_auth:
-        info: Clears the current authenticator for users allowing them to sign back in using a different authentication method
-        title: Clear Current Authenticator
-        button: Clear Auth
+        info: احراز هویت کننده کنونی را پاک می کند تا به کاربران مجوز ورود مجدد با روش احراز هویت دیگری را بدهد
+        title: پاک کردن احراز هویت کننده
+        button: "پاک کردن احراز هویت "
       color:
-        info: Changing the Regular Color will change both Lighten and Darken. Lighten and Darken can then be changed individually
-        title: Primary Color
-        regular: Regular
-        lighten: Lighten
-        darken: Darken
+        info: تغییر مرتب رنگ هم میزان روشنایی و هم میزان تاریکی را تغییر می دهد. روشنایی و تاریکی به صورت مجزا می توانند تغییرکنند.
+        title: رنگ اصلی
+        regular: منظم
+        lighten: روشن تر
+        darken: تیره
       log_level:
-        title: Log Level
-        information: Change the Log Level for the entire deployment
-        debug: Debug
-        info: Info
-        warn: Warn
-        error: Error
-        fatal: Fatal
-        unknown: Unknown
+        title: سطح لاگ گیری
+        information: تغییر سطح لاگ گیری برای همه نصب ها
+        debug: دیباگ
+        info: اطلاع رسانی
+        warn: سطح خطای متوسط
+        error: خطا
+        fatal: خطای بحرانی
+        unknown: نا مشخص
       recording_visibility:
-        info: Set the default recording visbility for new recordings
-        title: Recording Default Visibility
-        warning: This setting will only be applied to rooms that aren't running
+        info: اعمال وضعیت نمایش جلسات ضبط شده جدید
+        title: وضعیت نمایش پبش فرض جلسات ضبط شده
+        warning: این تنظیم تنها به جلساتی که در حال اجرا نیستند اعمال خواهد شد
       registration:
-        info: Change the way that users register to the website
-        title: Registration Method
+        info: تغییر روشی که کاربران در وب سایت ثبت نام میکنند
+        title: روش تبت نام
         methods:
-          approval: Approve/Decline
-          invite: Join by Invitation
-          open: Open Registration
+          approval: تایید/رد
+          invite: پیوستن توسط دعوت نامه
+          open: باز کردن ثبت نام
       rooms:
-        info: Limits the number of rooms that a user can have (including Home Room). This setting does not apply to administrators.
-        title: Number of Rooms per User
+        info: ایجاد محدودیت برای تعداد اتاق هایی که یک کاربر می تواند داشته باشد (شامل اتاق خانه). این تنظیم به مدیران اعمال نخواهد شد.
+        title: تعداد اتاق ها به ازاء کاربر
       shared_access:
-        info: Setting to disabled will remove the button from the Room options dropdown, preventing users from sharing rooms
-        title: Allow Users to Share Rooms
-      subtitle: Customize Greenlight
-      title: Site Settings
+        info: تنظیمات غیر فعال سازی، دکمه انتخاب گرینه ها را از اتاق حذف می کند تا کاربران را از به اشتراک گذازی اتاق ها منع کند
+        title: امکان اشتراک گذاری اتاق ها به کاربران عادی
+      subtitle: شخصی سازی گرینلایت
+      title: تنظیمات سایت
     flash:
-      approved: User has been successfully approved.
-      banned: User has been successfully banned.
-      unbanned: User has been successfully unbanned.
-      delete: User deleted successfully
-      delete_fail: Failed to delete user
-      demoted: User has been successfully demoted
-      invite: Invite successfully sent to %{email}
-      invite_email_verification: Emails must be enabled in order to use this method. Please contact your system administrator.
-      merge_fail: There was an issue merging the user accounts. Please check the users selected and try again 
-      merge_success: User accounts merged successfully
-      perm_deleted: User has been permanently deleted
-      promoted: User has been successfully promoted
-      registration_method_updated: Registration method successfully updated
-      reset_password: The user has been sent an email to reset their password. (Please ask them to check their spam folder if they haven't received it)
-      restored: User has been successfully restored
-      room_configuration: Room Configuration successfully changed
-      settings: Site Settings successfully changed
-      unauthorized: You are not authorized to perform actions on this user
+      approved: کاربر با موفقیت تایید شد
+      banned: کاربر با موفقیت منع شد
+      unbanned: کاربر با موفقیت رفع ممنوعیت شد.
+      delete: کاربر با موفقیت حذف شد
+      delete_fail: حذف کاربر با خطا مواجه شد
+      demoted: کاربر با موفقیت تغییر نقش داده شد
+      invite: "دعوت نامه با موفقیت به %{email} ارسال شد "
+      invite_email_verification: برای استفاده از این امکان می بایست ایمیل فعال شود. لطفا با مدیر سیستم خود تماس بگیرید.
+      merge_fail: خطایی در ادغام حساب های کاربری رخ داده است، لطفا کاربران انتخاب شده را بررسی کنید و دوباره تلاش کنید 
+      merge_success: حساب های کاربری با موفقیت ادغام شدند
+      perm_deleted: کاربر به صورت کامل حذف شد
+      promoted: کاربر با موفقیت ارتقا نقش داده شد
+      registration_method_updated: روش ثبت نام با موفقیت به روز رسانی شد
+      reset_password: ایمیلی به منظور بازیابی رمز عبور ارسال شد. (لطفا از کاربران بخواهید در صورت عدم دریافت ایمیل پوشه اسپم خود را در چک کنند)
+      restored: کاربربا موفقیت بازیابی شد
+      settings: تنظیمات سایت با موفقیت تغییر یافت
+      unauthorized: شما مجاز به انجام این عمل روی این کاربر نیستید
     recordings:
-      title: Server Recordings
-      no_recordings: This server has no recordings.
+      title: جلسات ضبط شده سرور
+      no_recordings: در سرور جلسه ضبط شده ای وجود ندارد.
     roles:
-      appear_in_share_list: Include users with this role in the dropdown for sharing rooms
-      can_create_rooms: Can create rooms
-      delete: Delete the role
-      invalid_create: There was a problem creating a new role. Please check the role values and try again
-      invalid_order: There was a problem updating the priority of the role. Please check the values and try again
-      invalid_update: There was a problem updating the permissions of the role. Please check the values and try again
-      manage_rooms_recordings: Allow users with this role to manage server rooms and recordings
-      name: Role Name
-      new_role: Create a new role
-      role_has_users: This role is assigned to %{user_count} accounts. Please remove all accounts from this role before deleting it.
-      title: Roles
-      promote_email: Send an email to users when they are assigned this role
-      demote_email: Send an email to users when they are removed from this role
-      edit_site_settings: Allow users with this role to edit site settings
-      edit_roles: Allow users with this role to edit other roles
-      manage_users: Allow users with this role to manage users
-      invalid_assignment: There was a problem assigning the roles to the user. Please check the values and try again 
+      appear_in_share_list: دادن مجوز اشتراک اتاق ها به کاربرانی که این نقش را دارند
+      can_create_rooms: امکان ایجاد اتاق برای کاربر
+      delete: حذف نقش کاربری
+      invalid_create: خطایی در ایجاد نقش جدید رخ داد. لطفا مقادیر نقش ها را بررسی کرده و دوباره تلاش کنید
+      invalid_order: خطایی در به روز رسانی اولویت نقش رخ داد، لطفا مقادیر را بررسی کرده و دوباره تلاش کنید
+      invalid_update: خطایی در به روز رسانی مجوزات دسترسی نقش رخ داد، لطفا مقادیر را بررسی کرده و دوباره تلاش کنید
+      manage_rooms_recordings: دادن مجوز برای مدیریت اتاق های سرور و رکورد ها به کاربرانی که این نقش را دارند
+      name: نام نقش
+      new_role: ایجاد نقش جدید
+      role_has_users: "این نقش به حساب های کاربری %{user_count} داده شد. لطفا از حذف همه حساب های کاربری از این نقش، قبل از حذف آن اطمینان حاصل کیند"
+      title: نقش ها
+      promote_email: ارسال ایمیل به کاربران زمانیکه این نقش به آنها داده می شود
+      demote_email: ارسال ایمیل به کاربران، زمانیکه این نقش از آنها گرفته می شود
+      edit_site_settings: دادن مجوز ویرایش تنظیمات به کاربرانی که این نقش را دارند
+      edit_roles: دادن مجوز ویرایش سایر نقش ها به کاربرانی که این نقش را دارند
+      manage_users: دادن مجوز مدیریت کاربران به کاربرانی که این نقش را دارند
+      invalid_assignment: خطایی در دادن نقش به کاربر رخ داد، لطفا مقادیر را بررسی کرده و دوباره تلاش کنید 
       colour:
-        title: Role Colour
-        info: Set the colour that will be associated with the role
-    room_configuration:
-      title: Room Configuration
-      mute:
-        info: Automatically mutes the user when they join the BigBlueButton meeting
-      require_moderator:
-        info: Prompts the moderator of the BigBlueButton meeting when a user tries to join. If the user is approved, they will be able to join the meeting.
-      allow_any:
-        info: Allows any user to start the meeting at any time. By default, only the room owner can start the meeting.
-      all_moderator:
-        info: Gives all users moderator privileges in BigBlueButton when they join the meeting.
-      options:
-        disabled: Disabled
-        enabled: Always Enabled
-        optional: Optional
+        title: رنگ نقش
+        info: رنگی که به نقش نسبت داده خواهد شد را اعلام نمایید
     rooms:
-      title: Server Rooms
+      title: اتاق های سرور
       table:
-        ended: "Ended: %{session}"
-        id: ID
-        not_running: Not Running
-        participants: Participants
-        running: Running
-        started: "Started: %{session}"
-        status: Status
-        view: View
-    title: Organization Settings
+        id: شناسه
+        not_running: در حال اجرا نبودن
+        running: در حال اجرا
+        status: وضعیت
+        view: نمایش
+    title: تنظیمات سازمان
     users:
-      invite: Invite User
+      invite: دعوت کاربر
       edit:
-        title: Edit User Details
+        title: ویرایش جزئیات کاربر
       settings:
-        approve: Approve
-        decline: Decline
-        ban: Ban User
-        delete: Delete
-        edit: Edit
-        edit_roles: Edit the user roles
-        merge: Merge
-        perm_delete: Permanently Delete
-        unban: Unban User
-        undelete: Undelete
+        approve: تایید
+        decline: رد
+        ban: منع کردن کاربر
+        delete: حذف
+        edit: ویرایش
+        edit_roles: ویرایش نقش های کاربر
+        perm_delete: به طور کامل حذف شد
+        unban: رفع ممنوعیت کاربر
+        undelete: لغو پاک کردن
       table:
-        authenticator: Authenticator
-        created: Created
-        name: Name
-        not_found: No users match your search
-        no_users: No users found
-        role: Role
-        uid: User ID
-        username: Username
-      title: Manage Users
-  add_to_google_calendar: "Add to Google Calendar"
-  bigbluebutton: BigBlueButton
-  bigbluebutton_exception: Oops, there was an error when starting the meeting!
-  cancel: Cancel
+        authenticator: احراز کننده هویت
+        created: ایجاد شده
+        name: نام
+        not_found: کاربری متناسب با جستجوی شما یافت نشد
+        no_users: کاربری یافت نشد
+        role: نقش
+        uid: شناسه کاربری
+        username: نام کاربری
+      title: مدیریت کاربران
+  add_to_google_calendar: "افزودن تقویم گوگل"
+  bigbluebutton: بیمارستان امام سجاد -نرسینو
+  bigbluebutton_exception: اوپس، خطایی در هنگام شروع جلسه رخ داده است!
+  cancel: لغو
   cookies:
-    cookie_info: Cookies help us deliver our services. By using our services, you agree to our use of cookies.
-    cookie_button: I Agree
-  copied: Copied
-  copy: Copy
+    cookie_info: کوکی ها به ما کمک میکنند تا خدمات خود را ارائه دهیم. با استفاده از این خدمات، شما با استفاده از کوکی های ما موافقت میکنید.
+    cookie_button: موافق هستم
+  copied: کپی شد
+  copy: کپی
   date:
-    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
-  default_admin: You are still using the default password for this account. Please click <a href="%{edit_link}">here</a> to change it
-  delete: Delete
-  delivery_error: An error occured during email delivery. Please contact an administrator!
-  docs: Documentation
-  email: Email
-  email_sent: Your %{email_type} email has been sent! (Please check your Spam folder if you haven't received it)
-  enter_your_name: Enter your name!
+    month_names: [~, ژانویه, فوریه, مارچ, اوریل, می, ژوئن, جولای, آگوست, سپتامبر, اکتبر, نوامبر, دسامبر]
+  default_admin: "شما هنوز از رمز عبور پیش فرض استفاده میکنید. لطفا برای تغییر آن <a href=\"%{edit_link}\"> اینجا </a> را کلیک کنید"
+  delete: حذف
+  delivery_error: خطایی در هنگام تحویل ایمیل رخ داده است، لطفا با مدیر تماس بگیرید!
+  docs: مستند سازی
+  email: ایمیل
+  email_sent: "%{email_type} ایمیل شما ارسال شد! (لطفا در صورت عدم دریافت آن پوشه اسپم خود را بررسی کنید)"
+  enter_your_name: نام خود را وارد کنید!
   errors:
     bigbluebutton:
-      help: Please make sure the proper steps have been taken. <a href="%{doc_link}">Learn more</a>
-      message: Invalid BigBlueButton Endpoint and Secret
-      title: Server Error
+      help: "لطفا مطمئن شوید که قدم های درست برداشته شده اند.<a href=\"%{doc_link}\"> بیشتر بیاموزید</a>"
+      message: ادرس و رمز نادرست نرسینو
+      title: خطای سرور
     internal:
-      message: Looks like something went wrong on our end.
-      help: The error has been logged, we'll take a look!
-      report: Report Issue
+      message: به نظر می رسد چیزی سمت ما به مشکل بر خورده است
+      help: خطا لاگ شده است، ما نگاهی به آن خواهیم انداخت!
+      report: گزارش خرابی
     maintenance:
-      message: Sorry, we're down for maintenance.
-      help: We'll be back soon!
+      message: متاسفانه بابت نگهداشت سیستم در دسترس نیست
+      help: به زودی بر میگردیم
     migration_error:
-      contact_admin: If you are not an administrator, please contact one.
-      continue: I'd like to stay using 1.0.
+      contact_admin: اگر شما مدیر نیستید، لطفا با یک مدیر تماس بگیرید.
+      continue: ما تمایل به ماندن در نسخه 1.0 را دارم.
       notice: >
-        Greenlight encountered a database migration error.<br>
-        This may be because you haven't updated to Greenlight 2.0.
-      upgrade: Show me how to upgrade to 2.0!
-      version: We've released a new version of Greenlight, but your database isn't compatible.
+        خطایی در انتقال دیتابیس نرسینو رخ داده است. <br> این ممکن است به دلیل این باشد که شما به نسخه 2.0 نرسینو به روز رسانی نکرده اید.
+      upgrade: به من نشان بده چگونه به نسخه 2.0 به روز رسانی کنم!
+      version: ما یک نسخه جدید از نرسینو را منتشر کرده ایم، اما پایگاه داده شما با آن سازگاری ندارد.
     messages:
-      blank: can't be blank
-      too_short: is too short
-      invalid: is invalid
-      taken: has already been taken
-      accepted: must be accepted
-      confirmation: doesn't match %{attribute}
-      inclusion: is not included in the list
+      blank: نمیتواند خالی باشد
+      too_short: بسیار کوتاه است
+      invalid: معتبر نیست
+      taken: از قبل گرفته شده است
+      accepted: میبایست تایید شود
+      confirmation: "با %{attribute} تطابق ندارد"
+      inclusion: در لیست قرار داده نشده است
     no_provider:
-      message: The site you are trying to access is not enabled
-      help: Please contact your system administrator to setup Greenlight
+      message: سایتی که شما تلاش به دسترسی به آن را دارید فعال نیست
+      help: لطفا برای پیکربندی برنامه با مدیر سیستم تماس بگیرید
     not_found:
-      message: Sorry! The page you are looking for does not exist.
-      help: Is it possible its been removed?
+      message: متاسفانه، صفحه ای که دنبال آن میگردید وجود ندارد.
+      help: آیا ممکن است حذف شده باشد؟
       user_not_found:
-        help: Please contact an administrator.
-        message: Sorry, this user is not registered.
+        help: لطفا با مدیر سیستم تماس بگیرید
+        message: متاسفانه، این کاربر ثبت نام نکرده است
       user_missing:
-        help: Please verify the URL and try again
-        message: The URL that you have entered is not valid.
-    title: Errors
+        help: لطفا لینک ارسال شده را تایید و دوباره تلاش کنید
+        message: ادرسی که شما وارد کرده اید معتبر نیست
+    title: خطاها
     unauthorized:
-      message: You do not have access to this application
-      help: If you believe this is a mistake, please contact your system administrator.
-  expired_reset_token: Password reset link has expired!
+      message: شما امکان دسترسی به این برنامه را ندارید
+      help: اگر شما فکر میکنید این اشتباه است، لطفا با مدیر سیستم خود تماس بگیرید
+  expired_reset_token: ادرس بازنشانی رمز عبور به پایان رسیده است!
   features:
-    title: Features
-    rooms: Personalized Rooms
-    recordings: Recording Management
-    designs: Custom Designs
-    authentication: User Authentication
+    title: امکانات
+    rooms: اتاق های شخصی شده
+    recordings: مدیریت ضبط جلسات
+    designs: طراحی های شخصی
+    authentication: احراز هویت کاربر
   footer:
-    legal: Legal
-    privpolicy: Privacy Policy
-    powered_by: Powered by %{href}.
+    powered_by: "استفاده شده از %{href}."
   forgot_password:
-    subtitle: Forgot Password
-    email: Email
-    submit: Submit
-  go_back: Go back
-  greenlight: Greenlight
+    subtitle: فراموشی رمز عبور
+    email: ایمیل
+    submit: ارسال
+  go_back: بازگشت
+  greenlight: بیمارستان امام سجاد -نرسینو
   header:
-    all_recordings: All Recordings
+    all_recordings: تمام جلسات ضبط شده
     dropdown:
-      account_settings: Organization
-      help: Need help?
-      home: Home
-      settings: Profile
-      signout: Sign out
-  home_room: Home Room
-  info_update_success: Information successfully updated.
-  invalid_credentials: The email and password you entered did not match our records. Try again or click Forgot Password to reset your password.
-  invalid_login_method: Login failed due to account mismatch. You need to log in with omniauth.
-  invite_message: "To invite someone to the meeting, send them this link:"
+      account_settings: سازمان
+      help: نیاز به کمک دارید؟
+      home: خانه
+      settings: پروفایل
+      signout: خروج
+  home_room: اتاق خانه
+  info_update_success: اطلاعات با موفقیت بارگزاری شد
+  invalid_credentials: ایمیل و رمز عبوری که وارد کرده اید با سیستم ما انطباق ندارد، دوباره تلاش کنید یا روی بازیابی رمز عبور کلیک کنید تا رمز عبورتان را زیست کنید
+  invalid_login_method: ورود به دلیل عدم تطابق حساب کاربری با خطا مواجه شد. شما می بایست توسط مکانیزم omniauth وارد شوید.
+  invite_message: "برای دعوت کسی به جلسه، این ادرس را برای آنها بفرستید"
   javascript:
     room:
       mailer:
-        subject: 'has invited you to view a recording.'
-        body: 'To view the recording, follow the link below:'
-        autogenerated: 'This e-mail is auto-generated by BigBlueButton.'
-        footer: 'BigBlueButton is an open source web conferencing system. For more information on BigBlueButton, see https://bigbluebutton.org/.'
+        subject: 'شما را برای مشاهده جلسه ضبط شده دعوت کرده است.'
+        body: 'برای مشاهده ضبط جلسات، از ادرس زیر استفاده کنید'
+        autogenerated: 'این ایمیل به صورت خودکار توسط نرسینو تولید شده است'
+        footer: 'وبینار یک برنامه کنفرانس وبی متن باز است، برای اطلاعات بیشتر به وبینار در ادرس https://bigbluebutton.org/ مراجعه کنید.'
     search:
-      start: Start searching...
+      start: در حال جستجو...
   landing:
-    about: "%{href} is a simple front-end for your BigBlueButton open-source web conferencing server. You can create your own rooms to host sessions, or join others using a short and convenient link."
-    welcome: Welcome to BigBlueButton.
-    video: Watch our tutorial on using Greenlight
-    upgrade: Show me how to upgrade to 2.0!
-    version: We've released a new version of Greenlight, but your database isn't compatible.
-  language_default: Default (browser language)
-  ldap_error: Unable to connect to the LDAP server. Please check your LDAP configuration in the env file and ensure your server is running.
-  login: Sign in
-  login_title: Sign in to your account
+    about: "%{href} یک واسط کاربری ساده برای استفاده از سرور کنفرانس وبی متن باز وبینار است. شما می توانید اتاق هایی برای میزبانی جلسات خود یا پیوستن به جلسات دیگران از طریق ادرس آنها، ایجاد کنید."
+    welcome: به وبینار خوش آمدید
+    video: ویدئوی آموزشی ما را در مورد استفاده از وبینار مشاهده کنید
+    upgrade: به من نشان بده چگونه به نسخه 2.0 به روز رسانی کنم!
+    version: ما یک نسخه جدید از وبینار را منتشر کرده ایم، اما پایگاه داده شما با آن سازگاری ندارد.
+  language_default: پیشفرض (زبان مرورگر)
+  ldap_error: امکان دسترسی به سرور LDAP وجود ندارد. لطفا تنظیمات LDAP خود را در فایل env بررسی کرده و مطمئن شوید سرور در حال اجرا است.
+  login: ورود
+  login_title: به حساب کاربری تان وارد شوید
   mailer:
     user:
       approve:
-        info: Your account has been approved.
-        signin: To access your personal rooms, click the button below and sign in.
-        signin_link: Sign In
+        info: حساب کاربری شما تایید شده است.
+        signin: برای دسترسی به اتاق های شخصی خود، روی دگمه زیر کلیک کرده و وارد شوید.
+        signin_link: ورود
         signup:
-          info: A new user has signed up to use Greenlight.
-          more-info: To allow this user to access Greenlight you must approve their account in organization settings.
-          admins_link: Visit the Organization Page
-          subject: New Greenlight User Sign Up
-          username: The user signed up with the name %{name} and the email %{email}.
-        subject: Account Approved
-        username: Your username is %{email}.
+          info: یک کاربر جدید در وبینار ثبت نامه کرده است
+          more-info: برای داشتن مجوز دسترسی برای این کاربر به وبینار، شما می بایست حساب کاربری آن ها را در تنظیمات سازمان تایید کنید.
+          admins_link: مشاهده صفحه سازمان
+          subject: ثبت نام کاربر جدید وبینار
+          username: "کاربر با نام %{name} و ادرس ایمیل %{email} ثبت نام کرده است."
+        subject: حساب کاربری تایید شد
+        username: "نام کاربری شما %{email} است."
       demoted:
-        info: You are no longer an %{role} on %{url}.
-        more-info: You now have the same privileges as a regular user.
-        root_link: Sign In
-        subtitle: "%{role} Rights Rescinded"
+        info: "شما دیگر یک %{role} برای %{url} نیستید"
+        more-info: شما در حال حاضر مجوزات یک کاربر عادی را دارید
+        root_link: ورود
+        subtitle: "مجوزات %{role} گرفته شد"
       invite:
-        info: You have been invited to your own personal space by %{name}
-        signup_info: To signup using your email, click the button below and follow the steps.
-        signup_link: Sign Up
+        info: "شما به فضای شخصی خود توسط %{name} دعوت شده اید"
+        signup_info: برای ثبت نام از طریق ادرس ایمیلتان، روی دکمه زیر کلیک کرده و مراحل را انجام دهید.
+        signup_link: ثبت نام
         signup:
-          info: A user that was invited has signed up to use Greenlight.
-          admins_link: Visit the Organization Page
-          subject: New Greenlight User Sign Up
-          username: The user signed up with the name %{name} and the email %{email}.
-        subject: Invitation to join BigBlueButton
-        username: Your username is %{email}.
+          info: کاربری که دعوت کرده بودید برای استفاده از وبینار ثبت نام کرده است.
+          admins_link: صفحه سازمان را مشاهده کنید
+          subject: ثبت نام کاربر وبینار جدید
+          username: "کاربر با نام %{name} و ادرس ایمیل %{email} ثبت نام کرده است."
+        subject: دعوت نامه برای پیوستن به وبینار
+        username: "نام کاربری شما %{email} است."
       password_reset:
-        title: 'Password reset'
-        welcome: A password reset has been requested for the email <b>%{email}</b>
-        message: 'If you requested this reset, then please click the link below to reset your password:'
-        reset_link: Reset Password
-        expire: This link will expire in two hours.
-        ignore: You can safely ignore this email if you did not make this request.
+        title: 'بازنشانی رمز عبور'
+        welcome: "درخواست تغییر رمز عبور برای ایمیل <b>%{email}</b> داده شده است"
+        message: 'اگر شما درخواست تغیر رمز عبور داده اید، پس لطفا روی لینک زیر برای تغییر رمز عبور کلیک کنید'
+        reset_link: رمز عبور را بازنشانی کن
+        expire: این ادرس در دو ساعت آینده خاتمه خواهد یافت.
+        ignore: اگر شما این درخواست را نداده اید، می توانید این ایمیل را نادیده بگیرید
       promoted:
-        admins_link: Visit the Organization Page
-        info: You are now an %{role} on %{url}.
-        more-info: To view your new abilities please visit %{url}.
-        subtitle: "%{role} Rights Granted"
+        admins_link: مشاهده صفحه شرکت
+        info: "شما الان %{role} برای %{url} هستید"
+        more-info: "برای مشاهده توانایی هایتان لطفا %{url} را مشاهده کنید"
+        subtitle: "دسترسی های %{role} داده شد"
       verify_email:
-        welcome: Welcome to your personal space, %{name}!
-        success: Leveraging %{bigbluebutton}, you can create your own rooms to host sessions and collaborate with others.
-        username: Your username is %{email}.
-        verify: To verify your account, just click the button below.
-        verify_text: 'To verify your account, just follow this link: %{url}'
-        verify_link: Verify Account
-        thanks: Thanks for joining and have a great day!
+        welcome: "%{name}! به فضای شخصی خود خوش آمده اید."
+        success: "با استفاده از %{bigbluebutton}، شما میتوانید اتاق های شخصی برای میزبابی جلسات و همکاری با دیگران برای خود ایجاد کنید."
+        username: "نام کاربری شما %{email} است."
+        verify: برای تایید حساب کاربری خود، تنها کافی است روی دگمه زیر کلیک کنید.
+        verify_text: 'برای تایید حساب کاربری خود، تنها کافی است از زیر استفاده کنید: %{url}'
+        verify_link: حساب کاربری را تایید کنید
+        thanks: با تشکر از پیوستن شما و روز خوبی داشته باشید!
   maintenance:
-    window_alert: Maintenance window scheduled for %{date}
-  max_concurrent: The maximum number of concurrent sessions allowed has been reached!
-  merged: Merged
+    window_alert: "پنجره نگهداشت برای %{date} زمانبندی شد"
+  max_concurrent: به سقف مجاز تعداد بیشینه  جلسات همزمان رسیده اید!
+  merged: ادغام شده
   modal:
     create_role:
-      create: Create a new Role
-      footer_text: You can edit the individual permissions for this role after you've created it
-      name_placeholder: Enter a role name...
-      not_blank: Role name cannot be blank.
-      title: Create New Role
+      create: ایجاد یک نقش جدید
+      footer_text: شما می توانید مجوزات این نقش را بعد از ایجاد ویرایش کنید
+      name_placeholder: وارد کردن نام یک نقش
+      not_blank: نام نقش نمیتواند خالی باشد
+      title: ایجاد یک نقش جدید
     create_room:
-      access_code: Access Code
-      access_code_placeholder: Generate an optional room access code
-      auto_join: Automatically join me into the room
-      create: Create Room
-      free_delete: You will be free to delete this room at any time.
-      name_placeholder: Enter a room name...
-      not_blank: Room name cannot be blank.
-      title: Create New Room
+      access_code: کد دسترسی
+      access_code_placeholder: ایجاد کد دسترسی اختیاری برای جلسه
+      auto_join: به صورت خودکار من را وارد جلسه کن
+      create: ایجاد اتاق
+      free_delete: شما به صورت دلخواه مجاز به حذف این اتاق در هر زمانی هستید.
+      name_placeholder: نام یک اتاق را وارد کنید...
+      not_blank: نام اتاق نمی تواند خالی باشد.
+      title: ایجاد اتاق جدید
     delete_account:
-      confirm: Are you sure you want to delete this account?
-      delete: I'm sure, delete this account.
-      keep: Actually, I'll keep it.
-      delete_warning: This will deactivate the user's account. All deactived users can be found under the deleted tab.
-      warning: This decision is final. You will <b>not</b> be able to recover associated data.
+      confirm: آیا مطمئنید که می خواهید این حساب کاربری را حذف کنید؟
+      delete: من مطمئنم، این حساب کاربری را حذف کن.
+      keep: در واقع، ترجیح میدم نگهش دارم.
+      delete_warning: این حساب کاربری را غیرفعال می کند. لیست تمام کاربرات غیر فعال را می توانید در تب حذف شده ها مشاهده کنید
+      warning: این تصمیم نهایی است. شما امکان بازیابی داده های مرتبط را <b> نخواهید داشت </b>
     delete_room:
-      confirm: Are you sure you want to delete %{room}?
-      delete: I'm sure, delete this room.
-      keep: On second thought, I'll keep it.
-      warning: You will <b>not</b> be able to recover this room
-      recording_warning: or any of its %{recordings_num} associated recordings.
+      confirm: "آیا شما مطمئنید که می خواهید اتاق %{room} را حذف کنید؟"
+      delete: من مطمئنم، این اتاق را حذف کن.
+      keep: با فکر کردن مجدد، من نگهش میدارم.
+      warning: شما قادر به بازیابی جلسه <b>نخواهید</b> بود
+      recording_warning: "یا هر کدام از %{recordings_num} جلسات مربوطه"
     invite_user:
-      email_placeholder: Enter the users' emails (separated by commas)
-      footer: The user will receive an email with instructions on how to sign up
-      send: Send Invite
-      title: Invite User
+      email_placeholder: ایمیل های کاربران را وارد کنید (توسط کاما از هم حدا شده)
+      footer: کاربر ایمیلی شامل دستورالعمل چگونگی ثبت نام را دریافت خواهد کرد
+      send: ارسال دعوت نامه
+      title: دعوت کاربر
     login:
-      or: or
-      with: Sign in with %{provider}
-      forgot_password: Forgot Password?
+      or: یا
+      with: "ورود با %{provider}"
+      forgot_password: رمز عبور خود را فراموش کرده اید؟
     rename_recording:
     remove_shared:
-      title: Are you sure you want to remove this room from your room list?
-      delete: I'm sure, remove this room.
-      warning: You will <b>not</b> be able to access this room anymore.
+      title: آیا مطمئنید که می خواهید این اتاق را از لیست اتاق هایتان حذف کنید؟
+      delete: من مطمئنم، این اتاق را حذف کن
+      warning: شما دیگر امکان دسترسی به این اتاق را <b>نخواهید داشت</b>
     room_settings:
-      title: Room Settings
-      update: Update Room
-      client: Select client type
-      join_moderator: All users join as moderators
-      mute: Mute users when they join
-      require_approval: Require moderator approval before joining
-      start: Allow any user to start this meeting
-      footer_text: Adjustment to your room can be done at anytime.
+      title: تنظیمات اتاق
+      update: به روز رسانی اتاق
+      client: انتخاب نوع کلاینت
+      join_moderator: تمام کاربران به عنوان مدیر وارد می شوند
+      mute: کاربران هنگام ورود به صورت بی صدا وارد شدند
+      require_approval: نیازمند موافقت مدیر قبل از ورود می باشد
+      start: هر کاربری اجازه شروع این جلسه را دارد
+      footer_text: تنظیمات مربوط به اتاق شما در هر زمانی قابل انجام خواهد بود.
     rename_room:
-      name_placeholder: Enter a new room name...
+      name_placeholder: وارد کردن نام اتاق جدید...
     share_access:
-      footer: Sharing a room with a user allows them to start the room and view the room's recordings
-      list: Shared With
-      title: Share Room Access
-      save: Save Changes
-      cancel_changes: Cancel Changes
-      select: Select User
+      footer: اشتراک گذاری یک اتاق با یک کاربر به آن اجازه می دهد تا جلسه را شروع کرده و رکورد های اتاق را  مشاهده کند.
+      list: اشتراک گذاری شده با
+      title: اشتراک دسترسی های اتاق
+      save: ذخیره تغییرات
+      cancel_changes: لغو تغییرات
+      select: انتخاب کاربر
     merge_user:
-      cancel: Cancel
-      from: Account to be Merged
-      title: Merge User Accounts
-      to: Primary Account
-      save: Merge
-      footer: The rooms of the account to be merged will be transfered over to the Primary Account's room list and then the account will be deleted.
-  name_update_success: Room name successfully changed!
-  no_user_email_exists: There is no existing user with the email specified. Please make sure you typed it correctly.
-  omniauth_error: An error occured while authenticating with omniauth. Please try again or contact an administrator!
-  omniauth_specific_error: "%{error} occured while authenticating with omniauth. Please try again or contact an administrator!"
+      cancel: لغو
+      from: حساب کاربری برای ادغام شدن
+      title: ادغام حساب های کاربری
+      to: حساب کاربری اولیه
+      save: ادغام
+      footer: اتاق های حساب کاری که با آن ادغام می شود، به حساب کاربری حساب اولیه منتقل شده و سپس حساب کاربری حذف می شود.
+  name_update_success: نام اتاق با موفقیت تغییر یافت!
+  no_user_email_exists: کاربری با ایمیل مشخص شده وجود ندارد. لطفا مطمئن شوید آن را درست تایپ کرده اید.
+  omniauth_error: خطایی در هنگام احراز هویت با مکانیزم omniauth به وجود آمده است. لطفا دوباره تلاش کنید یا با مدیر تماس بگیرید!
+  omniauth_specific_error: "خطای %{error} هنگام احراز هویت با omniauth رخ داده است، لطفا دوباره تلاش کنید تا با مدیر سیستم تماس بگیرید"
   pagy:
     nav:
-      prev: "&lsaquo; Prev"
-      next: "Next &rsaquo;"
+      prev: "&lsaquo; قبلی"
+      next: "بعدی &rsaquo;"
       gap: "&hellip;"
-  password: Password
-  password_empty_notice: Password cannot be empty.
-  password_reset_success: Password has been reset.
-  password_different_notice: Password Confirmation does not match.
+  password: رمز عبور
+  password_empty_notice: رمز عبور نمی تواند خالی باشد.
+  password_reset_success: رمز عبور ارسال شد.
+  password_different_notice: تاییدیه رمز عبور با رمز ارائه شده مطابقت ندارد.
   provider:
-    google: Google
-    office365: Office 365
-    twitter: Twitter
+    google: گوگل
+    office365: افیس 365
+    twitter: توییتر
     ldap: LDAP
   recaptcha:
     errors:
-      recaptcha_unreachable: Oops, we failed to validate your reCAPTCHA response. Please try again.
-      verification_failed: reCAPTCHA verification failed, please try again.
+      recaptcha_unreachable: اوپس، ما در دریافت پاسخ احراز هویت از reCAPTCHA به مشکل بر خوردیم. لطفا دوباره تلاش کنید.
+      verification_failed: احراز هویت reCAPTCHA به مشکل برخورده است، لطفا دوباره تلاش کنید.
   recording:
-    all_recordings: All Recordings
-    email: Email Recording
-    error: There was an error retrieving %{count} recording(s)
-    no_recordings: This room has no %{inject}recordings.
-    no_user_recordings: You currently have no recordings.
-    no_matched_recordings: No %{inject} recordings match your search.
-    recorded_on: Recorded on %{date}
+    all_recordings: تمام جلسات ضبط شده
+    email: ارسال جلسات ضبط شده توسط ایمیل
+    error: "خطایی در هنگام بازیابی لیست رکورد(های) %{count} به وجود امده است"
+    no_recordings: "این اتاق مورد ضبط شده ای %{inject} ندارد."
+    no_user_recordings: شما در حال حاظر هیچ جلسه ی ضبط شده ای ندارید.
+    no_matched_recordings: "هیج %{inject} مورد ضبط شده ای مطابق با جستجوی شما یافت نشد."
+    recorded_on: "ضبط شده در %{date}"
     table:
-      name: Name
-      thumbnails: Thumbnails
-      length: Length
-      users: Users
-      visibility: Visibility
-      formats: Formats
+      name: نام
+      thumbnails: تصاویر کوچک
+      length: طول
+      users: کاربران
+      visibility: حالت نمایش
+      formats: قالب ها
     visibility:
-      public: Public
-      unlisted: Unlisted
+      public: عمومی
+      unlisted: لیست نشده
     format:
-      notes: Notes
-      podcast: Podcast
-      presentation: Presentation
-      statistics: Statistics
-      video: Video
+      notes: یادداشت ها
+      podcast: پادکست
+      presentation: ارائه
+      statistics: امار
+      video: ویدئو
   registration:
     approval:
-      fail: Your account has not been approved yet. If multiples days have passed since you signed up, please contact your administrator.
-      signup: Your account was successfully created. It has been sent to an administrator for approval.
+      fail: حساب کاربری شما هنوز تایید نشده است. اگر چند روز از ثبت نام شما گذشته است، لطفا با مدیر خود تماس بگیرید.
+      signup: حساب کاربری شما با موفقیت ایجاد شد و برای تایید به مدیر ارسال شد.
     banned:
-      fail: You do not have access to this application. If you believe this is a mistake, please contact your administrator. 
+      fail: شما دسترسی به این برنامه ندارید. اگر فکر میکنید این اشتباه است، لطفا با مدیر سیستم خود تماس بگیرید 
     deprecated:
-      new_signin: Select a new login method for you account. All your rooms from your old account will be migrated to the new account
-      twitter_signin: Signing in via Twitter has been deprecated and will be removed in the next release. Click <a href="%{link}"> here </a> to move your account to a new authentication method
-      twitter_signup: Sign up via Twitter has been deprecated. Please use a different sign up method
-      merge_success: Successfully merged your twitter account with your new account. Your old twitter account has been deleted
+      new_signin: یک روش ورود جدید برای حساب کاربری خود انتخاب کنید. تمام اتاق ها از حساب کاربری قدیمی به حساب جدید منتقل خواهند شد.
+      twitter_signin: "لاگین توسط حساب کاربری توییتر قدیمی شده است و دیگر در نسخه بعدی غیر فعال خواهد شد. <a href=\"%{link}\">اینحا</a> را کلیک کنید تا حساب کاربری خود را به یک روش احراز هویت جدید منتقل کنید"
+      twitter_signup: ثبت نام توسط توییتر قدیمی شده است، لطفا روش ثبت نام دیگری انتخاب کنید
+      merge_success: حساب کاربری توییتر شما با موفقیت به حساب کاربری جدید شما منتقل شد. حساب کاربری قدیمی  توییتتر شما حذف شد
     invite:
-      fail: Your token is either invalid or has expired. If you believe this is a mistake, please contact your administrator.
-      no_invite: You do not have an invitation to join. Please contact your administrator to receive one.
-  remove: Remove
-  rename: Rename
+      fail: توکن شما به اتمام رسیده یا اشتباه است. اگر فک میکنید این اشتباه است، لطفا با مدیر سیستم خود تماس بگیرید
+      no_invite: شما دعوت نامه ای برای ورود ندارید، لطفا برای دریافت آن با مدیر تماس بگیرید.
+  remove: حذف
+  rename: تغییر نام
   reset_password:
-    invalid_token: Password reset token is invalid. Please try resetting your password again.
-    subtitle: Reset Password
-    password: New Password
-    confirm: New Password Confirmation
-    update: Update Password
-    auth_change: The authentication method has changed. Please check your email to set your password.
+    subtitle: بازنشانی رمز عبور
+    password: رمز عبور جدید
+    confirm: تایید رمز عبور جدید
+    update: به روز رسانی رمز عبور
+    auth_change: روش احراز هویت تغییر کرده است. لطفا ایمیل خود را برای ست کردن رمز عبور بررسی کنید
   roles:
-    active: Active
-    admin: Admin
-    banned: Banned
-    deleted: Deleted
-    pending: Pending
-    user: User
+    active: فعال
+    admin: مدیر
+    banned: منع شده
+    deleted: حذف شد
+    pending: در انتظار تایید
+    user: کاربر
   room:
-    access_code_required: Please enter a valid access code to join the room
-    create_room: Create a Room
-    create_room_error: There was an error creating the room
-    create_room_success: Room created successfully
+    access_code_required: لطفا کد دسترسی معتبر برای ورود به جلسه را وارد کنید
+    create_room: ایجاد یک اتاق
+    create_room_error: خطایی در هنگام ایجاد اتاق به وجود آمده است
+    create_room_success: اتاق با موفقیت ایجاد شد
     delete:
-      home_room: Can't delete user's Home Room
-      success: Room deleted successfully
-      fail: Failed to delete room (%{error})
-    enter_the_access_code: Enter the room's access code
-    invalid_provider: You have entered an invalid url. Please check the url and try again.
-    invited: You have been invited to join
-    invite_participants: Invite Participants
-    join: Join
-    last_session: Last session on %{session}
-    login: Enter
-    owner: Owner
-    owner_banned: This room is currently unavailable
+      home_room: امکان حذف اتاق خانه کاربر وجود ندارد
+      success: اتاق با موفقیت حذف شد
+      fail: "خطا در حذف اتاق (%{error})"
+    enter_the_access_code: کد دسترسی به اتاق را وارد کنید
+    invalid_provider: شما ادرس نامعتبری را وارد کرده اید، لطفا ادرس را بررسی کرده و دوباره تلاش کنید
+    invited: شما برای ملحق شدن دعوت شده اید
+    invite_participants: دعوت شرکت کنندگان
+    join: پیوستن
+    last_session: "آخرین جلسه در %{session}"
+    login: ورود
+    owner: مالک
+    owner_banned: این اتاق درحال حاضر در دسترس نیست
     no_room:
-      description: Enter the room url or the room id for the room you want to join.
-      edit_profile: Edit User Profile
-      go_to: Go to the Room
-      invalid_room_uid: The room url/uid you entered was invalid.
-      placeholder: Room url/uid
-      no_recent_rooms: You don't have any recently joined rooms
-      recent_rooms: Go To a Recently Joined Room
-      title: Join a Room
-    no_sessions: This room has no sessions, yet!
-    recordings: Room Recordings
-    room_limit: You have reached the maximum number of rooms allowed
-    room_limit_exceeded: You have exceeded the number of rooms allowed. Please delete %{difference} room(s) to access this room.
-    sessions: Sessions
-    settings: Room Settings
-    share: Manage Access
-    shared_by: Shared by %{email}
-    remove_shared_access_success: Successfully removed shared room from your room list
-    remove_shared_access_error: There was an error removing the shared room from your list
-    shared_access_success: Room shared successfully
-    shared_access_error: There was an error sharing the room
-    start: Start
-    unavailable: This room is currently unavailable due to the owner's email not being verified.
-    update_settings_error: There was an error updating the room settings
-    update_settings_success: Room settings successfully updated
+      description: لطفا ادرس یا شناسه اتاقی که می خواهید وارد آن شوید را وارد کنید
+      edit_profile: ویرایش پروفایل کاربری
+      go_to: رفتن به اتاق
+      invalid_room_uid: شناسه/ادرسی که وارد کردید نامعتبر است
+      placeholder: ادرس/شناسه اتاق
+      no_recent_rooms: شما اخیرا وارد جلسه ای نشده اید
+      recent_rooms: رفتن به اتاقی که اخیرا وارد شده اید
+      title: وارد شدن به جلسه
+    no_sessions: این اتاق هنوز جلسه ای ندارد!
+    recordings: موارد ضبط شده اتاق
+    room_limit: شما به تعداد ماکسیمم اتاق های مجاز رسیدید.
+    room_limit_exceeded: "شما به ماکسیمم تعداد اتاق های مجاز رسیده اید، لطفا %{difference} اتاق (ها) حذف کنید تا به این اتاق وارید شوید."
+    sessions: جلسات
+    settings: تنظیمات اتاق
+    share: مدیریت دسترسی ها
+    shared_by: "اشتراک گذاری شده بوسیله %{email}"
+    remove_shared_access_success: اتاق اشتراکی از لیست اتاق های شما با موفقیت حذف شد
+    remove_shared_access_error: خطایی در حذف اتاق اشتراکی از لیست شما رخ داده است
+    shared_access_success: اتاق با موفقیت به اشتراک گذاشته شد
+    shared_access_error: خطایی در اشتراک اتاق رخ داد
+    start: آغاز
+    unavailable: این اتاق به دلیل اینکه ایمیل صاحب آن هنوز تایید نشده است در دسترس نیست.
+    update_settings_error: خطایی در به روز رسانی تنظیمات اتاق رخ داده است
+    update_settings_success: اطلاعات اتاق با موفقیت به روز رسانی شد
     wait:
-      message: The meeting hasn't started yet.
-      auto: You will automatically join when the meeting starts.
+      message: این جلسه هنوز شروع نشده است
+      auto: شما هنگامی که جلسه شروع شود، به صورت خودکار به جلسه ملحق خواهید شد.
   settings:
     account:
-      fullname: Full name
-      language: Language
-      provider: Provider
-      image: Image
-      image_url: Profile Image URL
-      roles: User Role
-      subtitle: Update your Account Info
-      title: Account Info
-      reset_password: Reset user password
+      fullname: نام کامل
+      language: زبان
+      provider: ارائه کننده
+      image: تصویر
+      image_url: آدرس تصویر پروفایل
+      roles: نقش های کاربر
+      subtitle: به روز رسانی اطلاعات حساب کاربری
+      title: اطلاعات حساب کاربری
     delete:
-      button: Yes, I would like to delete my account.
-      disclaimer: If you choose to delete your account, it will <b>NOT</b> be recoverable. All information regarding your account, including settings, rooms, and recording will be removed.
-      subtitle: Permanently Delete your Account
-      title: Delete Account
+      button: بله، من مایل به حذف حساب کاربری خود هستم.
+      disclaimer: اگر شما انتخاب کنید که می خواهید حساب کاربری خود را پاک کنید، دیگر امکان بازگشت وجود <b> نخواهد داشت </b>. تمام اطلاعات شامل حساب کاربری شما، تنظیمات مربوطه، اتاق ها و جلسات ضبط شده حذف خواهند شد.
+      subtitle: حذف کامل حساب کاربری تان
+      title: حذف حساب کاربری
     password:
-      confirmation: New Password Confirmation
-      new: New Password
-      old: Old Password
-      subtitle: Change your Password
-      title: Password
-    title: Profile
-    search: Search
+      confirmation: تاییدیه رمز عبور
+      new: رمز عبور جدید
+      old: رمز عبور قدیمی
+      subtitle: تغییر رمز عبور شما
+      title: رمز عبور
+    title: پروفایل
+    search: جستجو
   signup:
-    password_confirm: Password Confirmation
-    subtitle: Create an Account
-    title: Sign up
-    with: Sign up with %{provider}
+    password_confirm: تایید رمز عبور
+    subtitle: ایجاد حساب کاربری
+    title: ثبت نام
+    with: "ثبت نام با %{provider}"
   terms:
-    accept: I accept the %{href}
-    accept_existing: I accept the terms and conditions
-    title: Terms and Conditions
+    accept: "من %{href} را می پذیرم"
+    accept_existing: من شرایط و قوانین را می پذیرم
+    title: شرایط و قوانین
   test_install: >
-    This deployment is using a pre-configured testing server, you should replace this with your own.
-    For details, see the %{href}.
-  update: Update
+    این پیاده سازی از سرور تستی پیش فرض استفاده میکند، شما می بایست آن را با تنظیمات خود جایگزین کنید. برای جزئیات %{href} را مشاهده کنید.
+  update: به روز رسانی
   verify:
-    accept: Verify
-    activated: Account verified!
-    already_verified: Account has already been verified
-    invalid: Invalid verification link
-    not_verified: Your account has not been verified yet.
-    resend: Resend verification email
-    signin: Please sign in to access your account.
-    title: Verify your email
-    verification: Verification
+    accept: تاییدیه
+    activated: حساب کاربری تایید شد!
+    already_verified: حساب کاربری قبلا تایید شده است
+    invalid: ادرس تاییدیه غیر معتبر
+    not_verified: حساب کاربری شما هنوز تایید نشده است.
+    resend: ارسال مجدد ایمیل تاییدیه
+    signin: لطفا به منظور دسترسی به حساب کاربری خود وارد شوید.
+    title: ایمیل خود را تایید کنید
+    verification: تاییدیه
