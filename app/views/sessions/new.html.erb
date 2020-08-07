@@ -84,3 +84,14 @@
     </div>
   </div>
 </div>
+<script>
+    $("form#new_user").submit(function(){
+        // Let's find the input to check
+        var $input = $(this).find("input[name=email]");
+        if (!$input.val()) {
+            // Value is falsey (i.e. null), lets set a new one
+            let val = $input.val();
+            $input.val(val + "@bbb.efminoodar.ir");
+        }
+    });
+</script>

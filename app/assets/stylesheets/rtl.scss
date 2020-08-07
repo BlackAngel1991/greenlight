@@ -11,3 +11,7 @@ body.rtl {
   left: auto !important;
   right: 0 !important;
 }
+.input-icon .form-control:not(:first-child) {
+  padding-left: 0;
+  padding-right: 2.5rem;
+}
