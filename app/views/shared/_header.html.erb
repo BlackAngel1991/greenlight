@@ -1,30 +1,22 @@
 <%
-# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
-# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
-# This program is free software; you can redistribute it and/or modify it under the
-# terms of the GNU Lesser General Public License as published by the Free Software
-# Foundation; either version 3.0 of the License, or (at your option) any later
-# version.
-#
-# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
-# You should have received a copy of the GNU Lesser General Public License along
-# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+  # BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+  # Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+  # This program is free software; you can redistribute it and/or modify it under the
+  # terms of the GNU Lesser General Public License as published by the Free Software
+  # Foundation; either version 3.0 of the License, or (at your option) any later
+  # version.
+  #
+  # BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+  # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+  # PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+  # You should have received a copy of the GNU Lesser General Public License along
+  # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
 
 <div class="header py-4">
   <div class="container">
-    <div class="d-flex">
-      <%= link_to (current_user ? home_page : root_path), class: "header-brand" do %>
-        <% begin %>
-          <%= image_tag(logo_image, class: "header-brand-img", alt:"") %>
-        <% rescue %>
-          <%= t("administrator.site_settings.branding.invalid") %>
-        <% end %>
-      <% end %>
-
-      <div class="d-flex mr-auto">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex">
         <% if current_user %>
 
           <%= link_to home_page, class: "px-3 mx-1 mt-1 header-nav #{active_home}" do %>
@@ -51,7 +43,7 @@
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-left dropdown-menu-arrow" x-placement="bottom-end">
-              <%= link_to edit_user_path(current_user), class: "dropdown-item"  do %>
+              <%= link_to edit_user_path(current_user), class: "dropdown-item" do %>
                 <i class="dropdown-icon fas fa-id-card ml-3"></i><%= t("header.dropdown.settings") %>
               <% end %>
               <% highest_role = current_user.role %>
@@ -59,15 +51,15 @@
                 <%= link_to admins_path, class: "dropdown-item" do %>
                   <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= t("header.dropdown.account_settings") %>
                 <% end %>
-              <% elsif highest_role.get_permission("can_manage_rooms_recordings")%>
+              <% elsif highest_role.get_permission("can_manage_rooms_recordings") && false %>
                 <%= link_to admin_rooms_path, class: "dropdown-item" do %>
                   <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= t("header.dropdown.account_settings") %>
                 <% end %>
-              <% elsif highest_role.get_permission("can_edit_site_settings") %>
+              <% elsif highest_role.get_permission("can_edit_site_settings") && false %>
                 <%= link_to admin_site_settings_path, class: "dropdown-item" do %>
                   <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= t("header.dropdown.account_settings") %>
                 <% end %>
-              <% elsif highest_role.get_permission("can_edit_roles")%>
+              <% elsif highest_role.get_permission("can_edit_roles") && false %>
                 <%= link_to admin_roles_path, class: "dropdown-item" do %>
                   <i class="dropdown-icon fas fa-user-tie ml-3"></i><%= t("header.dropdown.account_settings") %>
                 <% end %>
@@ -103,6 +95,13 @@
           <% end %>
         <% end %>
       </div>
+      <%= link_to (current_user ? home_page : root_path), class: "header-brand" do %>
+        <% begin %>
+          <%= image_tag(logo_image, class: "header-brand-img m-0", alt:"") %>
+        <% rescue %>
+          <%= t("administrator.site_settings.branding.invalid") %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

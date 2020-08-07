@@ -1,3 +1,13 @@
-body.rtl{
+body.rtl {
   direction: rtl !important;
+}
+
+.dropdown-icon {
+  margin-right: -.5rem !important;
+  margin-left: .5rem !important;
+}
+
+.input-icon-addon {
+  left: auto !important;
+  right: 0 !important;
 }
