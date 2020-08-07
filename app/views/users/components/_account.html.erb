@@ -1,19 +1,19 @@
 <%
-# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
-# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
-# This program is free software; you can redistribute it and/or modify it under the
-# terms of the GNU Lesser General Public License as published by the Free Software
-# Foundation; either version 3.0 of the License, or (at your option) any later
-# version.
-#
-# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
-# You should have received a copy of the GNU Lesser General Public License along
-# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+  # BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+  # Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+  # This program is free software; you can redistribute it and/or modify it under the
+  # terms of the GNU Lesser General Public License as published by the Free Software
+  # Foundation; either version 3.0 of the License, or (at your option) any later
+  # version.
+  #
+  # BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+  # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+  # PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+  # You should have received a copy of the GNU Lesser General Public License along
+  # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
 
-<%= form_for @user, url: update_user_path, method: :post do |f|  %>
+<%= form_for @user, url: update_user_path, method: :post do |f| %>
   <%= hidden_field_tag :setting, "account" %>
   <div class="form-group">
     <div class="row">
@@ -31,18 +31,19 @@
         </div>
       </div>
     </div>
-    
-    <%= f.label :provider, t("settings.account.provider"), class: "form-label" %>
-    <%= f.text_field :provider, class: "form-control", readonly: "" %>
+    <% if false %>
+      <%= f.label :provider, t("settings.account.provider"), class: "form-label" %>
+      <%= f.text_field :provider, class: "form-control", readonly: "" %>
+    <% end %>
     <br>
     <%= f.label :language, t("settings.account.language"), class: "form-label" %>
-    <%= f.select :language, language_options, {}, { class: "form-control custom-select" } %>
+    <%= f.select :language, language_options, {}, {class: "form-control custom-select"} %>
 
     <%= f.label :roles, t("settings.account.roles"), class: "form-label mt-5" %>
     <% if current_user.role.get_permission("can_manage_users") %>
-      <select id="role-dropdown" class="selectpicker show-tick" >
+      <select id="role-dropdown" class="selectpicker show-tick">
         <% role_options.each do |role| %>
-          <option value="<%=role.id%>"><%= translated_role_name(role) %></option>
+          <option value="<%= role.id %>"><%= translated_role_name(role) %></option>
         <% end %>
       </select>
 
