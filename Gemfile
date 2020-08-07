@@ -59,7 +59,7 @@ gem 'omniauth-bn-office365', '~> 0.1.1'
 gem 'bigbluebutton-api-ruby'
 
 # Front-end.
-gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap', '~> 4.5.2 RTL rev. 1'
 gem 'tabler-rubygem', git: 'https://github.com/blindsidenetworks/tabler-rubygem.git', tag: '0.1.4.1'
 gem 'pagy'
 gem 'font-awesome-sass', '~> 5.9.0'
