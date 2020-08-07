@@ -17,7 +17,7 @@
   <td>
     <div id="room-title" class="edit_hover_class">
       <% if room.id == room.owner.room_id %>
-        <i class="fas fa-home pr-1"></i>
+        <i class="fas fa-home pl-1"></i>
       <% end %>
       <span class="room-name-text" title="<%= room.name %>">
         <%= room.name %>
@@ -34,16 +34,16 @@
       <% end %>
     </div>
   </td>
-  <td class="text-left">
+  <td class="text-right">
     <%= room.owner.name %>
   </td>
-  <td class="text-left">
+  <td class="text-right">
     <%= room.uid %>
   </td>
   <td class="text-center">
     <%= @participants_count[room.bbb_id].presence || "-" %>
   </td>
-  <td class="text-left">
+  <td class="text-right">
     <% if running %>
       <%= t("administrator.rooms.table.running") %>
     <% else %>
@@ -55,7 +55,7 @@
       <a href="javascript:void(0)" data-toggle="dropdown" class="icon">
         <i class="fas fa-ellipsis-v px-4"></i>
       </a>
-      <div class="dropdown-menu dropdown-menu-right">
+      <div class="dropdown-menu dropdown-menu-left">
         <%= link_to room_path(room), class: "dropdown-item" do %>
           <i class="dropdown-icon far fa-eye"></i> <%= t("administrator.rooms.table.view") %>
         <% end %>

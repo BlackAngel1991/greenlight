@@ -27,7 +27,7 @@
                 ↑
               <% end %>
             </th>
-            <th class="text-left" data-header="length" data-order="<%= @order_column == "length" ? @order_direction : "none" %>">
+            <th class="text-right" data-header="length" data-order="<%= @order_column == "length" ? @order_direction : "none" %>">
               <%= t("recording.table.length") %>
               <% if @order_column == "length" && @order_direction == "desc" %>
                 ↓
@@ -35,7 +35,7 @@
                 ↑
               <% end %>
             </th>
-            <th class="text-left" data-header="users" data-order="<%= @order_column == "users" ? @order_direction : "none" %>">
+            <th class="text-right" data-header="users" data-order="<%= @order_column == "users" ? @order_direction : "none" %>">
               <%= t("recording.table.users") %>
               <% if @order_column == "users" && @order_direction == "desc" %>
                 ↓
@@ -43,7 +43,7 @@
                 ↑
               <% end %>
             </th>
-            <th class="text-left" data-header="visibility" data-order="<%= @order_column == "visibility" ? @order_direction : "none" %>">
+            <th class="text-right" data-header="visibility" data-order="<%= @order_column == "visibility" ? @order_direction : "none" %>">
               <%= t("recording.table.visibility") %>
               <% if @order_column == "visibility" && @order_direction == "desc" %>
                 ↓

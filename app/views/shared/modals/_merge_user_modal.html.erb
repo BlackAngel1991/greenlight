@@ -26,7 +26,7 @@
                 <option value="<%= { uid: user.uid, email: user.email, name: user.name }.to_json %>" data-subtext="<%= user.email %>" ><%= user.name %></option>
               <% end %>
           </select>
-          <div class="mt-5 text-left row">
+          <div class="mt-5 text-right row">
             <div class="list-group-item col-6 text-center">
               <label class="form-label text-primary"><%= t("modal.merge_user.from") %></label>
                <div id="merge-from"></div>

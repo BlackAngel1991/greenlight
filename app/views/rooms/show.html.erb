@@ -25,14 +25,14 @@
       <div class="col-lg-8 col-sm-12">
         <div id="room-title" class="display-3 form-inline <%= 'edit_hover_class' if current_user.main_room != @room %>" data-path="<%= update_settings_path(@room) %>">
           <% if current_user.main_room == @room %>
-            <h1 contenteditable=false id="user-text" class="display-3 text-left mb-3 font-weight-400"><%= @room.name %></h1>
-            <a class="disable-click"><i class="fas fa-home align-top home-indicator ml-2"></i></a>
+            <h1 contenteditable=false id="user-text" class="display-3 text-right mb-3 font-weight-400"><%= @room.name %></h1>
+            <a class="disable-click"><i class="fas fa-home align-top home-indicator mr-2"></i></a>
           <% else %>
-            <h1 contenteditable=false id="user-text" class="display-3 text-left mb-3 font-weight-400"><%= @room.name %></h1>
-            <a><i id="edit-room" class="fa fa-edit align-top home-indicator ml-2" data-edit-room="<%= @room.uid %>"></i></a>
+            <h1 contenteditable=false id="user-text" class="display-3 text-right mb-3 font-weight-400"><%= @room.name %></h1>
+            <a><i id="edit-room" class="fa fa-edit align-top home-indicator mr-2" data-edit-room="<%= @room.uid %>"></i></a>
           <% end %>
         </div>
-        <h4 class="text-left mb-6"><%= @room.sessions %> <%= t("room.sessions") %> | <%= @recordings.length %> <%= t("room.recordings") %></h4>
+        <h4 class="text-right mb-6"><%= @room.sessions %> <%= t("room.sessions") %> | <%= @recordings.length %> <%= t("room.recordings") %></h4>
         <% unless exceeds_limit %>
           <label class="form-label"><%= t("room.invite_participants") %></label>
           <div class="row">
@@ -52,7 +52,7 @@
                     <%= t("copy") %>
                   </a>
                 </div>
-                <div class="col-sm-6 pl-0">
+                <div class="col-sm-6 pr-0">
                   <% if Rails.configuration.enable_google_calendar_button %>
                     <a href="<%= google_calendar_path %>" target="__blank" id="schedule" class="btn btn-primary btn-block mt-2">
                       <i class="fas fa-calendar-plus"></i>
@@ -67,10 +67,10 @@
       </div>
       <div class="offset-lg-1 col-lg-3 col-sm-12 force-bottom mt-5">
         <% if @room_running %>
-          <%= button_to t("room.join"), room_path(@room), class: "btn btn-primary btn-block px-7 start-button float-right", "data-disable": "" %>
+          <%= button_to t("room.join"), room_path(@room), class: "btn btn-primary btn-block px-7 start-button float-left", "data-disable": "" %>
         <% else %>
           <% unless exceeds_limit %>
-            <%= button_to t("room.start"), start_room_path(@room), class: "btn btn-primary btn-block px-7 start-button float-right", "data-disable": "" %>
+            <%= button_to t("room.start"), start_room_path(@room), class: "btn btn-primary btn-block px-7 start-button float-left", "data-disable": "" %>
           <% end %>
         <% end %>
       </div>

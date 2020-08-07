@@ -23,7 +23,7 @@
           <%= recording[:name] %>
         <% end %>
       </span>
-      <a><i id="edit-record" class="fa fa-edit align-top ml-2" data-edit-recordid="<%= recording[:recordID] %>"></i></a>
+      <a><i id="edit-record" class="fa fa-edit align-top mr-2" data-edit-recordid="<%= recording[:recordID] %>"></i></a>
     </div>
     <div class="small text-muted">
       <%= t("recording.recorded_on", date: recording_date(recording[:startTime])) %>
@@ -39,13 +39,13 @@
       <% end %>
     </td>
   <% end %>
-  <td id="recording-length" class="text-left" data-full-length="<%= recording[:playbacks].empty? ? 0 : recording[:playbacks].first[:length]%>">
+  <td id="recording-length" class="text-right" data-full-length="<%= recording[:playbacks].empty? ? 0 : recording[:playbacks].first[:length]%>">
     <%= recording_length(recording[:playbacks]) %>
   </td>
-  <td id="recording-users" class="text-left">
+  <td id="recording-users" class="text-right">
     <%= recording[:participants] || "-" %>
   </td>
-  <td class="text-left">
+  <td class="text-right">
     <div class="dropdown">
       <% if recording[:metadata][:"gl-listed"] == "true" %>
         <button class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"><i class="dropdown-icon fas fa-globe px-2"></i> <%= t("recording.visibility.public") %></button>
@@ -73,7 +73,7 @@
       <a href="javascript:void(0)" data-toggle="dropdown" class="icon">
         <i class="fas fa-ellipsis-v px-4"></i>
       </a>
-      <div class="dropdown-menu dropdown-menu-right">
+      <div class="dropdown-menu dropdown-menu-left">
         <% recording_links = "" %>
         <% p = recording[:playbacks].each do |p| recording_links.concat(p[:url] + "\n\n") if p.key?(:length) end %>
         <% if p %>

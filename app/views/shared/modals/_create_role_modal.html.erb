@@ -28,7 +28,7 @@
                 <i class="fas fa-user-tag"></i>
               </span>
               <%= f.text_field :name, id: "createRoleName", class: "form-control text-center", placeholder: t("modal.create_role.name_placeholder"), autocomplete: :off, required: true %>
-              <div class="invalid-feedback text-left"><%= t("modal.create_role.not_blank") %></div>
+              <div class="invalid-feedback text-right"><%= t("modal.create_role.not_blank") %></div>
             </div>
             <div class="mt-4">
                 <%= f.submit t("modal.create_role.create"), class: "btn btn-primary btn-block" %>

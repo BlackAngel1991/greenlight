@@ -28,7 +28,7 @@
                 <i class="fas fa-envelope"></i>
               </span>
               <%= f.text_field :email, class: "form-control", value: "", placeholder: t("modal.invite_user.email_placeholder"), autocomplete: :off %>
-              <div class="invalid-feedback text-left"><%= t("modal.invite_user.not_blank") %></div>
+              <div class="invalid-feedback text-right"><%= t("modal.invite_user.not_blank") %></div>
             </div>
           <div class="mt-4">
             <%= f.submit t("modal.invite_user.send"), class:"btn btn-primary btn-block" %>

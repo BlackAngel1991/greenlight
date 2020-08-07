@@ -57,9 +57,9 @@
     <div class="row">
       <div class="col-5 col-sm-2">
         <% if @user.image.blank? || !valid_url?(@user.image) %>
-          <span class="avatar avatar-xxl mr-5 mt-2 bg-primary"><%= @user.name.first %></span>
+          <span class="avatar avatar-xxl ml-5 mt-2 bg-primary"><%= @user.name.first %></span>
         <% else %>
-          <%= image_tag(@user.image, class: "avatar avatar-xxl mr-5 mt-2") %>
+          <%= image_tag(@user.image, class: "avatar avatar-xxl ml-5 mt-2") %>
         <% end %>
       </div>
       <div class="col-7 col-sm-10 mt-5">
@@ -68,10 +68,10 @@
     </div>
   </div>
   <div class="card-footer">
-    <%= f.submit t("update"), class: "btn btn-primary float-right ml-4" %>
+    <%= f.submit t("update"), class: "btn btn-primary float-left mr-4" %>
 
     <% if can_reset_password %>
-      <%= link_to t("settings.account.reset_password"), admin_reset_path(user_uid: @user.uid), class: "btn btn-primary float-right" %>
+      <%= link_to t("settings.account.reset_password"), admin_reset_path(user_uid: @user.uid), class: "btn btn-primary float-left" %>
     <% end %>
   </div>
 <% end %>

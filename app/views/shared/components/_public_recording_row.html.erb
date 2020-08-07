@@ -38,13 +38,13 @@
       <% end %>
     </td>
   <% end %>
-  <td id="recording-length" class="text-left" data-full-length="<%=recording[:playbacks].first[:length]%>">
+  <td id="recording-length" class="text-right" data-full-length="<%=recording[:playbacks].first[:length]%>">
     <%= recording_length(recording[:playbacks]) %>
   </td>
-  <td id="recording-users" class="text-left">
+  <td id="recording-users" class="text-right">
     <%= recording[:participants] %>
   </td>
-  <td class="text-left">
+  <td class="text-right">
     <div class="dropdown">
       <% if recording[:metadata][:"gl-listed"] == "true" %>
         <i class="dropdown-icon fas fa-globe px-2"></i> <%= t("recording.visibility.public") %>
