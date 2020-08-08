@@ -19,3 +19,26 @@ body.rtl {
   right: auto !important;
   left: 0 !important;
 }
+
+.background.front-page{
+  position: relative;
+  overflow: hidden;
+}
+.slider{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+.carousel.slides,
+.carousel-inner,
+.carousel-inner .item {
+  height: 100%;
+}
+.carousel-inner .item{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 90%;
+}
+.carousel-inner .item img{
+  display: none;
+}
