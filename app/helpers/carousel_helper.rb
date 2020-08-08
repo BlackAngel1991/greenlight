@@ -7,7 +7,7 @@ module CarouselHelper
     end
     urls = Array.new
     img_path.each do |path|
-      urls.push("slide/#{path.split('/').last}")
+      urls.push("slides/#{path.split('/').last}")
     end
     Carousel.new(self, urls).html
   end
