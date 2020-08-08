@@ -477,7 +477,7 @@ fa_IR:
       invalid_provider: شما ادرس نامعتبری را وارد کرده اید، لطفا ادرس را بررسی کرده و دوباره تلاش کنید
       invited: شما برای ملحق شدن دعوت شده اید
       invite_participants: دعوت شرکت کنندگان
-      join: پیوستن
+      join: پیوستن به کلاس
       last_session: "آخرین جلسه در %{session}"
       login: ورود
       owner: مالک
