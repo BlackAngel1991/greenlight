@@ -35,9 +35,9 @@ module AdminsHelper
   def friendly_time(date)
     return "" if date.nil? # Handle invalid dates
 
-    #I18n.l date, format: "%B %d, %Y %H:%M UTC"
-    d = date.to_parsi
-    d.strftime "%A %d %B %Y %H:%M UTC"
+    I18n.l date, format: "%B %d, %Y %H:%M UTC"
+    # d = date.to_parsi
+    # d.strftime "%A %d %B %Y %H:%M UTC"
   end
 
   # Site Settings
