@@ -38,7 +38,11 @@ body.rtl {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10pt 25pt;
 }
 .carousel-inner .item img{
-  display: none;
+  width: 100%;
 }
