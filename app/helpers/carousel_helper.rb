@@ -1,6 +1,15 @@
 module CarouselHelper
-  def carousel_for(images)
-    Carousel.new(self, images).html
+  def carousel_for(image_path)
+    if image_path == ""
+      img_path = Dir.glob("app/assets/images/slides/*.png")
+    else
+      img_path = Dir.glob(image_path)
+    end
+    urls = Array.new
+    img_path.each do |path|
+      urls.push("slide/#{path.split('/').last}")
+    end
+    Carousel.new(self, urls).html
   end
 
   class Carousel
@@ -11,7 +20,7 @@ module CarouselHelper
 
     def html
       content = safe_join([indicators, slides, controls])
-      content_tag(:div, content, id: uid, class: 'carousel slide')
+      content_tag(:div, content, id: uid, class: 'carousel slides')
     end
 
     private
@@ -56,7 +65,7 @@ module CarouselHelper
     def control_tag(direction)
       options = {
           class: "#{direction} carousel-control",
-          data: { slide: direction == 'left' ? 'prev' : 'next' }
+          data: {slide: direction == 'left' ? 'prev' : 'next'}
       }
 
       icon = content_tag(:i, '', class: "glyphicon glyphicon-chevron-#{direction}")
