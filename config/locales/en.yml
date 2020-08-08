@@ -161,6 +161,7 @@ en:
       title: مدیریت کاربران
   add_to_google_calendar: "افزودن تقویم گوگل"
   bigbluebutton: آسان
+  bigbluebutton_title: سامانه آموزشی آسان
   bigbluebutton_exception: اوپس، خطایی در هنگام شروع جلسه رخ داده است!
   cancel: لغو
   cookies:
@@ -266,7 +267,7 @@ en:
   language_default: پیشفرض (زبان مرورگر)
   ldap_error: امکان دسترسی به سرور LDAP وجود ندارد. لطفا تنظیمات LDAP خود را در فایل env بررسی کرده و مطمئن شوید سرور در حال اجرا است.
   login: ورود
-  login_title: به حساب کاربری تان وارد شوید
+  login_title: به حساب کاربری وارد شوید
   mailer:
     user:
       approve:
@@ -502,7 +503,7 @@ en:
     remove_shared_access_error: خطایی در حذف کلاس اشتراکی از لیست شما رخ داده است
     shared_access_success: کلاس با موفقیت به اشتراک گذاشته شد
     shared_access_error: خطایی در اشتراک کلاس رخ داد
-    start: آغاز
+    start: شروع کلاس
     unavailable: این کلاس به دلیل اینکه ایمیل صاحب آن هنوز تایید نشده است در دسترس نیست.
     update_settings_error: خطایی در به روز رسانی تنظیمات کلاس رخ داده است
     update_settings_success: اطلاعات کلاس با موفقیت به روز رسانی شد

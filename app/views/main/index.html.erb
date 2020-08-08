@@ -14,6 +14,10 @@
 %>
 
 <div class="background">
+  <% @images = Dir.glob("app/assets/images/slide/*.jpg") %>
+  <% @images.each do |image| %>
+    <%= carousel_for(image.gsub("app/assets/images/slide/", "")) %>
+  <% end %>
   <div class="container pt-9 pb-8">
     <div class="row">
       <div class="col-md-12 col-sm-12 text-center">

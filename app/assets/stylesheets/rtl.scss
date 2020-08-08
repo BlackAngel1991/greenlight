@@ -15,3 +15,7 @@ body.rtl {
   padding-left: 0;
   padding-right: 2.5rem;
 }
+.input-icon-addon:last-child {
+  right: auto !important;
+  left: 0 !important;
+}
