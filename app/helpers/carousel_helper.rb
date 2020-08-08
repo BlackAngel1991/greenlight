@@ -53,7 +53,7 @@ module CarouselHelper
     def slide_tag(image, is_active)
       options = {
           class: (is_active ? 'item active' : 'item'),
-          style: "background: url('#{image}')",
+          style: "background: url('#{image_path(image)}')",
       }
 
       content_tag(:div, image_tag(image), options)
