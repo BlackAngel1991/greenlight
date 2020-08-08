@@ -110,9 +110,11 @@ class Room < ApplicationRecord
   # Generates a fully random room uid.
   def random_room_uid
     # 6 character long random string of chars from a..z and 0..9
-    full_chunk = SecureRandom.alphanumeric(6).downcase
+    #full_chunk = SecureRandom.alphanumeric(6).downcase
+    full_chunk = SecureRandom.random_number(100000..999999)
 
-    [owner.name_chunk, full_chunk[0..2], full_chunk[3..5]].join("-")
+    #[owner.name_chunk, full_chunk[0..2], full_chunk[3..5]].join("-")
+    puts [owner.name_chunk, full_chunk.to_s[0..2],full_chunk.to_s[3..5]].join("")
   end
 
   # Generates a unique bbb_id based on uuid.
