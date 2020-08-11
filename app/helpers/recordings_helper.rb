@@ -50,24 +50,24 @@ module RecordingsHelper
   end
 
   def recording_url(meeting_id)
-    base = root_url
+    base = root_url.chomp("/")[/.*\//]
 
-    url1 = "tt:#{root_url}/download/presentation/#{meeting_id}/output.mp4"
+    url1 = "#{base}download/presentation/#{meeting_id}/output.mp4"
     begin
-      url = URI.parse("#{root_url}download/presentation/#{meeting_id}/output.mp4")
-      # req = Net::HTTP.new(url.host, url.port)
-      # req.use_ssl = true
-      # res = req.request_head(url.path)
-      # if res.code == 200
-      #   url
-      # else
-      #   false
-      # end
+      url = URI.parse("#{base}download/presentation/#{meeting_id}/output.mp4")
+       req = Net::HTTP.new(url.host, url.port)
+       req.use_ssl = true
+       res = req.request_head(url.path)
+       if res.code == 200
+         url
+       else
+         false
+       end
     rescue SocketError => e
       puts "Exception: #{e}"
       #   # do the next thing
     end
-    url1
+
   end
 
   private
