@@ -15,12 +15,15 @@
 #
 # You should have received a copy of the GNU Lesser General Public License along
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+require Parsi
 
 module RecordingsHelper
+
   # Helper for converting BigBlueButton dates into the desired format.
   def recording_date(date)
-    I18n.l date, format: "%B %d, %Y"
+    #I18n.l date, format: "%B %d, %Y"
     #d = date.to_parsi
+    Parsi::Date.today
     #d.strftime "%A %d %B %Y"
   end
 
