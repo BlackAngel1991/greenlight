@@ -197,3 +197,9 @@
     x = x - b if a < 0
     x
   end
+
+  MONTHNAMES = [nil] + %w(فروردین اردیبهشت خرداد تیر مرداد شهریور مهر آبان آذر دی بهمن اسفند)
+  def j2s(y,m,d)
+    format = "%d %s %d" % [d,MONTHNAMES[m],y]
+    format
+  end

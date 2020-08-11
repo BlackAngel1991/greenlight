@@ -23,7 +23,8 @@ module RecordingsHelper
   def recording_date(date)
     #I18n.l date, format: "%B %d, %Y"
     #d = date.to_parsi
-    toJalaali(1991,6,1)
+    jldate = toJalaali(date.year,date.mon,date.mday)
+    j2s(jldate[:jy],jldate[:jm],jldate[:jd])
     #d.strftime "%A %d %B %Y"
   end
 

@@ -15,7 +15,7 @@
 #
 # You should have received a copy of the GNU Lesser General Public License along
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
-
+require 'jalaali'
 module AdminsHelper
   include Pagy::Frontend
 
@@ -36,8 +36,8 @@ module AdminsHelper
     return "" if date.nil? # Handle invalid dates
 
     I18n.l date, format: "%B %d, %Y %H:%M UTC"
-    # d = date.to_parsi
-    # d.strftime "%A %d %B %Y %H:%M UTC"
+    jldate = toJalaali(date.year,date.mon,date.mday)
+    j2s(jldate[:jy],jldate[:jm],jldate[:jd])
   end
 
   # Site Settings
