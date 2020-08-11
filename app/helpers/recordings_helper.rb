@@ -15,7 +15,7 @@
 #
 # You should have received a copy of the GNU Lesser General Public License along
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
-require '../../app/lib/jalaali'
+require 'jalaali'
 
 module RecordingsHelper
 
@@ -23,7 +23,7 @@ module RecordingsHelper
   def recording_date(date)
     #I18n.l date, format: "%B %d, %Y"
     #d = date.to_parsi
-    toJalaali(1991,6,1)
+    t#oJalaali(1991,6,1)
     #d.strftime "%A %d %B %Y"
   end
 
