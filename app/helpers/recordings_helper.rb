@@ -56,19 +56,19 @@ module RecordingsHelper
   def recording_url(meeting_id)
     base = root_url.chomp("/")[/.*\//]
 
-    url1 = "#{base}download/presentation/#{meeting_id}/output.mp4"
+    url = "#{base}download/presentation/#{meeting_id}/output.mp4"
     begin
-      url = URI.parse("#{base}download/presentation/#{meeting_id}/output.mp4")
-       req = Net::HTTP.new(url.host, url.port)
+      uri = URI.parse("#{base}download/presentation/#{meeting_id}/output.mp4")
+       req = Net::HTTP.new(uri.host, uri.port)
        req.use_ssl = true
-       res = req.request_head(url.path)
+       res = req.request_head(uri.path)
        if res.code == 200 || res.code == "200"
          url
        else
          false
        end
     rescue SocketError => e
-      puts "Exception: #{e}"
+      logger.error "Support: Error in removing room shared access: #{e}"
       #   # do the next thing
     end
 
