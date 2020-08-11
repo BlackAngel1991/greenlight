@@ -67,6 +67,7 @@
     <% sorted_formats.each do |p| %>
       <%= link_to t("recording.format.#{p[:type]}"), p[:url], class: "btn btn-sm btn-primary", target: "_blank" %>
     <% end %>
+    <%= link_to t("recording.format.video"), recording_url(recording[:meetingID]), class: "btn btn-sm btn-primary", target: "_blank" %>
   </td>
   <td class="text-center">
     <div class="item-action dropdown">

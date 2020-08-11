@@ -49,6 +49,23 @@ module RecordingsHelper
     Rails.configuration.recording_thumbnails
   end
 
+  def recording_url(meeting_id)
+    begin
+      url = URI.parse("/download/presentation/#{meeting_id}/output.mp4")
+      req = Net::HTTP.new(url.host, url.port)
+      req.use_ssl = true
+      res = req.request_head(url.path)
+      if res.code == 200
+        url
+      else
+        ""
+      end
+    rescue SocketError => e
+      puts "Exception: #{e}"
+      # do the next thing
+    end
+  end
+
   private
 
   # Returns length of the recording as a string
