@@ -1,4 +1,3 @@
-module Jalali
   def toJalaali(gy, gm, gd)
     d2j(g2d(gy, gm, gd))
   end
@@ -198,4 +197,3 @@ module Jalali
     x = x - b if a < 0
     x
   end
-end
