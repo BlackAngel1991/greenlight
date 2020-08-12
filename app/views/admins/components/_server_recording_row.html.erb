@@ -60,6 +60,9 @@
     <% sorted_formats.each do |p| %>
       <%= link_to t("recording.format.#{p[:type]}"), p[:url], class: "btn btn-sm btn-primary", target: "_blank" %>
     <% end %>
+    <% if recording_url(recording[:recordID]) != false %>
+      <%= link_to t("recording.format.video"), recording_url(recording[:recordID]), class: "btn btn-sm btn-primary", target: "_blank" %>
+    <% end %>
   </td>
   <td class="text-center">
     <div class="item-action dropdown">

@@ -35,7 +35,7 @@ module AdminsHelper
   def friendly_time(date)
     return "" if date.nil? # Handle invalid dates
 
-    I18n.l date, format: "%B %d, %Y %H:%M UTC"
+    #I18n.l date, format: "%B %d, %Y %H:%M UTC"
     jldate = toJalaali(date.year,date.mon,date.mday)
     j2s(jldate[:jy],jldate[:jm],jldate[:jd])
   end
