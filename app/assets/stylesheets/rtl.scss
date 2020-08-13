@@ -77,6 +77,13 @@ body[data-controller="main"][data-action="index"] .wrapper{
   color: #ffffff;
 
 }
+.gradient-blue #room-title a {
+  color: #79ab36 !important;
+}
+.gradient-blue .container{
+  z-index: 999999;
+  position: relative;
+}
 .gradient-blue .btn-primary {
   background-color: #79ab36 !important;
   border-color: #79ab36 !important;
