@@ -83,6 +83,9 @@ body[data-controller="main"][data-action="index"] .wrapper{
 .gradient-blue .container{
   z-index: 99;
   position: relative;
+  background: rgb(11 70 102 / 82%);
+  border-radius: 10pt;
+  box-shadow: 0px 0px 8px rgb(255 255 255 / 45%);
 }
 .gradient-blue .btn-primary {
   background-color: #79ab36 !important;
