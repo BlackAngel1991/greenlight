@@ -58,7 +58,7 @@
                                 <li class="list-group-item active"><%= t("room.no_room.recent_rooms") %></li>
                                 <% @recent_rooms.each do |room| %>
                                     <%= link_to room_path(room), class: "list-group-item list-group-item-action dropdown-item"  do %>
-                                        <%= room.owner.name + " " + room.name %>
+                                        <%= room.owner.name + " - " + room.name %>
                                     <% end %>
                                 <% end %>
                                 <% if @recent_rooms.count == 0 %>

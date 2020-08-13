@@ -57,7 +57,9 @@ body.rtl {
   height: auto;
 }
 
-body[data-controller="main"][data-action="index"] .wrapper {
+body[data-controller="main"][data-action="index"] .wrapper ,
+body[data-controller="sessions"][data-action="new"] .wrapper ,
+body[data-controller="sessions"][data-action="signin"] .wrapper {
   display: flex;
   align-items: stretch;
   justify-content: stretch;
@@ -155,6 +157,12 @@ body[data-controller="main"][data-action="index"] .wrapper {
 }
 .input-group.mob .input-group-append{
   width: 100%;
+}
+.loader{
+  color: #41ffbf !important;
+}
+.full-height{
+  height: calc(100% - 65px);
 }
 @media (min-width: 768px) {
   .input-group.mob .input-group-append{
