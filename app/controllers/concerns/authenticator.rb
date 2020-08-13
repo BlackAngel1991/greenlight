@@ -65,9 +65,9 @@ module Authenticator
     if current_user && params[:old_twitter_user_id].nil?
       redir = current_user.main_room
       if redir.nil?
-        redir = '/rooms'
+        redir = cant_create_rooms_path
       end
-      redirect_to
+      redirect_to redir
     end
   end
 
