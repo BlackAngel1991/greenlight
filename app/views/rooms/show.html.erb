@@ -1,20 +1,20 @@
 <%
-# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
-# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
-# This program is free software; you can redistribute it and/or modify it under the
-# terms of the GNU Lesser General Public License as published by the Free Software
-# Foundation; either version 3.0 of the License, or (at your option) any later
-# version.
-#
-# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
-# You should have received a copy of the GNU Lesser General Public License along
-# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+  # BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+  # Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+  # This program is free software; you can redistribute it and/or modify it under the
+  # terms of the GNU Lesser General Public License as published by the Free Software
+  # Foundation; either version 3.0 of the License, or (at your option) any later
+  # version.
+  #
+  # BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+  # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+  # PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+  # You should have received a copy of the GNU Lesser General Public License along
+  # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
 
-<% exceeds_limit = current_room_exceeds_limit(@room)%>
-<% if exceeds_limit%>
+<% exceeds_limit = current_room_exceeds_limit(@room) %>
+<% if exceeds_limit %>
   <div class="alert alert-danger alert-dismissible text-center mb-0">
     <%= t("room.room_limit_exceeded", difference: @diff) %>
   </div>
@@ -23,16 +23,19 @@
   <div class="container">
     <div class="row pt-7 pt-sm-9">
       <div class="col-lg-8 col-sm-12">
-        <div id="room-title" class="display-4 form-inline <%= 'edit_hover_class' if current_user.main_room != @room %>" data-path="<%= update_settings_path(@room) %>">
-          <% if current_user.main_room == @room %>
-            <h1 contenteditable=false id="user-text" class="display-4 text-right mb-3 font-weight-400"><%= @room.name %></h1>
-            <a class="disable-click"><i class="fas fa-home align-top home-indicator mr-2"></i></a>
-          <% else %>
-            <h1 contenteditable=false id="user-text" class="display-4 text-right mb-3 font-weight-400"><%= @room.name %></h1>
-            <a><i id="edit-room" class="fa fa-edit align-top home-indicator mr-2" data-edit-room="<%= @room.uid %>"></i></a>
-          <% end %>
+        <div class="room-title-box">
+          <div id="room-title" class="display-5 form-inline <%= 'edit_hover_class' if current_user.main_room != @room %>" data-path="<%= update_settings_path(@room) %>">
+            <% if current_user.main_room == @room %>
+              <h1 contenteditable=false id="user-text" class="display-5 text-right mb-3 font-weight-400"><%= @room.name %></h1>
+              <a class="disable-click"><i class="fas fa-home align-top home-indicator mr-2"></i></a>
+            <% else %>
+              <h1 contenteditable=false id="user-text" class="display-5 text-right mb-3 font-weight-400"><%= @room.name %></h1>
+              <a><i id="edit-room" class="fa fa-edit align-top home-indicator mr-2" data-edit-room="<%= @room.uid %>"></i></a>
+            <% end %>
+          </div>
+          <h5 class="text-right mb-6"><%= @room.sessions %> <%= t("room.sessions") %>
+            | <%= @recordings.length %> <%= t("room.recordings") %></h5>
         </div>
-        <h4 class="text-right mb-6"><%= @room.sessions %> <%= t("room.sessions") %> | <%= @recordings.length %> <%= t("room.recordings") %></h4>
         <% unless exceeds_limit %>
           <label class="form-label"><%= t("room.invite_participants") %></label>
           <div class="row">
@@ -98,13 +101,13 @@
       <% end %>
 
       <% if current_user.role.get_permission("can_create_rooms") && !room_limit_exceeded %>
-        <%= render "rooms/components/create_room_block"%>
+        <%= render "rooms/components/create_room_block" %>
       <% end %>
     </div>
   </div>
 </div>
 
-<%= render "shared/sessions", recordings: @recordings, pagy: @pagy, only_public: false, shared_room: @shared_room, user_recordings: false, title: t("room.recordings")%>
+<%= render "shared/sessions", recordings: @recordings, pagy: @pagy, only_public: false, shared_room: @shared_room, user_recordings: false, title: t("room.recordings") %>
 
 <%= render "shared/modals/delete_room_modal" %>
 

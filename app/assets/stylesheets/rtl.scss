@@ -75,6 +75,7 @@ body[data-controller="main"][data-action="index"] .wrapper{
   background: image-url("gradient.jpg") scroll center center no-repeat;
   background-size: cover;
   color: #ffffff;
+  padding: 20pt 0 !important;
 
 }
 .gradient-blue #room-title a {
@@ -110,12 +111,25 @@ body[data-controller="main"][data-action="index"] .wrapper{
 }
 .gradient-blue div#create-room-block {
   color: #495057;
+  margin-bottom: 0 !important;
+  padding: 0.15rem !important;
 }
 .gradient-blue #create-room-block:hover {
   background-color: rgba(255,255,255,0.83);
+
 }
 .gradient-blue canvas.particles-js-canvas-el {
   position: absolute;
   top: 0;
   left: 0;
+}
+.gradient-blue .room-title-box{
+  background: rgba(11,70,102,0.8);
+  border-radius: 10pt;
+  box-shadow: 0 0 8px rgba(255,255,255,0.45);
+  margin-right: -15pt;
+  padding: 10pt 15pt;
+}
+.gradient-blue .room-title-box #room-title{
+  border-bottom: 1px solid #79ab36;
 }
