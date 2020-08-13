@@ -118,4 +118,7 @@ module ApplicationHelper
     false
   end
 
+  def get_base_url
+    root_url.chomp("/")[/.*\//]
+  end
 end
