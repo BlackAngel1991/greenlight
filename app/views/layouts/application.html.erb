@@ -204,7 +204,7 @@
       },
       "retina_detect": true
   };
-    particlesJS.load('particles-js', conf, function() {
+    particlesJS.load('particles-js', <%= asset_path 'particlesjs.json' %> , function() {
         console.log('callback - particles.js config loaded');
     });
 </script>
