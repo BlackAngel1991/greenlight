@@ -115,3 +115,10 @@
   <%= render "shared/modals/remove_access_modal" %>
 <% end %>
 
+<script>
+    $(document).ready(function () {
+        particlesJS.load('particles-js', '<%= asset_path 'particlesjs.json' %>', function () {
+            console.log('callback - particles.js config loaded');
+        });
+    });
+</script>
