@@ -34,11 +34,10 @@ class SessionsController < ApplicationController
 
     if one_provider
       provider_path = if Rails.configuration.omniauth_ldap
-        ldap_signin_path
-      else
-        "#{Rails.configuration.relative_url_root}/auth/#{@providers.first}"
-      end
-
+                        ldap_signin_path
+                      else
+                        "#{Rails.configuration.relative_url_root}/auth/#{@providers.first}"
+                      end
       redirect_to provider_path
     end
   end
@@ -51,7 +50,7 @@ class SessionsController < ApplicationController
   def new
     # Check if the user needs to be invited
     if invite_registration
-      redirect_to root_path, flash: { alert: I18n.t("registration.invite.no_invite") } unless params[:invite_token]
+      redirect_to root_path, flash: {alert: I18n.t("registration.invite.no_invite")} unless params[:invite_token]
 
       session[:invite_token] = params[:invite_token]
     end
@@ -80,9 +79,9 @@ class SessionsController < ApplicationController
 
     # Check correct password was entered
     return redirect_to(signin_path, alert: I18n.t("invalid_credentials")) unless user.try(:authenticate,
-      session_params[:password])
+                                                                                          session_params[:password])
     # Check that the user is not deleted
-    return redirect_to root_path, flash: { alert: I18n.t("registration.banned.fail") } if user.deleted?
+    return redirect_to root_path, flash: {alert: I18n.t("registration.banned.fail")} if user.deleted?
 
     unless is_super_admin
       # Check that the user is a Greenlight account
@@ -130,10 +129,10 @@ class SessionsController < ApplicationController
     ldap_config[:password] = ENV['LDAP_PASSWORD']
     ldap_config[:auth_method] = ENV['LDAP_AUTH']
     ldap_config[:encryption] = if ENV['LDAP_METHOD'] == 'ssl'
-                                    'simple_tls'
-                                elsif ENV['LDAP_METHOD'] == 'tls'
-                                    'start_tls'
-                                end
+                                 'simple_tls'
+                               elsif ENV['LDAP_METHOD'] == 'tls'
+                                 'start_tls'
+                               end
     ldap_config[:base] = ENV['LDAP_BASE']
     ldap_config[:filter] = ENV['LDAP_FILTER']
     ldap_config[:uid] = ENV['LDAP_UID']
@@ -169,7 +168,7 @@ class SessionsController < ApplicationController
 
   def one_provider
     (!allow_user_signup? || !allow_greenlight_accounts?) && @providers.count == 1 &&
-      !Rails.configuration.loadbalanced_configuration
+        !Rails.configuration.loadbalanced_configuration
   end
 
   def check_user_exists
@@ -200,14 +199,14 @@ class SessionsController < ApplicationController
     @user_exists = check_user_exists
 
     if !@user_exists && @auth['provider'] == "twitter"
-      return redirect_to root_path, flash: { alert: I18n.t("registration.deprecated.twitter_signup") }
+      return redirect_to root_path, flash: {alert: I18n.t("registration.deprecated.twitter_signup")}
     end
 
     # Check if user is deleted
-    return redirect_to root_path, flash: { alert: I18n.t("registration.banned.fail") } if check_auth_deleted
+    return redirect_to root_path, flash: {alert: I18n.t("registration.banned.fail")} if check_auth_deleted
 
     # If using invitation registration method, make sure user is invited
-    return redirect_to root_path, flash: { alert: I18n.t("registration.invite.no_invite") } unless passes_invite_reqs
+    return redirect_to root_path, flash: {alert: I18n.t("registration.invite.no_invite")} unless passes_invite_reqs
 
     # Switch the user to a social account if they exist under the same email with no social uid
     switch_account_to_social if !@user_exists && auth_changed_to_social?(@auth['info']['email'])
@@ -223,7 +222,7 @@ class SessionsController < ApplicationController
       # Inform admins that a user signed up if emails are turned on
       send_approval_user_signup_email(user)
 
-      return redirect_to root_path, flash: { success: I18n.t("registration.approval.signup") }
+      return redirect_to root_path, flash: {success: I18n.t("registration.approval.signup")}
     end
 
     send_invite_user_signup_email(user) if invite_registration && !@user_exists
@@ -234,10 +233,10 @@ class SessionsController < ApplicationController
 
     if @auth['provider'] == "twitter"
       flash[:alert] = if allow_user_signup? && allow_greenlight_accounts?
-        I18n.t("registration.deprecated.twitter_signin", link: signup_path(old_twitter_user_id: user.id))
-      else
-        I18n.t("registration.deprecated.twitter_signin", link: signin_path(old_twitter_user_id: user.id))
-      end
+                        I18n.t("registration.deprecated.twitter_signin", link: signup_path(old_twitter_user_id: user.id))
+                      else
+                        I18n.t("registration.deprecated.twitter_signin", link: signin_path(old_twitter_user_id: user.id))
+                      end
     end
   end
 

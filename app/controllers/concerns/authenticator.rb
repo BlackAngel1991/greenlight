@@ -45,12 +45,12 @@ module Authenticator
       dont_redirect_to = [root_url, signin_url, ldap_signin_url, signup_url, unauthorized_url,
                           internal_error_url, not_found_url]
       url = if cookies[:return_to] && !dont_redirect_to.include?(cookies[:return_to])
-        cookies[:return_to]
-      elsif user.role.get_permission("can_create_rooms")
-        user.main_room
-      else
-        cant_create_rooms_path
-      end
+              cookies[:return_to]
+            elsif user.role.get_permission("can_create_rooms")
+              user.main_room
+            else
+              cant_create_rooms_path
+            end
 
       # Delete the cookie if it exists
       cookies.delete :return_to if cookies[:return_to]
@@ -62,7 +62,13 @@ module Authenticator
   end
 
   def ensure_unauthenticated_except_twitter
-    redirect_to current_user.main_room if current_user && params[:old_twitter_user_id].nil?
+    if current_user && params[:old_twitter_user_id].nil?
+      redir = current_user.main_room
+      if redir.nil?
+        redir = '/rooms'
+      end
+      redirect_to
+    end
   end
 
   # Logs current user out of GreenLight.
@@ -78,8 +84,8 @@ module Authenticator
   # Check if the user exists under the same email with no social uid and that social accounts are allowed
   def auth_changed_to_social?(email)
     Rails.configuration.loadbalanced_configuration &&
-      User.exists?(email: email, provider: @user_domain, social_uid: nil) &&
-      !allow_greenlight_accounts?
+        User.exists?(email: email, provider: @user_domain, social_uid: nil) &&
+        !allow_greenlight_accounts?
   end
 
   private
