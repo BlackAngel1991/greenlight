@@ -92,7 +92,8 @@
 </div>
 
 <%= render "shared/footer" %>
-<script src="<%= get_base_url %>/particles.js"></script>
+<!--<script src="<%#= get_base_url %>/particles.js"></script>-->
+<%= javascript_include_tag 'particles', 'data-turbolinks-track': 'reload' %>
 <script>
     particlesJS.load('particles-js', '<%= get_base_url %>/particlesjs-config.json', function() {
         console.log('callback - particles.js config loaded');
