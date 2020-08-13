@@ -432,9 +432,10 @@ en:
     format:
       notes: یادداشت ها
       podcast: پادکست
-      presentation: ارائه
+      presentation: نمایش
       statistics: امار
       video: ویدئو
+      download: دانلود
   registration:
     approval:
       fail: حساب کاربری شما هنوز تایید نشده است. اگر چند روز از ثبت نام شما گذشته است، لطفا با مدیر خود تماس بگیرید.
@@ -480,7 +481,7 @@ en:
     join: پیوستن به کلاس
     last_session: "آخرین جلسه در %{session}"
     login: ورود
-    owner: مالک
+    owner: استاد
     owner_banned: این کلاس درحال حاضر در دسترس نیست
     no_room:
       description: لطفا ادرس یا شناسه کلاسی که می خواهید وارد آن شوید را وارد کنید
