@@ -23,8 +23,8 @@
   <div class="container">
     <div class="row pt-7 pt-sm-9">
       <div class="col-lg-8 col-sm-12">
-        <div class="room-title-box">
-          <div id="room-title" class="display-5 form-inline <%= 'edit_hover_class' if current_user.main_room != @room %>" data-path="<%= update_settings_path(@room) %>">
+        <div class="room-title-box mb-3">
+          <div id="room-title" class="display-5 mb-3 form-inline <%= 'edit_hover_class' if current_user.main_room != @room %>" data-path="<%= update_settings_path(@room) %>">
             <% if current_user.main_room == @room %>
               <h1 contenteditable=false id="user-text" class="display-5 text-right mb-3 font-weight-400"><%= @room.name %></h1>
               <a class="disable-click"><i class="fas fa-home align-top home-indicator mr-2"></i></a>
@@ -33,7 +33,7 @@
               <a><i id="edit-room" class="fa fa-edit align-top home-indicator mr-2" data-edit-room="<%= @room.uid %>"></i></a>
             <% end %>
           </div>
-          <h5 class="text-right mb-6"><%= @room.sessions %> <%= t("room.sessions") %>
+          <h5 class="text-right mb-3"><%= @room.sessions %> <%= t("room.sessions") %>
             | <%= @recordings.length %> <%= t("room.recordings") %></h5>
         </div>
         <% unless exceeds_limit %>
