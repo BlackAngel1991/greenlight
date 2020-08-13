@@ -57,35 +57,3 @@ body[data-controller="main"][data-action="index"] .wrapper{
   height: calc(100% - 65px);
 }
 
-.gradient-blue {
-  //background: image-url("gradient") scroll center center no-repeat;
-  background-size: cover;
-  color: #ffffff;
-}
-.gradient-blue .btn-primary {
-  background-color: #79ab36 !important;
-  border-color: #79ab36 !important;
-  color: white !important;
-}
-.gradient-blue .btn-primary i {
-  background-color: #79ab36 !important;
-  border-color: #79ab36 !important;
-}
-.gradient-blue .btn-primary:hover {
-  background-color: #8dc63f !important;
-  border-color: #8dc63f !important;
-}
-.gradient-blue .btn-primary:hover i {
-  background-color: #8dc63f !important;
-  border-color: #8dc63f !important;
-}
-.gradient-blue .bg-primary {
-  background-color: #79ab36 !important;
-  color: white !important;
-}
-.gradient-blue div#create-room-block {
-  color: #495057;
-}
-.gradient-blue #create-room-block:hover {
-  background-color: rgb(255 255 255 / 83%);
-}
