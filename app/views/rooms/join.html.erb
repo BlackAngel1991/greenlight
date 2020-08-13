@@ -12,10 +12,9 @@
   # You should have received a copy of the GNU Lesser General Public License along
   # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
-
-<% valid_access_code = @room.access_code.nil? || @room.access_code.empty? || @room.access_code == session[:access_code] %>
-<%= render 'rooms/components/room_event', render_recordings: valid_access_code do %>
-  <% if current_user %>
+<% if current_user %>
+  <% valid_access_code = @room.access_code.nil? || @room.access_code.empty? || @room.access_code == session[:access_code] %>
+  <%= render 'rooms/components/room_event', render_recordings: valid_access_code do %>
 
     <% if room_authentication_required %>
       <h2><%= t("administrator.site_settings.authentication.user-info") %></h2>
@@ -33,7 +32,7 @@
       <% end %>
     <% else %>
       <%= form_for room_path(@room), method: :post do |f| %>
-        <div class="input-group">
+        <div class="input-group mob">
           <%= f.hidden_field(:search, :value => params[:search]) %>
           <%= f.hidden_field(:column, :value => params[:column]) %>
           <%= f.hidden_field(:direction, :value => params[:direction]) %>
@@ -45,6 +44,7 @@
                            readonly: !current_user.nil?,
                            autofocus: true
           %>
+          <div class="d-block d-md-none w-100"></div>
           <span class="input-group-append">
           <button type="submit" class="btn btn-primary btn-sm px-7 form-control join-form">
             <%= (!@room_running && @anyone_can_start) ? t("room.start") : t("room.join") %>
@@ -53,7 +53,7 @@
         </div>
       <% end %>
     <% end %>
-  <% else %>
-    <% controller.redirect_to "#{root_url}signin"%>
   <% end %>
+<% else %>
+  <% controller.redirect_to "#{root_url}signin" %>
 <% end %>

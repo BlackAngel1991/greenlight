@@ -11,31 +11,36 @@ body.rtl {
   left: auto !important;
   right: 0 !important;
 }
+
 .input-icon .form-control:not(:first-child) {
   padding-left: 1rem;
   padding-right: 2.5rem;
 }
+
 .input-icon-addon:last-child {
   right: auto !important;
   left: 0 !important;
 }
 
-.background.front-page{
+.background.front-page {
   position: relative;
   overflow: hidden;
   height: 100%;
 }
-.slider{
+
+.slider {
   position: absolute;
   width: 100%;
   height: 100%;
 }
+
 .carousel.slides,
 .carousel-inner,
 .carousel-inner .item {
   height: 100%;
 }
-.carousel-inner .item{
+
+.carousel-inner .item {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 90%;
@@ -44,13 +49,15 @@ body.rtl {
   justify-content: center;
   padding: 10pt 25pt;
 }
-.carousel-inner .item img{
+
+.carousel-inner .item img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
 }
-body[data-controller="main"][data-action="index"] .wrapper{
+
+body[data-controller="main"][data-action="index"] .wrapper {
   display: flex;
   align-items: stretch;
   justify-content: stretch;
@@ -75,58 +82,82 @@ body[data-controller="main"][data-action="index"] .wrapper{
 .gradient-blue {
   background: image-url("gradient.jpg") scroll center center no-repeat;
   background-size: cover;
-  color: #ffffff;
+
   padding: 20pt 0 !important;
 
 }
+
+.gradient-blue.color-white {
+  color: #ffffff;
+}
+
 .gradient-blue #room-title a {
   color: #79ab36 !important;
 }
-.gradient-blue .container{
+
+.gradient-blue .container {
   z-index: 99;
   position: relative;
 }
+
 .gradient-blue .btn-primary {
   background-color: #79ab36 !important;
   border-color: #79ab36 !important;
   color: white !important;
 }
+
 .gradient-blue .btn-primary i {
   background-color: #79ab36 !important;
   border-color: #79ab36 !important;
 }
+
 .gradient-blue .btn-primary:hover {
   background-color: #8dc63f !important;
   border-color: #8dc63f !important;
 }
+
 .gradient-blue .btn-primary:hover i {
   background-color: #8dc63f !important;
   border-color: #8dc63f !important;
 }
+
 .gradient-blue .bg-primary {
   background-color: #79ab36 !important;
   color: white !important;
 }
+
 .gradient-blue div#create-room-block {
   color: #495057;
   margin-bottom: 0 !important;
   padding: 0.15rem !important;
 }
+
 .gradient-blue #create-room-block:hover {
-  background-color: rgba(255,255,255,0.83);
+  background-color: rgba(255, 255, 255, 0.83);
 
 }
+
 .gradient-blue canvas.particles-js-canvas-el {
   position: absolute;
   top: 0;
   left: 0;
 }
-.gradient-blue .room-title-box{
-  background: rgba(11,70,102,0.8);
+
+.gradient-blue .room-title-box {
+  background: rgba(11, 70, 102, 0.8);
   border-radius: 10pt;
-  box-shadow: 0 0 8px rgba(255,255,255,0.45);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
   padding: 10pt 15pt;
 }
-.gradient-blue .room-title-box #room-title{
+
+.gradient-blue .room-title-box #room-title {
   border-bottom: 1px solid #79ab36;
+}
+.input-group.mob .input-group-append{
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .input-group.mob .input-group-append{
+    width: auto;
+  }
 }
