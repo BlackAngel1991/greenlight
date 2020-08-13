@@ -23,7 +23,7 @@ body.rtl {
 .background.front-page{
   position: relative;
   overflow: hidden;
-  width: 100%;
+  height: 100%;
 }
 .slider{
   position: absolute;
@@ -55,6 +55,7 @@ body[data-controller="main"][data-action="index"] .wrapper{
   align-items: stretch;
   justify-content: stretch;
   height: calc(100% - 65px);
+  flex-flow: column;
 }
 
 /*.gradient-blue{
@@ -84,9 +85,6 @@ body[data-controller="main"][data-action="index"] .wrapper{
 .gradient-blue .container{
   z-index: 99;
   position: relative;
-  background: rgba(11,70,102,0.8);
-  border-radius: 10pt;
-  box-shadow: 0 0 8px rgba(255,255,255,0.45);
 }
 .gradient-blue .btn-primary {
   background-color: #79ab36 !important;
