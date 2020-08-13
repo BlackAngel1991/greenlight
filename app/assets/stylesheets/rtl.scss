@@ -57,25 +57,10 @@ body[data-controller="main"][data-action="index"] .wrapper{
   height: calc(100% - 65px);
 }
 
-/*.gradient-blue{
-  background: rgba(96,146,240,1);
-  background: -moz-radial-gradient(center bottom, ellipse cover, rgba(96,146,240,1) 0%, rgba(255,255,255,1) 100%);
-  background: -webkit-gradient(radial, center bottom, 0px, center center, 100%, color-stop(0%, rgba(96,146,240,1)), color-stop(100%, rgba(255,255,255,1)));
-  background: -webkit-radial-gradient(center bottom, ellipse cover, rgba(96,146,240,1) 0%, rgba(255,255,255,1) 100%);
-  background: -o-radial-gradient(center bottom, ellipse cover, rgba(96,146,240,1) 0%, rgba(255,255,255,1) 100%);
-  background: -ms-radial-gradient(center bottom, ellipse cover, rgba(96,146,240,1) 0%, rgba(255,255,255,1) 100%);
-  background: radial-gradient(ellipse at center bottom, rgba(96,146,240,1) 0%, rgba(255,255,255,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6092f0', endColorstr='#ffffff', GradientType=1 );
-}*/
-/*.display-3 {
-  font-size: 3rem !important;
-}*/
-
 .gradient-blue {
-  background: image-url("gradient") scroll center center no-repeat;
+  //background: image-url("gradient") scroll center center no-repeat;
   background-size: cover;
   color: #ffffff;
-
 }
 .gradient-blue .btn-primary {
   background-color: #79ab36 !important;
