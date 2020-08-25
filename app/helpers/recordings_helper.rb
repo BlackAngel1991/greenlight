@@ -56,9 +56,10 @@ module RecordingsHelper
   def recording_url(meeting_id)
     base = root_url.chomp("/")[/.*\//]
 
-    url = "#{base}download/presentation/#{meeting_id}/output.mp4"
+
+    url = "#{base}download/presentation/#{meeting_id}/output.webm"
     begin
-      uri = URI.parse("#{base}download/presentation/#{meeting_id}/output.mp4")
+      uri = URI.parse("#{base}download/presentation/#{meeting_id}/output.webm")
        req = Net::HTTP.new(uri.host, uri.port)
        req.use_ssl = true
        res = req.request_head(uri.path)
