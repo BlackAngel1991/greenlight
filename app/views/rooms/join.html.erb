@@ -12,7 +12,7 @@
   # You should have received a copy of the GNU Lesser General Public License along
   # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
-<% #if current_user %>
+<% if room_authentication_required %>
   <% valid_access_code = @room.access_code.nil? || @room.access_code.empty? || @room.access_code == session[:access_code] %>
   <%= render 'rooms/components/room_event', render_recordings: valid_access_code do %>
 
@@ -54,6 +54,6 @@
       <% end %>
     <% end %>
   <% end %>
-<% #else %>
-  <% #controller.redirect_to "#{root_url}signin" %>
-<% #end %>
+<% else %>
+  <% controller.redirect_to "#{root_url}signin" %>
+<% end %>
