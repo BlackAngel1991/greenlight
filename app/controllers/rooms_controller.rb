@@ -40,7 +40,7 @@ class RoomsController < ApplicationController
     return redirect_to root_path unless current_user
 
     # Check if the user has not exceeded the room limit
-    return redirect_to current_user.main_room, flash: { alert: I18n.t("room.room_limit") } if room_limit_exceeded
+    return redirect_to current_user.main_room, flash: {alert: I18n.t("room.room_limit")} if room_limit_exceeded
 
     # Create room
     @room = Room.new(name: room_params[:name], access_code: room_params[:access_code])
@@ -48,13 +48,13 @@ class RoomsController < ApplicationController
     @room.room_settings = create_room_settings_string(room_params)
 
     # Save the room and redirect if it fails
-    return redirect_to current_user.main_room, flash: { alert: I18n.t("room.create_room_error") } unless @room.save
+    return redirect_to current_user.main_room, flash: {alert: I18n.t("room.create_room_error")} unless @room.save
 
     logger.info "Support: #{current_user.email} has created a new room #{@room.uid}."
 
     # Redirect to room is auto join was not turned on
     return redirect_to @room,
-      flash: { success: I18n.t("room.create_room_success") } unless room_params[:auto_join] == "1"
+                       flash: {success: I18n.t("room.create_room_success")} unless room_params[:auto_join] == "1"
 
     # Start the room if auto join was turned on
     start
@@ -71,13 +71,13 @@ class RoomsController < ApplicationController
     if current_user && (@room.owned_by?(current_user) || @shared_room)
       # User is allowed to have rooms
       @search, @order_column, @order_direction, recs =
-        recordings(@room.bbb_id, params.permit(:search, :column, :direction), true)
+          recordings(@room.bbb_id, params.permit(:search, :column, :direction), true)
 
       @user_list = shared_user_list if shared_access_allowed
 
       @pagy, @recordings = pagy_array(recs)
     else
-      return redirect_to root_path, flash: { alert: I18n.t("room.invalid_provider") } if incorrect_user_domain
+      return redirect_to root_path, flash: {alert: I18n.t("room.invalid_provider")} if incorrect_user_domain
 
       show_user_join
     end
@@ -99,14 +99,14 @@ class RoomsController < ApplicationController
   # POST /:room_uid
   def join
     return redirect_to root_path,
-      flash: { alert: I18n.t("administrator.site_settings.authentication.user-info") } if auth_required
+                       flash: {alert: I18n.t("administrator.site_settings.authentication.user-info")} if auth_required
 
     @shared_room = room_shared_with_user
 
     unless @room.owned_by?(current_user) || @shared_room
       # Don't allow users to join unless they have a valid access code or the room doesn't have an access code
       if @room.access_code && !@room.access_code.empty? && @room.access_code != session[:access_code]
-        return redirect_to room_path(room_uid: params[:room_uid]), flash: { alert: I18n.t("room.access_code_required") }
+        return redirect_to room_path(room_uid: params[:room_uid]), flash: {alert: I18n.t("room.access_code_required")}
       end
 
       # Assign join name if passed.
@@ -195,9 +195,9 @@ class RoomsController < ApplicationController
       room_settings_string = create_room_settings_string(options)
 
       @room.update_attributes(
-        name: options[:name],
-        room_settings: room_settings_string,
-        access_code: options[:access_code]
+          name: options[:name],
+          room_settings: room_settings_string,
+          access_code: options[:access_code]
       )
 
       flash[:success] = I18n.t("room.update_settings_success")
@@ -287,10 +287,10 @@ class RoomsController < ApplicationController
 
   def create_room_settings_string(options)
     room_settings = {
-      "muteOnStart": options[:mute_on_join] == "1",
-      "requireModeratorApproval": options[:require_moderator_approval] == "1",
-      "anyoneCanStart": options[:anyone_can_start] == "1",
-      "joinModerator": options[:all_join_moderator] == "1",
+        "muteOnStart": options[:mute_on_join] == "1",
+        "requireModeratorApproval": options[:require_moderator_approval] == "1",
+        "anyoneCanStart": options[:anyone_can_start] == "1",
+        "joinModerator": options[:all_join_moderator] == "1",
     }
 
     room_settings.to_json
@@ -298,7 +298,7 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:name, :auto_join, :mute_on_join, :access_code,
-      :require_moderator_approval, :anyone_can_start, :all_join_moderator)
+                                 :require_moderator_approval, :anyone_can_start, :all_join_moderator)
   end
 
   # Find the room from the uid.
@@ -309,19 +309,19 @@ class RoomsController < ApplicationController
   # Ensure the user either owns the room or is an admin of the room owner or the room is shared with him
   def verify_room_ownership_or_admin_or_shared
     return redirect_to root_path unless @room.owned_by?(current_user) ||
-                                        room_shared_with_user ||
-                                        current_user&.admin_of?(@room.owner, "can_manage_rooms_recordings")
+        room_shared_with_user ||
+        current_user&.admin_of?(@room.owner, "can_manage_rooms_recordings")
   end
 
   # Ensure the user either owns the room or is an admin of the room owner
   def verify_room_ownership_or_admin
     return redirect_to root_path if !@room.owned_by?(current_user) &&
-                                    !current_user&.admin_of?(@room.owner, "can_manage_rooms_recordings")
+        !current_user&.admin_of?(@room.owner, "can_manage_rooms_recordings")
   end
 
   # Ensure the user owns the room or is allowed to start it
   def verify_room_ownership_or_shared
-   return redirect_to root_path unless @room.owned_by?(current_user) || room_shared_with_user
+    return redirect_to root_path unless @room.owned_by?(current_user) || room_shared_with_user
   end
 
   def validate_accepted_terms
@@ -363,5 +363,6 @@ class RoomsController < ApplicationController
 
     current_user.rooms.length >= limit
   end
+
   helper_method :room_limit_exceeded
 end

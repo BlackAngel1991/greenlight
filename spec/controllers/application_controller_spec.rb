@@ -72,9 +72,9 @@ describe ApplicationController do
 
     it "returns whether the default bbb endpoint is being used" do
       allow(Rails.configuration).to receive(:bigbluebutton_endpoint)
-        .and_return("http://test-install.blindsidenetworks.com/bigbluebutton/api/")
+                                        .and_return("http://test-install.blindsidenetworks.com/bigbluebutton/api/")
       allow(Rails.configuration).to receive(:bigbluebutton_endpoint_default)
-        .and_return("http://test-install.blindsidenetworks.com/bigbluebutton/api/")
+                                        .and_return("http://test-install.blindsidenetworks.com/bigbluebutton/api/")
 
       expect(controller.bigbluebutton_endpoint_default?).to eql(true)
     end

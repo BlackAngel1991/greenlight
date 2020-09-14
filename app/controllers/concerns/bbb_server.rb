@@ -61,16 +61,16 @@ module BbbServer
   # Creates a meeting on the BigBlueButton server.
   def start_session(room, options = {})
     create_options = {
-      record: options[:meeting_recorded].to_s,
-      logoutURL: options[:meeting_logout_url] || '',
-      moderatorPW: room.moderator_pw,
-      attendeePW: room.attendee_pw,
-      moderatorOnlyMessage: options[:moderator_message],
-      muteOnStart: options[:mute_on_start] || false,
-      "meta_#{META_LISTED}": options[:recording_default_visibility] || false,
-      "meta_bbb-origin-version": Greenlight::Application::VERSION,
-      "meta_bbb-origin": "Greenlight",
-      "meta_bbb-origin-server-name": options[:host]
+        record: options[:meeting_recorded].to_s,
+        logoutURL: options[:meeting_logout_url] || '',
+        moderatorPW: room.moderator_pw,
+        attendeePW: room.attendee_pw,
+        moderatorOnlyMessage: options[:moderator_message],
+        muteOnStart: options[:mute_on_start] || false,
+        "meta_#{META_LISTED}": options[:recording_default_visibility] || false,
+        "meta_bbb-origin-version": Greenlight::Application::VERSION,
+        "meta_bbb-origin": "Greenlight",
+        "meta_bbb-origin-server-name": options[:host]
     }
 
     create_options[:guestPolicy] = "ASK_MODERATOR" if options[:require_moderator_approval]
@@ -80,8 +80,8 @@ module BbbServer
       meeting = bbb_server.create_meeting(room.name, room.bbb_id, create_options)
       # Update session info.
       unless meeting[:messageKey] == 'duplicateWarning'
-       room.update_attributes(sessions: room.sessions + 1,
-          last_session: DateTime.now)
+        room.update_attributes(sessions: room.sessions + 1,
+                               last_session: DateTime.now)
       end
     rescue BigBlueButton::BigBlueButtonException => e
       puts "BigBlueButton failed on create: #{e.key}: #{e.message}"

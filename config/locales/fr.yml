@@ -106,7 +106,7 @@ fr:
       demoted: L'utilisateur a été rétrogradé
       invite: "Invitation envoyée à %{email}"
       invite_email_verification: Les emails doivent être activés pour utiliser cette méthode. Veuillez contacter votre administrateur système.
-      merge_fail: Un problème est survenu lors de la fusion des comptes utilisateurs. Veuillez vérifier les utilisateurs sélectionnés et réessayer 
+      merge_fail: Un problème est survenu lors de la fusion des comptes utilisateurs. Veuillez vérifier les utilisateurs sélectionnés et réessayer
       merge_success: Les comptes utilisateurs ont bien été fusionnés
       perm_deleted: L'utilisateur a été définitivement supprimé
       promoted: L'utilisateur a bien été promu.
@@ -136,7 +136,7 @@ fr:
       edit_site_settings: Permet aux utilisateurs ayant ce rôle de modifier les paramètres du site
       edit_roles: Permet aux utilisateurs ayant ce rôle de modifier les autres rôles
       manage_users: Permet aux utilisateurs ayant ce rôle de gérer les utilisateurs
-      invalid_assignment: Un problème a été rencontré lors de l'attribution du rôle à l'utilisateur. Veuillez vérifier les valeurs entrées et réessayer. 
+      invalid_assignment: Un problème a été rencontré lors de l'attribution du rôle à l'utilisateur. Veuillez vérifier les valeurs entrées et réessayer.
       colour:
         title: Couleur du rôle
         info: Définir la couleur qui sera associée au rôle
@@ -473,7 +473,7 @@ fr:
       fail: "Votre compte n'a pas encore été validé. Si plusieurs jours se sont découlés depuis votre inscription, veuillez contacter votre administrateur."
       signup: Votre compte a été créé avec succès. Il a été envoyé à un administrateur pour validation.
     banned:
-      fail: "Vous n'avez pas accès à cette application. Si vous pensez qu'il s'agit d'une erreur, veuillez contacter votre administrateur." 
+      fail: "Vous n'avez pas accès à cette application. Si vous pensez qu'il s'agit d'une erreur, veuillez contacter votre administrateur."
     deprecated:
       new_signin: Veuillez sélectionner une nouvelle méthode de connexion pour votre compte. Toutes les salles de votre ancien compte seront transférées sur le nouveau compte
       twitter_signin: "La connexion par Twitter est obsolète et va être enlevée de la prochaine version. Veuillez cliquer <a href=\"%{link}\">ici</a> afin de changer la méthode d'authentification de votre compte"

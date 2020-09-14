@@ -7,10 +7,10 @@ namespace :office365 do
 
     old_office_users.each do |old_user|
       new_social_uid = if old_user.email.match("^outlook_[0-9a-zA-Z]+@outlook.com$")
-        old_user.email.last(old_user.email.length - 8).split('@')[0]
-      else
-        old_user.social_uid.split('@')[0]
-      end
+                         old_user.email.last(old_user.email.length - 8).split('@')[0]
+                       else
+                         old_user.social_uid.split('@')[0]
+                       end
 
       new_user = User.where(provider: "office365", social_uid: new_social_uid).first
 

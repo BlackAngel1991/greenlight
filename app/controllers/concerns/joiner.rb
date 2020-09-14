@@ -23,15 +23,15 @@ module Joiner
   def show_user_join
     # Get users name
     @name = if current_user
-      current_user.name
-    elsif cookies.encrypted[:greenlight_name]
-      cookies.encrypted[:greenlight_name]
-    else
-      ""
-    end
+              current_user.name
+            elsif cookies.encrypted[:greenlight_name]
+              cookies.encrypted[:greenlight_name]
+            else
+              ""
+            end
 
     @search, @order_column, @order_direction, pub_recs =
-      public_recordings(@room.bbb_id, params.permit(:search, :column, :direction), true)
+        public_recordings(@room.bbb_id, params.permit(:search, :column, :direction), true)
 
     @pagy, @public_recordings = pagy_array(pub_recs)
 
@@ -43,7 +43,7 @@ module Joiner
     if current_user
       recently_joined_rooms = cookies.encrypted["#{current_user.uid}_recently_joined_rooms"].to_a
       cookies.encrypted["#{current_user.uid}_recently_joined_rooms"] =
-        recently_joined_rooms.prepend(@room.id).uniq[0..2]
+          recently_joined_rooms.prepend(@room.id).uniq[0..2]
     end
   end
 
@@ -68,7 +68,7 @@ module Joiner
     else
       search_params = params[@room.invite_path] || params
       @search, @order_column, @order_direction, pub_recs =
-        public_recordings(@room.bbb_id, search_params.permit(:search, :column, :direction), true)
+          public_recordings(@room.bbb_id, search_params.permit(:search, :column, :direction), true)
 
       @pagy, @public_recordings = pagy_array(pub_recs)
 
@@ -85,28 +85,28 @@ module Joiner
   def default_meeting_options
     invite_msg = I18n.t("invite_message")
     {
-      user_is_moderator: false,
-      meeting_logout_url: request.base_url + logout_room_path(@room),
-      meeting_recorded: true,
-      #moderator_message: "#{invite_msg}\n\n#{request.base_url + room_path(@room)}",
-      moderator_message: "",
-      host: request.host,
-      recording_default_visibility: @settings.get_value("Default Recording Visibility") == "public"
+        user_is_moderator: false,
+        meeting_logout_url: request.base_url + logout_room_path(@room),
+        meeting_recorded: true,
+        #moderator_message: "#{invite_msg}\n\n#{request.base_url + room_path(@room)}",
+        moderator_message: "",
+        host: request.host,
+        recording_default_visibility: @settings.get_value("Default Recording Visibility") == "public"
     }
   end
 
   # Gets the room setting based on the option set in the room configuration
   def room_setting_with_config(name)
     config = case name
-    when "muteOnStart"
-      "Room Configuration Mute On Join"
-    when "requireModeratorApproval"
-      "Room Configuration Require Moderator"
-    when "joinModerator"
-      "Room Configuration All Join Moderator"
-    when "anyoneCanStart"
-      "Room Configuration Allow Any Start"
-    end
+             when "muteOnStart"
+               "Room Configuration Mute On Join"
+             when "requireModeratorApproval"
+               "Room Configuration Require Moderator"
+             when "joinModerator"
+               "Room Configuration All Join Moderator"
+             when "anyoneCanStart"
+               "Room Configuration Allow Any Start"
+             end
 
     case @settings.get_value(config)
     when "enabled"
@@ -126,8 +126,8 @@ module Joiner
     guest_id = "gl-guest-#{SecureRandom.hex(12)}"
 
     cookies[:guest_id] = {
-      value: guest_id,
-      expires: 1.day.from_now
+        value: guest_id,
+        expires: 1.day.from_now
     }
 
     guest_id

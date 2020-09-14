@@ -100,7 +100,7 @@ sv_SE:
       edit_site_settings: Låt användare med den här rollen redigera webbplatsinställningar
       edit_roles: Låt användare med den här rollen redigera andra roller
       manage_users: Låt användare med den här rollen hantera användare
-      invalid_assignment: 
+      invalid_assignment:
       colour:
         title: Rollfärg
         info: Ställ in färgen som ska associeras med rollen
@@ -384,7 +384,7 @@ sv_SE:
       fail: "Ditt konto har inte godkänts än. Om flera dagar har gått sedan du registrerade dig, kontakta din administratör."
       signup: Ditt konto har framgångsrikt skapats. Det har skickats till en administratör för godkännande.
     banned:
-      fail: "Du har inte tillgång till den här applikationen. Om du tror att detta är ett misstag, vänligen kontakta din administratör." 
+      fail: "Du har inte tillgång till den här applikationen. Om du tror att detta är ett misstag, vänligen kontakta din administratör."
     deprecated:
       new_signin: Välj en ny inloggningsmetod för ditt konto. Alla dina rum från ditt gamla konto migreras till det nya kontot
       twitter_signin: "Logga in via Twitter har fasats ut och kommer att tas bort i nästa utgåva. Klicka <a href=\"%{link}\"> här </a> to för att flytta ditt konto till en ny autentiseringsmetod"

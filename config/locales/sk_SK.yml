@@ -102,7 +102,7 @@ sk_SK:
       edit_site_settings: Povoliť užívateľom s touto rolou meniť nastavenia servra
       edit_roles: Povoliť užívateľom s touto rolou meniť iné role
       manage_users: Povoliť užívateľom s touto rolou manažovať užívateľov
-      invalid_assignment: "Nemôžete užívateľom prideliť rolu s vyššiu prioritou, ako je Vaša vlastná" 
+      invalid_assignment: "Nemôžete užívateľom prideliť rolu s vyššiu prioritou, ako je Vaša vlastná"
       colour:
         title: Farba role
         info: "Nastaviť farbu, ktorá bude pridelená roli"
@@ -390,7 +390,7 @@ sk_SK:
       fail: "Váš účet zatiaľ nebol overený. Ak od Vašej registrácie už ubehlo niekoľko dní, kontaktujte prosím Vášho administrátora."
       signup: Váš účet bol úspešne vytvorený. Bol odoslaný administrátorovi na overenie.
     banned:
-      fail: "Váš prístup k tejto aplikácii bol zakázaný. Ak si myslíte, že ide o omyl, kontaktujte prosím Vášho administrátora." 
+      fail: "Váš prístup k tejto aplikácii bol zakázaný. Ak si myslíte, že ide o omyl, kontaktujte prosím Vášho administrátora."
     deprecated:
       new_signin: Vyberte si nový spôsob prihlasovania pre Váš účet. Všetky miestnosti Vášho starého účtu budú presunuté do nového účtu
       twitter_signin: "Prihlasovanie cez Twitter bolo pozastavené a bude odstránené v ďalšej verzii. Kliknite <a href=\"%{link}\"> sem </a> pre presun Vášho účtu na nový spôsob prihlasovania"

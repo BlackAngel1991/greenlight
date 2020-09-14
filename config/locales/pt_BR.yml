@@ -106,7 +106,7 @@ pt_BR:
       demoted: Usuário foi rebaixado com sucesso.
       invite: "Convite enviado para %{email} com sucesso"
       invite_email_verification: "E-mails precisam estar habilitados para poder utilizar esse método. Por favor, contate o seu administrador do sistema."
-      merge_fail: Ocorreu um problema ao mesclar as contas de usuário. Verifique os usuários selecionados e tente novamente 
+      merge_fail: Ocorreu um problema ao mesclar as contas de usuário. Verifique os usuários selecionados e tente novamente
       merge_success: Contas de usuário mescladas com sucesso
       perm_deleted: Usuário foi permanentemente apagado
       promoted: Usuário foi promovido com sucesso.
@@ -136,7 +136,7 @@ pt_BR:
       edit_site_settings: Permitir que usuários com este papel editem configurações do site
       edit_roles: Permitir que usuários com este papel editem outros papéis
       manage_users: Permitir que usuários com este papel gerenciem usuários
-      invalid_assignment: Ocorreu um erro ao atribuir os papéis ao usuário. Por favor verifique os valores inseridos e tente novamente 
+      invalid_assignment: Ocorreu um erro ao atribuir os papéis ao usuário. Por favor verifique os valores inseridos e tente novamente
       colour:
         title: Cor do papel
         info: Configura a cor associada a um papel
@@ -473,7 +473,7 @@ pt_BR:
       fail: "Sua conta ainda não foi aprovada. Se vários dias se passaram desde que você se cadastrou, por favor, contate o seu administrador."
       signup: Sua conta foi criada com sucesso. Ela foi enviada para um administrador para aprovação.
     banned:
-      fail: "Você não possui permissão para visualizar essa página. Se você acredita que isso seja um engano, por favor, contate o seu administrador." 
+      fail: "Você não possui permissão para visualizar essa página. Se você acredita que isso seja um engano, por favor, contate o seu administrador."
     deprecated:
       new_signin: Selecione um novo método de login para a sua conta. Todas as salas de sua antiga conta serão migradas para a nova conta.
       twitter_signin: "Entrar pelo Twitter foi descontinuado e será removido na próxima versão. Clique <a href=\"%{link}\"> aqui </a> para mover a sua conta para um novo método de autenticação."

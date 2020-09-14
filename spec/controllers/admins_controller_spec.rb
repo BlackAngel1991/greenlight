@@ -53,7 +53,7 @@ describe AdminsController, type: :controller do
       it "renders the index page" do
         @request.session[:user_id] = @admin.id
 
-        get :edit_user, params: { user_uid: @user.uid }
+        get :edit_user, params: {user_uid: @user.uid}
 
         expect(response).to render_template(:edit_user)
       end
@@ -65,7 +65,7 @@ describe AdminsController, type: :controller do
 
         expect(@user.has_role?(:denied)).to eq(false)
 
-        post :ban_user, params: { user_uid: @user.uid }
+        post :ban_user, params: {user_uid: @user.uid}
 
         @user.reload
 
@@ -82,7 +82,7 @@ describe AdminsController, type: :controller do
 
         expect(@user.has_role?(:denied)).to eq(true)
 
-        post :unban_user, params: { user_uid: @user.uid }
+        post :unban_user, params: {user_uid: @user.uid}
 
         @user.reload
 
@@ -102,7 +102,7 @@ describe AdminsController, type: :controller do
       it "invites a user" do
         @request.session[:user_id] = @admin.id
         email = Faker::Internet.email
-        post :invite, params: { invite_user: { email: email } }
+        post :invite, params: {invite_user: {email: email}}
 
         invite = Invitation.find_by(email: email, provider: "provider1")
 
@@ -115,14 +115,14 @@ describe AdminsController, type: :controller do
         @request.session[:user_id] = @admin.id
         email = Faker::Internet.email
 
-        params = { invite_user: { email: email } }
+        params = {invite_user: {email: email}}
         expect { post :invite, params: params }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
 
       it "invites multiple users" do
         @request.session[:user_id] = @admin.id
         email = "#{Faker::Internet.email},#{Faker::Internet.email},#{Faker::Internet.email},#{Faker::Internet.email}"
-        post :invite, params: { invite_user: { email: email } }
+        post :invite, params: {invite_user: {email: email}}
 
         invite = Invitation.find_by(email: email.split(",")[0], provider: "provider1")
         expect(invite.present?).to eq(true)
@@ -144,7 +144,7 @@ describe AdminsController, type: :controller do
         @request.session[:user_id] = @admin.id
         email = "#{Faker::Internet.email},#{Faker::Internet.email},#{Faker::Internet.email},#{Faker::Internet.email}"
 
-        params = { invite_user: { email: email } }
+        params = {invite_user: {email: email}}
         expect { post :invite, params: params }.to change { ActionMailer::Base.deliveries.count }.by(4)
       end
     end
@@ -155,7 +155,7 @@ describe AdminsController, type: :controller do
 
         @user.set_role :pending
 
-        post :approve, params: { user_uid: @user.uid }
+        post :approve, params: {user_uid: @user.uid}
 
         @user.reload
 
@@ -168,7 +168,7 @@ describe AdminsController, type: :controller do
         @request.session[:user_id] = @admin.id
 
         @user.set_role :pending
-        params = { user_uid: @user.uid }
+        params = {user_uid: @user.uid}
         expect { post :approve, params: params }.to change { ActionMailer::Base.deliveries.count }.by(1)
       end
     end
@@ -181,7 +181,7 @@ describe AdminsController, type: :controller do
 
         expect(User.find_by(uid: @user.uid)).to be_nil
 
-        post :undelete, params: { user_uid: @user.uid }
+        post :undelete, params: {user_uid: @user.uid}
 
         expect(User.find_by(uid: @user.uid)).to be_present
         expect(flash[:success]).to be_present
@@ -196,7 +196,7 @@ describe AdminsController, type: :controller do
 
         expect(Room.find_by(uid: @user.main_room.uid)).to be_nil
 
-        post :undelete, params: { user_uid: @user.uid }
+        post :undelete, params: {user_uid: @user.uid}
 
         expect(Room.find_by(uid: @user.main_room.uid)).to be_present
         expect(flash[:success]).to be_present
@@ -213,7 +213,7 @@ describe AdminsController, type: :controller do
         room2 = create(:room, owner: @user2)
         room3 = @user2.main_room
 
-        post :merge_user, params: { user_uid: @user.uid, merge: @user2.uid }
+        post :merge_user, params: {user_uid: @user.uid, merge: @user2.uid}
 
         room1.reload
         room2.reload
@@ -233,7 +233,7 @@ describe AdminsController, type: :controller do
       it "does not merge if trying to merge the same user into themself" do
         @request.session[:user_id] = @admin.id
 
-        post :merge_user, params: { user_uid: @user.uid, merge: @user.uid }
+        post :merge_user, params: {user_uid: @user.uid, merge: @user.uid}
 
         expect(flash[:alert]).to be_present
         expect(response).to redirect_to(admins_path)
@@ -253,7 +253,7 @@ describe AdminsController, type: :controller do
 
         expect(@user.has_role?(:denied)).to eq(false)
 
-        post :ban_user, params: { user_uid: @user.uid }
+        post :ban_user, params: {user_uid: @user.uid}
 
         @user.reload
 
@@ -274,7 +274,7 @@ describe AdminsController, type: :controller do
 
         expect(@user.has_role?(:denied)).to eq(false)
 
-        post :ban_user, params: { user_uid: @user.uid }
+        post :ban_user, params: {user_uid: @user.uid}
 
         expect(response).to render_template "errors/greenlight_error"
       end
@@ -290,7 +290,7 @@ describe AdminsController, type: :controller do
         @request.session[:user_id] = @admin.id
         fake_image_url = "example.com"
 
-        post :update_settings, params: { setting: "Branding Image", value: fake_image_url }
+        post :update_settings, params: {setting: "Branding Image", value: fake_image_url}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Branding Image")
 
@@ -307,7 +307,7 @@ describe AdminsController, type: :controller do
         @request.session[:user_id] = @admin.id
         fake_url = "example.com"
 
-        post :update_settings, params: { setting: "Legal URL", value: fake_url }
+        post :update_settings, params: {setting: "Legal URL", value: fake_url}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Legal URL")
 
@@ -324,7 +324,7 @@ describe AdminsController, type: :controller do
         @request.session[:user_id] = @admin.id
         fake_url = "example.com"
 
-        post :update_settings, params: { setting: "Privacy Policy URL", value: fake_url }
+        post :update_settings, params: {setting: "Privacy Policy URL", value: fake_url}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Privacy Policy URL")
 
@@ -341,7 +341,7 @@ describe AdminsController, type: :controller do
         @request.session[:user_id] = @admin.id
         primary_color = Faker::Color.hex_color
 
-        post :coloring, params: { value: primary_color }
+        post :coloring, params: {value: primary_color}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Primary Color")
 
@@ -356,7 +356,7 @@ describe AdminsController, type: :controller do
         @request.session[:user_id] = @admin.id
         primary_color = Faker::Color.hex_color
 
-        post :update_settings, params: { setting: "Primary Color Lighten", value: primary_color }
+        post :update_settings, params: {setting: "Primary Color Lighten", value: primary_color}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Primary Color Lighten")
 
@@ -371,7 +371,7 @@ describe AdminsController, type: :controller do
         @request.session[:user_id] = @admin.id
         primary_color = Faker::Color.hex_color
 
-        post :update_settings, params: { setting: "Primary Color Darken", value: primary_color }
+        post :update_settings, params: {setting: "Primary Color Darken", value: primary_color}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Primary Color Darken")
 
@@ -390,7 +390,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        post :registration_method, params: { value: "invite" }
+        post :registration_method, params: {value: "invite"}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Registration Method")
 
@@ -406,7 +406,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        post :registration_method, params: { value: "invite" }
+        post :registration_method, params: {value: "invite"}
 
         expect(flash[:alert]).to be_present
         expect(response).to redirect_to(admin_site_settings_path)
@@ -420,7 +420,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        post :update_settings, params: { setting: "Room Authentication", value: "true" }
+        post :update_settings, params: {setting: "Room Authentication", value: "true"}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Room Authentication")
 
@@ -436,7 +436,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        post :update_settings, params: { setting: "Room Limit", value: 5 }
+        post :update_settings, params: {setting: "Room Limit", value: 5}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Room Limit")
 
@@ -452,7 +452,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        post :update_settings, params: { setting: "Default Recording Visibility", value: "public" }
+        post :update_settings, params: {setting: "Default Recording Visibility", value: "public"}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Default Recording Visibility")
 
@@ -468,7 +468,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        post :update_settings, params: { setting: "Shared Access", value: "false" }
+        post :update_settings, params: {setting: "Shared Access", value: "false"}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Shared Access")
 
@@ -516,7 +516,7 @@ describe AdminsController, type: :controller do
         @admin.set_role :super_admin
 
         expect(Rails.logger.level).to eq(0)
-        post :log_level, params: { value: 2 }
+        post :log_level, params: {value: 2}
         expect(Rails.logger.level).to eq(2)
       end
     end
@@ -532,7 +532,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @user2.id
 
-        post :update_settings, params: { setting: "Shared Access", value: "false" }
+        post :update_settings, params: {setting: "Shared Access", value: "false"}
 
         feature = Setting.find_by(provider: "provider1").features.find_by(name: "Shared Access")
 
@@ -550,7 +550,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @user2.id
 
-        post :update_settings, params: { setting: "Shared Access", value: "false" }
+        post :update_settings, params: {setting: "Shared Access", value: "false"}
 
         expect(response).to render_template "errors/greenlight_error"
       end
@@ -576,7 +576,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        get :roles, params: { selected_role: new_role.id }
+        get :roles, params: {selected_role: new_role.id}
 
         expect(response).to render_template :roles
         expect(assigns(:roles).count).to eq(3)
@@ -592,7 +592,7 @@ describe AdminsController, type: :controller do
       it "should fail with duplicate role name" do
         @request.session[:user_id] = @admin.id
 
-        post :new_role, params: { role: { name: "admin" } }
+        post :new_role, params: {role: {name: "admin"}}
 
         expect(response).to redirect_to admin_roles_path
         expect(flash[:alert]).to eq(I18n.t("administrator.roles.invalid_create"))
@@ -601,7 +601,7 @@ describe AdminsController, type: :controller do
       it "should fail with empty role name" do
         @request.session[:user_id] = @admin.id
 
-        post :new_role, params: { role: { name: "    " } }
+        post :new_role, params: {role: {name: "    "}}
 
         expect(response).to redirect_to admin_roles_path
         expect(flash[:alert]).to eq(I18n.t("administrator.roles.invalid_create"))
@@ -610,7 +610,7 @@ describe AdminsController, type: :controller do
       it "should create new role and increase user role priority" do
         @request.session[:user_id] = @admin.id
 
-        post :new_role, params: { role: { name: "test" } }
+        post :new_role, params: {role: {name: "test"}}
 
         new_role = Role.find_by(name: "test", provider: "provider1")
         user_role = Role.find_by(name: "user", provider: "provider1")
@@ -633,7 +633,7 @@ describe AdminsController, type: :controller do
         user_role = Role.find_by(name: "user", provider: "provider1")
         admin_role = Role.find_by(name: "admin", provider: "provider1")
 
-        patch :change_role_order, params: { role: [user_role.id, admin_role.id] }
+        patch :change_role_order, params: {role: [user_role.id, admin_role.id]}
 
         expect(flash[:alert]).to eq(I18n.t("administrator.roles.invalid_order"))
         expect(response).to redirect_to admin_roles_path
@@ -649,7 +649,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @user.id
 
-        patch :change_role_order, params: { role: [new_role3.id, new_role2.id] }
+        patch :change_role_order, params: {role: [new_role3.id, new_role2.id]}
 
         expect(flash[:alert]).to eq(I18n.t("administrator.roles.invalid_order"))
         expect(response).to redirect_to admin_roles_path
@@ -664,7 +664,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        patch :change_role_order, params: { role: [new_role3.id, new_role2.id, new_role1.id] }
+        patch :change_role_order, params: {role: [new_role3.id, new_role2.id, new_role1.id]}
 
         new_role1.reload
         new_role2.reload
@@ -696,7 +696,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @user.id
 
-        patch :update_role, params: { role_id: new_role1.id }
+        patch :update_role, params: {role_id: new_role1.id}
 
         expect(flash[:alert]).to eq(I18n.t("administrator.roles.invalid_update"))
         expect(response).to redirect_to admin_roles_path(selected_role: new_role1.id)
@@ -708,7 +708,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        patch :update_role, params: { role_id: new_role.id, role: { name: "admin" } }
+        patch :update_role, params: {role_id: new_role.id, role: {name: "admin"}}
 
         expect(flash[:alert]).to eq(I18n.t("administrator.roles.invalid_update"))
         expect(response).to redirect_to admin_roles_path(selected_role: new_role.id)
@@ -720,8 +720,8 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        patch :update_role, params: { role_id: new_role.id, role: { name: "test", can_edit_roles: false,
-          colour: "#45434", can_manage_users: true } }
+        patch :update_role, params: {role_id: new_role.id, role: {name: "test", can_edit_roles: false,
+                                                                  colour: "#45434", can_manage_users: true}}
 
         new_role.reload
         expect(new_role.name).to eq("test")
@@ -742,8 +742,8 @@ describe AdminsController, type: :controller do
         expect(new_user.role.get_permission("can_create_rooms")).to eq(false)
         expect(new_user.main_room).to be_nil
 
-        patch :update_role, params: { role_id: new_role.id, role: { name: "test", can_create_rooms: true,
-          colour: "#45434" } }
+        patch :update_role, params: {role_id: new_role.id, role: {name: "test", can_create_rooms: true,
+                                                                  colour: "#45434"}}
 
         new_user.reload
         expect(new_user.role.get_permission("can_create_rooms")).to eq(true)
@@ -761,7 +761,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        delete :delete_role, params: { role_id: admin_role.id }
+        delete :delete_role, params: {role_id: admin_role.id}
 
         expect(flash[:alert]).to eq(I18n.t("administrator.roles.role_has_users", user_count: 1))
         expect(response).to redirect_to admin_roles_path(selected_role: admin_role.id)
@@ -772,7 +772,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        delete :delete_role, params: { role_id: pending_role.id }
+        delete :delete_role, params: {role_id: pending_role.id}
 
         expect(response).to redirect_to admin_roles_path(selected_role: pending_role.id)
       end
@@ -783,7 +783,7 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @admin.id
 
-        delete :delete_role, params: { role_id: new_role.id }
+        delete :delete_role, params: {role_id: new_role.id}
 
         expect(Role.where(name: "test2", provider: "provider1").count).to eq(0)
         expect(response).to redirect_to admin_roles_path
@@ -804,8 +804,8 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @user2.id
 
-        patch :update_role, params: { role_id: new_role.id, role: { name: "test3", can_edit_roles: false,
-          colour: "#45434", can_manage_users: true } }
+        patch :update_role, params: {role_id: new_role.id, role: {name: "test3", can_edit_roles: false,
+                                                                  colour: "#45434", can_manage_users: true}}
 
         new_role.reload
         expect(new_role.name).to eq("test3")
@@ -825,8 +825,8 @@ describe AdminsController, type: :controller do
 
         @request.session[:user_id] = @user2.id
 
-        patch :update_role, params: { role_id: new_role.id, role: { name: "test3", can_edit_roles: false,
-          colour: "#45434", can_manage_users: true } }
+        patch :update_role, params: {role_id: new_role.id, role: {name: "test3", can_edit_roles: false,
+                                                                  colour: "#45434", can_manage_users: true}}
 
         expect(response).to render_template "errors/greenlight_error"
       end

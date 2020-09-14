@@ -106,7 +106,7 @@ zh_CN:
       demoted: 用户已成功降级
       invite: "邀请成功发送到 %{email}"
       invite_email_verification: 必须启用电子邮件才能使用此方法。请与系统管理员联系。
-      merge_fail: 合并用户帐户时出现问题，请检查选定的用户并重试。 
+      merge_fail: 合并用户帐户时出现问题，请检查选定的用户并重试。
       merge_success: 用户帐户成功合并
       perm_deleted: 用户已被永久删除
       promoted: 用户已成功升级
@@ -136,7 +136,7 @@ zh_CN:
       edit_site_settings: 允许具有此角色的用户编辑网站设置
       edit_roles: 允许具有此角色的用户编辑其他角色
       manage_users: 允许具有此角色的用户管理用户
-      invalid_assignment: 将角色分配给用户时出现问题。请检查赋值并重试。 
+      invalid_assignment: 将角色分配给用户时出现问题。请检查赋值并重试。
       colour:
         title: 角色颜色
         info: 设置将与角色关联的颜色
@@ -473,7 +473,7 @@ zh_CN:
       fail: 您的帐户尚未批准。如果您注册后已过多天，请与管理员联系。
       signup: 您的帐户创建完成，稍后管理员会审批。
     banned:
-      fail: 您没有访问此应用程序的权限。如果您认为这是一个错误，请联系您的管理员。 
+      fail: 您没有访问此应用程序的权限。如果您认为这是一个错误，请联系您的管理员。
     deprecated:
       new_signin: 为您的帐户选择新的登录方法。旧帐户中的所有会议室都将迁移到新帐户。
       twitter_signin: "通过Twitter登录已被弃用并将在下一版本中删除。 点击 <a href=\"%{link}\"> 这里 </a> 将您的帐户移动到新的身份验证方法。"

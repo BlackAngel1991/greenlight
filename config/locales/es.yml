@@ -102,7 +102,7 @@ es:
       edit_site_settings: Permitir a los usuarios con este rol editar configuraciones
       edit_roles: Permitir a los usuarios con este rol editar otros roles
       manage_users: Permitir a los usuarios con este rol manejar otros usuarios
-      invalid_assignment: Ocurrió un error al asignar el rol o los roles al usuario. Verifique los valores asignados e inténtelo nuevamente 
+      invalid_assignment: Ocurrió un error al asignar el rol o los roles al usuario. Verifique los valores asignados e inténtelo nuevamente
       colour:
         title: Color del rol
         info: Defina el color que será asociado al rol
@@ -390,7 +390,7 @@ es:
       fail: "Tú cuenta de usuario todavía no ha sido autorizada. Si han pasado varios días desde tú registro, te sugerimos contactar al administrador."
       signup: Tú cuenta de usuario ha sido creada y se le ha enviado una notificación al administrador para su autorización.
     banned:
-      fail: "No tienes acceso a esta aplicación. Sí tu crees que este es un error, contacta al administrador del sistema." 
+      fail: "No tienes acceso a esta aplicación. Sí tu crees que este es un error, contacta al administrador del sistema."
     deprecated:
       new_signin: "Selecciona un nuevo método de autenticación. Todas las salas vinculadas a tu cuenta anterior serán migradas a la cuenta nueva "
       twitter_signin: "El ingreso a través de Twitter es obsoleto y sera eliminado en la siguiente versión. Haz click <a href=\"%{link}\"> aquí </a> para mover tu cuenta de usuario y su contenido a una cuenta ligada a otro método de autenticación"

@@ -21,28 +21,28 @@ require "rails_helper"
 def random_valid_user_params
   pass = Faker::Internet.password(min_length: 8)
   {
-    user: {
-      name: Faker::Name.first_name,
-      email: Faker::Internet.email,
-      password: pass,
-      password_confirmation: pass,
-      accepted_terms: true,
-      email_verified: true,
-    },
+      user: {
+          name: Faker::Name.first_name,
+          email: Faker::Internet.email,
+          password: pass,
+          password_confirmation: pass,
+          accepted_terms: true,
+          email_verified: true,
+      },
   }
 end
 
 describe UsersController, type: :controller do
   let(:invalid_params) do
     {
-      user: {
-        name: "Invalid",
-        email: "example.com",
-        password: "pass",
-        password_confirmation: "invalid",
-        accepted_terms: false,
-        email_verified: false,
-      },
+        user: {
+            name: "Invalid",
+            email: "example.com",
+            password: "pass",
+            password_confirmation: "invalid",
+            accepted_terms: false,
+            email_verified: false,
+        },
     }
   end
 
@@ -52,7 +52,7 @@ describe UsersController, type: :controller do
 
       @request.session[:user_id] = user.id
 
-      get :edit, params: { user_uid: user.uid }
+      get :edit, params: {user_uid: user.uid}
 
       expect(response).to render_template(:edit)
     end
@@ -63,7 +63,7 @@ describe UsersController, type: :controller do
 
       @request.session[:user_id] = user.id
 
-      get :edit, params: { user_uid: user2.uid }
+      get :edit, params: {user_uid: user2.uid}
 
       expect(response).to redirect_to(user.main_room)
     end
@@ -80,7 +80,7 @@ describe UsersController, type: :controller do
 
       @request.session[:user_id] = user.id
 
-      get :edit, params: { user_uid: user2.uid }
+      get :edit, params: {user_uid: user2.uid}
 
       expect(response).to render_template(:edit)
     end
@@ -88,7 +88,7 @@ describe UsersController, type: :controller do
     it "redirect to root if user isn't signed in" do
       user = create(:user)
 
-      get :edit, params: { user_uid: user }
+      get :edit, params: {user_uid: user}
       expect(response).to redirect_to(root_path)
     end
   end
@@ -330,7 +330,7 @@ describe UsersController, type: :controller do
         tmp_role = Role.create(name: "test", priority: -4, provider: "greenlight")
 
         params = random_valid_user_params
-        post :update, params: params.merge!(user_uid: user, user: { role_id: tmp_role.id.to_s })
+        post :update, params: params.merge!(user_uid: user, user: {role_id: tmp_role.id.to_s})
 
         expect(flash[:alert]).to eq(I18n.t("administrator.roles.invalid_assignment"))
         expect(response).to render_template(:edit)
@@ -350,7 +350,7 @@ describe UsersController, type: :controller do
         tmp_role1.update_permission("send_promoted_email", "true")
 
         params = random_valid_user_params
-        params = params.merge!(user_uid: user, user: { role_id: tmp_role1.id.to_s })
+        params = params.merge!(user_uid: user, user: {role_id: tmp_role1.id.to_s})
 
         expect { post :update, params: params }.to change { ActionMailer::Base.deliveries.count }.by(1)
 
@@ -374,7 +374,7 @@ describe UsersController, type: :controller do
         @request.session[:user_id] = admin.id
 
         params = random_valid_user_params
-        params = params.merge!(user_uid: user, user: { role_id: new_role.id.to_s })
+        params = params.merge!(user_uid: user, user: {role_id: new_role.id.to_s})
 
         expect(user.role.name).to eq("test1")
         expect(user.main_room).to be_nil
@@ -399,11 +399,11 @@ describe UsersController, type: :controller do
       @request.session[:user_id] = @user.id
 
       params = {
-        user: {
-          password: @user.password,
-          new_password: @password,
-          password_confirmation: @password,
-        }
+          user: {
+              password: @user.password,
+              new_password: @password,
+              password_confirmation: @password,
+          }
       }
       post :update_password, params: params.merge!(user_uid: @user)
       @user.reload
@@ -418,11 +418,11 @@ describe UsersController, type: :controller do
       @request.session[:user_id] = @user.id
 
       params = {
-        user: {
-          password: "incorrect_password",
-          new_password: @password,
-          password_confirmation: @password,
-        }
+          user: {
+              password: "incorrect_password",
+              new_password: @password,
+              password_confirmation: @password,
+          }
       }
       post :update_password, params: params.merge!(user_uid: @user)
       @user.reload
@@ -434,11 +434,11 @@ describe UsersController, type: :controller do
       @request.session[:user_id] = @user.id
 
       params = {
-        user: {
-          password: "incorrect_password",
-          new_password: @password,
-          password_confirmation: @password + "_random_string",
-        }
+          user: {
+              password: "incorrect_password",
+              new_password: @password,
+              password_confirmation: @password + "_random_string",
+          }
       }
       post :update_password, params: params.merge!(user_uid: @user)
       @user.reload
@@ -457,7 +457,7 @@ describe UsersController, type: :controller do
       user = create(:user)
       @request.session[:user_id] = user.id
 
-      delete :destroy, params: { user_uid: user.uid }
+      delete :destroy, params: {user_uid: user.uid}
 
       expect(User.include_deleted.find_by(uid: user.uid)).to be_nil
       expect(response).to redirect_to(root_path)
@@ -474,7 +474,7 @@ describe UsersController, type: :controller do
       admin.set_role :admin
       @request.session[:user_id] = admin.id
 
-      delete :destroy, params: { user_uid: user.uid }
+      delete :destroy, params: {user_uid: user.uid}
 
       expect(User.deleted.find_by(uid: user.uid)).to be_present
       expect(flash[:success]).to be_present
@@ -492,7 +492,7 @@ describe UsersController, type: :controller do
       admin.set_role :admin
       @request.session[:user_id] = admin.id
 
-      delete :destroy, params: { user_uid: user.uid, permanent: "true" }
+      delete :destroy, params: {user_uid: user.uid, permanent: "true"}
 
       expect(User.include_deleted.find_by(uid: user.uid)).to be_nil
       expect(flash[:success]).to be_present
@@ -513,7 +513,7 @@ describe UsersController, type: :controller do
 
       expect(Room.find_by(uid: uid)).to be_present
 
-      delete :destroy, params: { user_uid: user.uid, permanent: "true" }
+      delete :destroy, params: {user_uid: user.uid, permanent: "true"}
 
       expect(Room.include_deleted.find_by(uid: uid)).to be_nil
       expect(flash[:success]).to be_present
@@ -531,7 +531,7 @@ describe UsersController, type: :controller do
       admin.set_role :admin
       @request.session[:user_id] = admin.id
 
-      delete :destroy, params: { user_uid: user.uid }
+      delete :destroy, params: {user_uid: user.uid}
 
       expect(flash[:alert]).to be_present
       expect(response).to redirect_to(admins_path)
@@ -543,7 +543,7 @@ describe UsersController, type: :controller do
     before { allow(Rails.configuration).to receive(:terms).and_return(false) }
 
     it "Redirects to 404 if terms is disabled" do
-      post :terms, params: { accept: "false" }
+      post :terms, params: {accept: "false"}
 
       expect(response).to redirect_to('/404')
     end
@@ -556,7 +556,7 @@ describe UsersController, type: :controller do
     end
 
     it "redirects to root if the incorrect user tries to access the page" do
-      get :recordings, params: { current_user: @user2, user_uid: @user1.uid }
+      get :recordings, params: {current_user: @user2, user_uid: @user1.uid}
 
       expect(response).to redirect_to(root_path)
     end

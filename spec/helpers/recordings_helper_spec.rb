@@ -28,17 +28,17 @@ describe RecordingsHelper do
 
   describe "#recording_length" do
     it "returns the time if length > 60" do
-      playbacks = [{ type: "test", length: 85 }]
+      playbacks = [{type: "test", length: 85}]
       expect(helper.recording_length(playbacks)).to eql("1 h 25 min")
     end
 
     it "returns the time if length == 0" do
-      playbacks = [{ type: "test", length: 0 }]
+      playbacks = [{type: "test", length: 0}]
       expect(helper.recording_length(playbacks)).to eql("< 1 min")
     end
 
     it "returns the time if length between 0 and 60" do
-      playbacks = [{ type: "test", length: 45 }]
+      playbacks = [{type: "test", length: 45}]
       expect(helper.recording_length(playbacks)).to eql("45 min")
     end
   end

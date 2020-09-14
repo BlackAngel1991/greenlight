@@ -37,7 +37,7 @@ class PasswordResetsController < ApplicationController
       redirect_to root_path
     rescue
       # User doesn't exist
-      redirect_to root_path, flash: { success: I18n.t("email_sent", email_type: t("reset_password.subtitle")) }
+      redirect_to root_path, flash: {success: I18n.t("email_sent", email_type: t("reset_password.subtitle"))}
     end
   end
 
@@ -57,7 +57,7 @@ class PasswordResetsController < ApplicationController
       # Clear the user's social uid if they are switching from a social to a local account
       @user.update_attribute(:social_uid, nil) if @user.social_uid.present?
       # Successfully reset password
-      return redirect_to root_path, flash: { success: I18n.t("password_reset_success") }
+      return redirect_to root_path, flash: {success: I18n.t("password_reset_success")}
     end
 
     render 'edit'

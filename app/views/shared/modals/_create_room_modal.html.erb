@@ -1,16 +1,16 @@
 <%
-# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
-# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
-# This program is free software; you can redistribute it and/or modify it under the
-# terms of the GNU Lesser General Public License as published by the Free Software
-# Foundation; either version 3.0 of the License, or (at your option) any later
-# version.
-#
-# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
-# You should have received a copy of the GNU Lesser General Public License along
-# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+  # BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+  # Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+  # This program is free software; you can redistribute it and/or modify it under the
+  # terms of the GNU Lesser General Public License as published by the Free Software
+  # Foundation; either version 3.0 of the License, or (at your option) any later
+  # version.
+  #
+  # BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+  # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+  # PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+  # You should have received a copy of the GNU Lesser General Public License along
+  # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
 
 <div class="modal fade" id="createRoomModal" tabindex="-1" role="dialog">
@@ -46,8 +46,8 @@
             <% mute = room_configuration("Room Configuration Mute On Join") %>
             <% if mute != "disabled" %>
               <label class="custom-switch pr-0 mt-3 mb-3 w-100 text-right d-inline-block <%= "enabled-setting" if mute == "enabled" %>">
-                <span class="custom-switch-description"><%= t("modal.room_settings.mute")%></span>
-                <%= f.check_box :mute_on_join, class: "custom-switch-input", data: { default: mute == "enabled" }, checked: false %>
+                <span class="custom-switch-description"><%= t("modal.room_settings.mute") %></span>
+                <%= f.check_box :mute_on_join, class: "custom-switch-input", data: {default: mute == "enabled"}, checked: false %>
                 <span class="custom-switch-indicator float-left cursor-pointer"></span>
               </label>
             <% end %>
@@ -55,17 +55,17 @@
             <% require_approval = room_configuration("Room Configuration Require Moderator") %>
             <% if require_approval != "disabled" %>
               <label class="custom-switch pr-0 mt-3 mb-3 w-100 text-right d-inline-block <%= "enabled-setting" if require_approval == "enabled" %>">
-                <span class="custom-switch-description"><%= t("modal.room_settings.require_approval")%></span>
-                <%= f.check_box :require_moderator_approval, class: "custom-switch-input", data: { default: require_approval == "enabled" }, checked: false %>
+                <span class="custom-switch-description"><%= t("modal.room_settings.require_approval") %></span>
+                <%= f.check_box :require_moderator_approval, class: "custom-switch-input", data: {default: require_approval == "enabled"}, checked: false %>
                 <span class="custom-switch-indicator float-left cursor-pointer"></span>
               </label>
             <% end %>
-            
+
             <% any_start = room_configuration("Room Configuration Allow Any Start") %>
             <% if any_start != "disabled" %>
               <label class="custom-switch pr-0 mt-3 mb-3 w-100 text-right d-inline-block <%= "enabled-setting" if any_start == "enabled" %>">
-                <span class="custom-switch-description"><%= t("modal.room_settings.start")%></span>
-                <%= f.check_box :anyone_can_start, class: "custom-switch-input", data: { default: any_start == "enabled" }, checked: false %>
+                <span class="custom-switch-description"><%= t("modal.room_settings.start") %></span>
+                <%= f.check_box :anyone_can_start, class: "custom-switch-input", data: {default: any_start == "enabled"}, checked: false %>
                 <span class="custom-switch-indicator float-left cursor-pointer"></span>
               </label>
             <% end %>
@@ -73,8 +73,8 @@
             <% moderator = room_configuration("Room Configuration All Join Moderator") %>
             <% if moderator != "disabled" %>
               <label class="custom-switch pr-0 mt-3 mb-3 w-100 text-right d-inline-block <%= "enabled-setting" if moderator == "enabled" %>">
-                <span class="custom-switch-description"><%= t("modal.room_settings.join_moderator")%></span>
-                <%= f.check_box :all_join_moderator, class: "custom-switch-input", data: { default: moderator == "enabled" }, checked: false %>
+                <span class="custom-switch-description"><%= t("modal.room_settings.join_moderator") %></span>
+                <%= f.check_box :all_join_moderator, class: "custom-switch-input", data: {default: moderator == "enabled"}, checked: false %>
                 <span class="custom-switch-indicator float-left cursor-pointer"></span>
               </label>
             <% end %>
@@ -84,10 +84,10 @@
               <%= f.check_box :auto_join, class: "custom-switch-input", checked: false %>
               <span class="custom-switch-indicator float-left cursor-pointer"></span>
             </label>
-          <div class="mt-4">
-            <%= f.submit t("modal.create_room.create"), class: "create-only btn btn-primary btn-block" %>
-            <%= f.submit t("modal.room_settings.update"), class: "update-only btn btn-primary btn-block" %>
-          </div>
+            <div class="mt-4">
+              <%= f.submit t("modal.create_room.create"), class: "create-only btn btn-primary btn-block" %>
+              <%= f.submit t("modal.room_settings.update"), class: "update-only btn btn-primary btn-block" %>
+            </div>
           <% end %>
         </div>
         <div class="card-footer">

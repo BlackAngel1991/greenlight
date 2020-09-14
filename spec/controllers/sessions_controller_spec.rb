@@ -100,10 +100,10 @@ describe SessionsController, type: :controller do
 
     it "should login user in if credentials valid" do
       post :create, params: {
-        session: {
-          email: @user1.email,
-          password: 'example',
-        },
+          session: {
+              email: @user1.email,
+              password: 'example',
+          },
       }
 
       expect(@request.session[:user_id]).to eql(@user1.id)
@@ -111,10 +111,10 @@ describe SessionsController, type: :controller do
 
     it "should not login user in if credentials invalid" do
       post :create, params: {
-        session: {
-          email: @user1.email,
-          password: 'invalid',
-        },
+          session: {
+              email: @user1.email,
+              password: 'invalid',
+          },
       }
 
       expect(@request.session[:user_id]).to be_nil
@@ -122,10 +122,10 @@ describe SessionsController, type: :controller do
 
     it "should not login user in if account mismatch" do
       post :create, params: {
-        session: {
-          email: @user2.email,
-          password: "example",
-        },
+          session: {
+              email: @user2.email,
+              password: "example",
+          },
       }
 
       expect(@request.session[:user_id]).to be_nil
@@ -133,13 +133,13 @@ describe SessionsController, type: :controller do
 
     it "should not login user if account is not verified" do
       @user3 = create(:user, email_verified: false, provider: "greenlight",
-        password: "example", password_confirmation: 'example')
+                      password: "example", password_confirmation: 'example')
 
       post :create, params: {
-        session: {
-          email: @user3.email,
-          password: 'example',
-        },
+          session: {
+              email: @user3.email,
+              password: 'example',
+          },
       }
 
       expect(@request.session[:user_id]).to be_nil
@@ -149,17 +149,17 @@ describe SessionsController, type: :controller do
 
     it "should not login user if account is deleted" do
       user = create(:user, provider: "greenlight",
-        password: "example", password_confirmation: 'example')
+                    password: "example", password_confirmation: 'example')
 
       user.delete
       user.reload
       expect(user.deleted?).to be true
 
       post :create, params: {
-        session: {
-          email: user.email,
-          password: 'example',
-        },
+          session: {
+              email: user.email,
+              password: 'example',
+          },
       }
 
       expect(@request.session[:user_id]).to be_nil
@@ -169,17 +169,17 @@ describe SessionsController, type: :controller do
 
     it "redirects the user to the page they clicked sign in from" do
       user = create(:user, provider: "greenlight",
-        password: "example", password_confirmation: 'example')
+                    password: "example", password_confirmation: 'example')
 
       url = Faker::Internet.domain_name
 
       @request.cookies[:return_to] = url
 
       post :create, params: {
-        session: {
-          email: user.email,
-          password: 'example',
-        },
+          session: {
+              email: user.email,
+              password: 'example',
+          },
       }
 
       expect(@request.session[:user_id]).to eql(user.id)
@@ -188,15 +188,15 @@ describe SessionsController, type: :controller do
 
     it "redirects the user to their home room if they clicked the sign in button from root" do
       user = create(:user, provider: "greenlight",
-        password: "example", password_confirmation: 'example')
+                    password: "example", password_confirmation: 'example')
 
       @request.cookies[:return_to] = root_url
 
       post :create, params: {
-        session: {
-          email: user.email,
-          password: 'example',
-        },
+          session: {
+              email: user.email,
+              password: 'example',
+          },
       }
 
       expect(@request.session[:user_id]).to eql(user.id)
@@ -205,13 +205,13 @@ describe SessionsController, type: :controller do
 
     it "redirects the user to their home room if return_to cookie doesn't exist" do
       user = create(:user, provider: "greenlight",
-        password: "example", password_confirmation: 'example')
+                    password: "example", password_confirmation: 'example')
 
       post :create, params: {
-        session: {
-          email: user.email,
-          password: 'example',
-        },
+          session: {
+              email: user.email,
+              password: 'example',
+          },
       }
 
       expect(@request.session[:user_id]).to eql(user.id)
@@ -220,14 +220,14 @@ describe SessionsController, type: :controller do
 
     it "redirects to the admins page for admins" do
       user = create(:user, provider: "greenlight",
-        password: "example", password_confirmation: 'example')
+                    password: "example", password_confirmation: 'example')
       user.set_role :super_admin
 
       post :create, params: {
-        session: {
-          email: user.email,
-          password: 'example',
-        },
+          session: {
+              email: user.email,
+              password: 'example',
+          },
       }
 
       expect(@request.session[:user_id]).to eql(user.id)
@@ -236,19 +236,19 @@ describe SessionsController, type: :controller do
 
     it "should migrate old rooms from the twitter account to the new user" do
       twitter_user = create(:user, name: "Twitter User", email: "user@twitter.com", image: "example.png",
-        username: "twitteruser", email_verified: true, provider: 'twitter', social_uid: "twitter-user")
+                            username: "twitteruser", email_verified: true, provider: 'twitter', social_uid: "twitter-user")
 
       room = Room.new(name: "Test")
       room.owner = twitter_user
       room.save!
 
       post :create, params: {
-        session: {
-          email: @user1.email,
-          password: 'example',
-        },
+          session: {
+              email: @user1.email,
+              password: 'example',
+          },
       }, session: {
-        old_twitter_user_id: twitter_user.id
+          old_twitter_user_id: twitter_user.id
       }
 
       @user1.reload
@@ -265,10 +265,10 @@ describe SessionsController, type: :controller do
 
       expect {
         post :create, params: {
-          session: {
-            email: email,
-            password: 'example',
-          },
+            session: {
+                email: email,
+                password: 'example',
+            },
         }
       }.to change { ActionMailer::Base.deliveries.count }.by(1)
     end
@@ -279,38 +279,38 @@ describe SessionsController, type: :controller do
       OmniAuth.config.test_mode = true
 
       OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new(
-        provider: "twitter",
-        uid: "twitter-user",
-        info: {
-          email: "user@twitter.com",
-          name: "Twitter User",
-          nickname: "twitteruser",
-          image: "example.png",
-        },
+          provider: "twitter",
+          uid: "twitter-user",
+          info: {
+              email: "user@twitter.com",
+              name: "Twitter User",
+              nickname: "twitteruser",
+              image: "example.png",
+          },
       )
 
       OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new(
-        provider: "google",
-        uid: "google-user",
-        info: {
-          email: "user@google.com",
-          name: "Google User",
-          nickname: "googleuser",
-          image: "touch.png",
-          customer: 'customer1',
-        }
+          provider: "google",
+          uid: "google-user",
+          info: {
+              email: "user@google.com",
+              name: "Google User",
+              nickname: "googleuser",
+              image: "touch.png",
+              customer: 'customer1',
+          }
       )
 
       OmniAuth.config.mock_auth[:bn_launcher] = OmniAuth::AuthHash.new(
-        provider: "bn_launcher",
-        uid: "bn-launcher-user",
-        info: {
-          email: "user@google.com",
-          name: "Google User",
-          nickname: "googleuser",
-          image: "touch.png",
-          customer: 'customer1',
-        }
+          provider: "bn_launcher",
+          uid: "bn-launcher-user",
+          info: {
+              email: "user@google.com",
+              name: "Google User",
+              nickname: "googleuser",
+              image: "touch.png",
+              customer: 'customer1',
+          }
       )
 
       OmniAuth.config.on_failure = proc { |env|
@@ -320,7 +320,7 @@ describe SessionsController, type: :controller do
 
     it "should create and login user with omniauth google" do
       request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google]
-      get :omniauth, params: { provider: :google }
+      get :omniauth, params: {provider: :google}
 
       u = User.last
       expect(u.provider).to eql("google")
@@ -330,7 +330,7 @@ describe SessionsController, type: :controller do
 
     it "should create and login user with omniauth bn launcher" do
       request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:bn_launcher]
-      get :omniauth, params: { provider: 'bn_launcher' }
+      get :omniauth, params: {provider: 'bn_launcher'}
 
       u = User.last
       expect(u.provider).to eql("customer1")
@@ -341,7 +341,7 @@ describe SessionsController, type: :controller do
     it "redirects a deleted user to the root page" do
       # Create the user first
       request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:bn_launcher]
-      get :omniauth, params: { provider: 'bn_launcher' }
+      get :omniauth, params: {provider: 'bn_launcher'}
 
       # Delete the user
       user = User.find_by(social_uid: "bn-launcher-user")
@@ -352,7 +352,7 @@ describe SessionsController, type: :controller do
       expect(user.deleted?).to be true
 
       # Try to sign back in
-      get :omniauth, params: { provider: 'bn_launcher' }
+      get :omniauth, params: {provider: 'bn_launcher'}
 
       expect(@request.session[:user_id]).to be_nil
       expect(flash[:alert]).to eq(I18n.t("registration.banned.fail"))
@@ -361,13 +361,13 @@ describe SessionsController, type: :controller do
 
     it "should redirect to root on invalid omniauth login" do
       request.env["omniauth.auth"] = :invalid_credentials
-      get :omniauth, params: { provider: :google }
+      get :omniauth, params: {provider: :google}
 
       expect(response).to redirect_to(root_path)
     end
 
     it "should not create session without omniauth env set for google" do
-      get :omniauth, params: { provider: 'google' }
+      get :omniauth, params: {provider: 'google'}
 
       expect(response).to redirect_to(root_path)
     end
@@ -375,7 +375,7 @@ describe SessionsController, type: :controller do
     context 'twitter deprecation' do
       it "should not allow new user sign up with omniauth twitter" do
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
-        get :omniauth, params: { provider: :twitter }
+        get :omniauth, params: {provider: :twitter}
 
         expect(response).to redirect_to(root_path)
         expect(flash[:alert]).to eq(I18n.t("registration.deprecated.twitter_signup"))
@@ -384,25 +384,25 @@ describe SessionsController, type: :controller do
       it "should notify twitter users that twitter is deprecated" do
         allow(Rails.configuration).to receive(:allow_user_signup).and_return(true)
         twitter_user = create(:user, name: "Twitter User", email: "user@twitter.com", image: "example.png",
-          username: "twitteruser", email_verified: true, provider: 'twitter', social_uid: "twitter-user")
+                              username: "twitteruser", email_verified: true, provider: 'twitter', social_uid: "twitter-user")
 
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
-        get :omniauth, params: { provider: :twitter }
+        get :omniauth, params: {provider: :twitter}
 
         expect(flash[:alert]).to eq(I18n.t("registration.deprecated.twitter_signin",
-          link: signup_path(old_twitter_user_id: twitter_user.id)))
+                                           link: signup_path(old_twitter_user_id: twitter_user.id)))
       end
 
       it "should migrate rooms from the twitter account to the google account" do
         twitter_user = create(:user, name: "Twitter User", email: "user@twitter.com", image: "example.png",
-          username: "twitteruser", email_verified: true, provider: 'twitter', social_uid: "twitter-user")
+                              username: "twitteruser", email_verified: true, provider: 'twitter', social_uid: "twitter-user")
 
         room = Room.new(name: "Test")
         room.owner = twitter_user
         room.save!
 
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google]
-        get :omniauth, params: { provider: :google }, session: { old_twitter_user_id: twitter_user.id }
+        get :omniauth, params: {provider: :google}, session: {old_twitter_user_id: twitter_user.id}
 
         u = User.last
         expect(u.provider).to eql("google")
@@ -427,8 +427,8 @@ describe SessionsController, type: :controller do
 
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:bn_launcher]
 
-        expect { get :omniauth, params: { provider: 'bn_launcher' } }
-          .to change { ActionMailer::Base.deliveries.count }.by(1)
+        expect { get :omniauth, params: {provider: 'bn_launcher'} }
+            .to change { ActionMailer::Base.deliveries.count }.by(1)
       end
 
       it "should notify admin on new user signup with invite registration" do
@@ -439,20 +439,20 @@ describe SessionsController, type: :controller do
 
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:bn_launcher]
 
-        expect { get :omniauth, params: { provider: 'bn_launcher' } }
-          .to change { ActionMailer::Base.deliveries.count }.by(1)
+        expect { get :omniauth, params: {provider: 'bn_launcher'} }
+            .to change { ActionMailer::Base.deliveries.count }.by(1)
       end
     end
 
     it "should not create session without omniauth env set for bn_launcher" do
-      get :omniauth, params: { provider: 'bn_launcher' }
+      get :omniauth, params: {provider: 'bn_launcher'}
 
       expect(response).to redirect_to(root_path)
     end
 
     it "switches a social account to a different social account if the authentication method changed" do
       request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:bn_launcher]
-      get :omniauth, params: { provider: 'bn_launcher' }
+      get :omniauth, params: {provider: 'bn_launcher'}
 
       u = User.find_by(social_uid: "bn-launcher-user")
       u.social_uid = nil
@@ -460,15 +460,15 @@ describe SessionsController, type: :controller do
       u.save!
 
       new_user = OmniAuth::AuthHash.new(
-        provider: "bn_launcher",
-        uid: "bn-launcher-user-new",
-        info: {
-          email: "user@google.com",
-          name: "Office User",
-          nickname: "googleuser",
-          image: "touch.png",
-          customer: 'customer1',
-        }
+          provider: "bn_launcher",
+          uid: "bn-launcher-user-new",
+          info: {
+              email: "user@google.com",
+              name: "Office User",
+              nickname: "googleuser",
+              image: "touch.png",
+              customer: 'customer1',
+          }
       )
 
       allow_any_instance_of(SessionsController).to receive(:auth_changed_to_social?).and_return(true)
@@ -476,7 +476,7 @@ describe SessionsController, type: :controller do
       controller.instance_variable_set(:@user_domain, "customer1")
 
       request.env["omniauth.auth"] = new_user
-      get :omniauth, params: { provider: 'bn_launcher' }
+      get :omniauth, params: {provider: 'bn_launcher'}
 
       new_u = User.find_by(social_uid: "bn-launcher-user-new")
       expect(users_old_uid).to eq(new_u.uid)
@@ -488,15 +488,15 @@ describe SessionsController, type: :controller do
       users_old_uid = user.uid
 
       new_user = OmniAuth::AuthHash.new(
-        provider: "bn_launcher",
-        uid: "bn-launcher-user-new",
-        info: {
-          email: email,
-          name: "Office User",
-          nickname: "googleuser",
-          image: "touch.png",
-          customer: 'customer1',
-        }
+          provider: "bn_launcher",
+          uid: "bn-launcher-user-new",
+          info: {
+              email: email,
+              name: "Office User",
+              nickname: "googleuser",
+              image: "touch.png",
+              customer: 'customer1',
+          }
       )
 
       allow_any_instance_of(SessionsController).to receive(:auth_changed_to_social?).and_return(true)
@@ -504,7 +504,7 @@ describe SessionsController, type: :controller do
       controller.instance_variable_set(:@user_domain, "customer1")
 
       request.env["omniauth.auth"] = new_user
-      get :omniauth, params: { provider: 'bn_launcher' }
+      get :omniauth, params: {provider: 'bn_launcher'}
 
       new_u = User.find_by(social_uid: "bn-launcher-user-new")
       expect(users_old_uid).to eq(new_u.uid)
@@ -521,10 +521,10 @@ describe SessionsController, type: :controller do
       allow_any_instance_of(Net::LDAP).to receive(:bind_as).and_return([entry])
 
       post :ldap, params: {
-        session: {
-          username: "test",
-          password: 'password',
-        },
+          session: {
+              username: "test",
+              password: 'password',
+          },
       }
 
       u = User.last
@@ -543,10 +543,10 @@ describe SessionsController, type: :controller do
       allow_any_instance_of(Net::LDAP).to receive(:bind_as).and_return([entry])
 
       post :ldap, params: {
-        session: {
-          username: "test",
-          password: 'password',
-        },
+          session: {
+              username: "test",
+              password: 'password',
+          },
       }
 
       u = User.last
@@ -566,10 +566,10 @@ describe SessionsController, type: :controller do
       allow_any_instance_of(Net::LDAP).to receive(:bind_as).and_return([entry])
 
       post :ldap, params: {
-        session: {
-          username: "test",
-          password: 'password',
-        },
+          session: {
+              username: "test",
+              password: 'password',
+          },
       }
 
       u = User.last
@@ -582,10 +582,10 @@ describe SessionsController, type: :controller do
       allow_any_instance_of(Net::LDAP).to receive(:bind_as).and_return(false)
 
       post :ldap, params: {
-        session: {
-          username: "test",
-          password: 'passwor',
-        },
+          session: {
+              username: "test",
+              password: 'passwor',
+          },
       }
 
       expect(response).to redirect_to(ldap_signin_path)
@@ -596,10 +596,10 @@ describe SessionsController, type: :controller do
       allow_any_instance_of(Net::LDAP).to receive(:bind_as).and_return(false)
 
       post :ldap, params: {
-        session: {
-          username: "test",
-          password: '',
-        },
+          session: {
+              username: "test",
+              password: '',
+          },
       }
 
       expect(response).to redirect_to(ldap_signin_path)
@@ -610,10 +610,10 @@ describe SessionsController, type: :controller do
       allow_any_instance_of(Net::LDAP).to receive(:bind_as).and_return(false)
 
       post :ldap, params: {
-        session: {
-          username: "",
-          password: 'test',
-        },
+          session: {
+              username: "",
+              password: 'test',
+          },
       }
 
       expect(response).to redirect_to(ldap_signin_path)

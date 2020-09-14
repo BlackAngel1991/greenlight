@@ -43,7 +43,7 @@ describe BbbServer do
   context "#start_session" do
     it "should update latest session info" do
       allow_any_instance_of(BigBlueButton::BigBlueButtonApi).to receive(:create_meeting).and_return(
-        messageKey: ""
+          messageKey: ""
       )
 
       expect do
@@ -57,7 +57,7 @@ describe BbbServer do
   context "#join_path" do
     it "should return correct join URL for user" do
       allow_any_instance_of(BigBlueButton::BigBlueButtonApi).to receive(:get_meeting_info).and_return(
-        attendeePW: @room.attendee_pw
+          attendeePW: @room.attendee_pw
       )
 
       endpoint = Rails.configuration.bigbluebutton_endpoint
@@ -78,11 +78,11 @@ describe BbbServer do
   context "#recordings" do
     it "deletes the recording" do
       allow_any_instance_of(BigBlueButton::BigBlueButtonApi).to receive(:delete_recordings).and_return(
-        returncode: true, deleted: true
+          returncode: true, deleted: true
       )
 
       expect(delete_recording(Faker::IDNumber.valid))
-        .to contain_exactly([:returncode, true], [:deleted, true])
+          .to contain_exactly([:returncode, true], [:deleted, true])
     end
   end
 end

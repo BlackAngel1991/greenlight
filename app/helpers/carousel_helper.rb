@@ -1,4 +1,3 @@
-
 module CarouselHelper
 
   def carousel_for(image_path)

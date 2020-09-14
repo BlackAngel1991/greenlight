@@ -21,7 +21,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.to_i}"
+        'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
   else
     config.action_controller.perform_caching = false
@@ -41,13 +41,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = ENV['SMTP_SERVER'].present? ? :smtp : :sendmail
 
   ActionMailer::Base.smtp_settings = {
-    address: ENV['SMTP_SERVER'],
-    port: ENV["SMTP_PORT"],
-    domain: ENV['SMTP_DOMAIN'],
-    user_name: ENV['SMTP_USERNAME'],
-    password: ENV['SMTP_PASSWORD'],
-    authentication: ENV['SMTP_AUTH'],
-    enable_starttls_auto: ENV['SMTP_STARTTLS_AUTO'],
+      address: ENV['SMTP_SERVER'],
+      port: ENV["SMTP_PORT"],
+      domain: ENV['SMTP_DOMAIN'],
+      user_name: ENV['SMTP_USERNAME'],
+      password: ENV['SMTP_PASSWORD'],
+      authentication: ENV['SMTP_AUTH'],
+      enable_starttls_auto: ENV['SMTP_STARTTLS_AUTO'],
   }
 
   # Do care if the mailer can't send.

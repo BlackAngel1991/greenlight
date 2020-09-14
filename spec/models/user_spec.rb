@@ -80,14 +80,14 @@ describe User, type: :model do
     context '#from_omniauth' do
       let(:auth) do
         {
-          "uid" => "123456789",
-          "provider" => "twitter",
-          "info" => {
-            "name" => "Test Name",
-            "nickname" => "username",
-            "email" => "test@example.com",
-            "image" => "example.png",
-          },
+            "uid" => "123456789",
+            "provider" => "twitter",
+            "info" => {
+                "name" => "Test Name",
+                "nickname" => "username",
+                "email" => "test@example.com",
+                "image" => "example.png",
+            },
         }
       end
 
@@ -240,7 +240,7 @@ describe User, type: :model do
 
     it "does not allow a blank email if the provider is greenlight" do
       expect { create(:user, email: "", provider: "greenlight") }
-        .to raise_exception(ActiveRecord::RecordInvalid, "Validation failed: Email can't be blank")
+          .to raise_exception(ActiveRecord::RecordInvalid, "Validation failed: Email can't be blank")
     end
   end
 end

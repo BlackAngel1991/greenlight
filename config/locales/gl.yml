@@ -106,7 +106,7 @@ gl:
       demoted: O usuario foi degradado.
       invite: "O convite foi enviado a %{email}"
       invite_email_verification: Para poder empregar este método hai que activar os correos-e. Póñase en contacto co administrador do sistema.
-      merge_fail: Produciuse un problema de fusión das contas de usuario. Comprobe os usuarios seleccionados e ténteo de novo 
+      merge_fail: Produciuse un problema de fusión das contas de usuario. Comprobe os usuarios seleccionados e ténteo de novo
       merge_success: As contas de usuario combináronse correctamente
       perm_deleted: O usuario foi eliminado permanentemente
       promoted: O usuario foi promovido correctamente
@@ -136,7 +136,7 @@ gl:
       edit_site_settings: Permitirlle aos usuarios con este rol editar a configuración do sitio
       edit_roles: Permitirlle aos usuarios con este rol editar outros roles
       manage_users: Permitirlle aos usuarios con este rol administrar outros usuarios
-      invalid_assignment: Produciuse un problema ao asignar o(s) rol(es) ao usuario. Comprobe os valores e ténteo de novo 
+      invalid_assignment: Produciuse un problema ao asignar o(s) rol(es) ao usuario. Comprobe os valores e ténteo de novo
       colour:
         title: Cor do rol
         info: Estabelecer a cor que estará asociada ao rol
@@ -473,7 +473,7 @@ gl:
       fail: "A súa conta aínda non foi aprobada. Se pasaron varios días dende que se rexistrou, póñase en contacto co administrador do sistema."
       signup: A súa conta foi creada e enviada a un administrador para a súa aprobación.
     banned:
-      fail: "Non ten acceso a esta aplicación. Se cre que é un erro, póñase en contacto co administrador do sistema." 
+      fail: "Non ten acceso a esta aplicación. Se cre que é un erro, póñase en contacto co administrador do sistema."
     deprecated:
       new_signin: Seleccione un novo método de acceso para a súa conta. Todas as salas da súa conta antiga serán migradas á nova conta
       twitter_signin: "O acceso mediante Twitter quedou en desuso e eliminarase na próxima versión. Prema <a href=\"%{link}\">aquí</a> para mover a súa conta a un novo método de autenticación"

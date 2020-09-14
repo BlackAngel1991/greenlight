@@ -106,7 +106,7 @@ eu:
       demoted: Erabiltzailea ongi degradatu da
       invite: "Gonbidapena ongi bidali da %{email}-(er)i"
       invite_email_verification: "Emailak gaituta egon behar dute modu hau erabili ahal izateko. Zure sistema administratzailearekin jarri harremanetan, mesedez."
-      merge_fail: "Arazo bat egon da erabiltzaile kontuak batzean. Berrikusi aukeratutako erabiltzaileak eta saiatu berriro, mesedez" 
+      merge_fail: "Arazo bat egon da erabiltzaile kontuak batzean. Berrikusi aukeratutako erabiltzaileak eta saiatu berriro, mesedez"
       merge_success: Erabiltzaile kontuak ongi batu dira
       perm_deleted: Erabiltzailea iraunkorki ezabatu da
       promoted: Erabiltzailea ongi goratu da
@@ -136,7 +136,7 @@ eu:
       edit_site_settings: Onartu rol hau duten erabiltzaileei guneko ezarpenak aldatzea
       edit_roles: Onartu rol hau duten erabiltzaileei beste rolak aldatzea
       manage_users: Onartu rol hau duten erabiltzaileei erabiltzaileak kudeatzea
-      invalid_assignment: "Arazo bat egon da rolak erabiltzaileari esleitzean. Egiaztatu balioak eta saiatu berriro, mesedez" 
+      invalid_assignment: "Arazo bat egon da rolak erabiltzaileari esleitzean. Egiaztatu balioak eta saiatu berriro, mesedez"
       colour:
         title: Rolaren Kolorea
         info: Ezarri rolari lotuta egongo den kolorea
@@ -473,7 +473,7 @@ eu:
       fail: "Zure kontua ez da onartu oraindik. Egun batzuk pasa badira izena eman zenuenetik, jarri harremanetan zure administratzailearekin, mesedez."
       signup: Zure kontua ongi sortu da. Administratzailearen onarpenerako bidali da.
     banned:
-      fail: "Ez daukazu sarbiderik aplikazio honetara. Nahaste bat dela uste baduzu, jarri harremanetan zure administratzailearekin." 
+      fail: "Ez daukazu sarbiderik aplikazio honetara. Nahaste bat dela uste baduzu, jarri harremanetan zure administratzailearekin."
     deprecated:
       new_signin: Aukeratu zure konturako saioa hasteko modu berri bat. Zure kontu zaharreko gela guztiak kontu berrira migratuko dira
       twitter_signin: "Twitter bidez saioa hasteari sustengua eten zaio eta hurrengo bertsioan kenduko da. Sakatu <a href=\"%{link}\">hemen</a> zure kontua autentikazio modu berrira mugitzeko"

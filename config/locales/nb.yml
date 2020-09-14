@@ -102,7 +102,7 @@ nb:
       edit_site_settings: Tillat brukere med denne rollen å redigere sideinnstillinger
       edit_roles: Tillat brukere med denne rollen å redigere andre roller
       manage_users: Tillat brukere med denne rollen å administrere brukere
-      invalid_assignment: Det oppsto et problem ved tildelingen av rollene til brukeren. Kontroller verdiene og prøv igjen. 
+      invalid_assignment: Det oppsto et problem ved tildelingen av rollene til brukeren. Kontroller verdiene og prøv igjen.
       colour:
         title: Rollefarge
         info: Angi fargen som skal knyttes til rollen
@@ -390,7 +390,7 @@ nb:
       fail: "Kontoen din er ikke godkjent ennå. Hvis det har gått flere dager siden du registrerte deg, kan du kontakte administratoren din."
       signup: Kontoen din ble opprettet. Dette også sendt til en administrator for godkjenning.
     banned:
-      fail: "Du har ikke tilgang til denne applikasjonen. Hvis du mener at dette er en feil, kan du kontakte administratoren din." 
+      fail: "Du har ikke tilgang til denne applikasjonen. Hvis du mener at dette er en feil, kan du kontakte administratoren din."
     deprecated:
       new_signin: Velg en ny påloggingsmetode for kontoen din. Alle rommene fra den gamle kontoen din blir migrert til den nye kontoen
       twitter_signin: "ålogging via Twitter er utdatert og vil bli fjernet i neste utgivelse. Klikk <a href=\"%{link}\"> her </a> for å flytte kontoen din til en ny autentiseringsmetode"

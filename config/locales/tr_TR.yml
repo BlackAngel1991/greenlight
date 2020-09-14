@@ -94,7 +94,7 @@ tr_TR:
       demoted: Kullanıcı başarıyla indirgendi
       invite: "Davet başarıyla gönderildi %{email}"
       invite_email_verification: Bu yöntemi kullanabilmek için e-postaların etkinleştirilmesi gerekir. Lütfen sistem yöneticinize başvurun.
-      merge_fail: Kullanılıcıları birleştirirken bir hata oluştu. Lütfen seçili kullanıcıları kontrol edin ve yeniden deneyin. 
+      merge_fail: Kullanılıcıları birleştirirken bir hata oluştu. Lütfen seçili kullanıcıları kontrol edin ve yeniden deneyin.
       merge_success: Kullanıcılar başarılı şekilde birleştirildi
       perm_deleted: Kullanıcı kalıcı olarak silindi
       promoted: Kullanıcı başarıyla terfi etti
@@ -123,7 +123,7 @@ tr_TR:
       edit_site_settings: Bu roldeki kullanıcıların site ayarlarını düzenlemesine izin ver
       edit_roles: Bu roldeki kullanıcıların site ayarlarını düzenlemesine izin ver
       manage_users: Bu roldeki kullanıcıların kullanıcıları yönetmesine izin ver
-      invalid_assignment: Kullanıcıya rolün atanmasında hata oluştu. Lütfen değerleri kontrol edip yeniden deneyiniz. 
+      invalid_assignment: Kullanıcıya rolün atanmasında hata oluştu. Lütfen değerleri kontrol edip yeniden deneyiniz.
       colour:
         title: Rol rengi
         info: Rolle ilişkilendirilecek rengi ayarlama
@@ -440,7 +440,7 @@ tr_TR:
       fail: Kullanıcı hesabını henüz onaylanmadı. Kayıt olduktan sonra bir kaç gün geçmiş ise lütfen sistem yöneticiniz ile iletişime geçiniz.
       signup: Hesabınız başarıyla oluşturuldu. Sistem yöneticisi  onayı bekleniyor.
     banned:
-      fail: "Bu uygulamaya giriş izniniz bulunmamaktadır. Bunun bir hata olduğunu düşünüyorsanız, lütfen sistem yöneticinize başvurun." 
+      fail: "Bu uygulamaya giriş izniniz bulunmamaktadır. Bunun bir hata olduğunu düşünüyorsanız, lütfen sistem yöneticinize başvurun."
     deprecated:
       new_signin: "Hesabınıza giriş için yeni bir yöntem seçin. Eski hesabınıza ait tüm odalar yeni hesabınıza aktarılacaktır. "
       twitter_signin: "Twitter aracılığıyla girişler yeni sürümde kaldırılacaktır. Yeni hesap doğrulama yöntemi için  <a href=\"%{link}\"> buraya </a> tıklayınız."

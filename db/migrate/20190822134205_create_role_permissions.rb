@@ -16,7 +16,7 @@ class CreateRolePermissions < ActiveRecord::Migration[5.2]
       role.role_permissions.create(name: "send_promoted_email", value: role.send_promoted_email.to_s, enabled: true)
       role.role_permissions.create(name: "send_demoted_email", value: role.send_demoted_email.to_s, enabled: true)
       role.role_permissions.create(name: "can_edit_site_settings", value: role.can_edit_site_settings.to_s,
-        enabled: true)
+                                   enabled: true)
       role.role_permissions.create(name: "can_edit_roles", value: role.can_edit_roles.to_s, enabled: true)
       role.role_permissions.create(name: "can_manage_users", value: role.can_manage_users.to_s, enabled: true)
     end

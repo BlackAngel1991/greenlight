@@ -94,7 +94,7 @@ it:
       demoted: L'utente è stato declassato
       invite: "L'invito è stato inviato a %{email}"
       invite_email_verification: L'email deve essere abilitata per poter usare questo metodo. Prego contatta il tuo amministratore di sistema
-      merge_fail: Si e' verificato un problema in fase di accorpamento degli accounts utente. Per favore verifica gli utenti selezionati e riprova. 
+      merge_fail: Si e' verificato un problema in fase di accorpamento degli accounts utente. Per favore verifica gli utenti selezionati e riprova.
       merge_success: Accounts utente accorpati con successo
       perm_deleted: L'utente e' stato eliminato definitivamente
       promoted: L'utente è stato promosso
@@ -124,7 +124,7 @@ it:
       edit_site_settings: Consenti agli Utenti con questo ruolo di modificare le impostazioni del sito
       edit_roles: Consenti agli Utenti con questo ruolo di modificare altri ruoli
       manage_users: Consenti agli Utenti di questo ruolo di gestire il profilo di altri utenti
-      invalid_assignment: Si e' verificato un problema assegnando il ruolo all'utente. Per favore verifica i valori e riprova 
+      invalid_assignment: Si e' verificato un problema assegnando il ruolo all'utente. Per favore verifica i valori e riprova
       colour:
         title: Colore associato al ruolo
         info: Imposta il colore che sarà associato al ruolo
@@ -456,7 +456,7 @@ it:
       fail: "Il tuo account non e' ancora stato approvato. Se sono passati diversi giorni da quando ti sei registrato, contatta per favore il tuo amministratore."
       signup: Il tuo account e' stato creato con successo. E' stato inviato ad un amministratore per l'approvazione.
     banned:
-      fail: "Non hai accesso a questa applicazione. Se ritieni si tratti di un errore, contatta per favore il tuo amministratore." 
+      fail: "Non hai accesso a questa applicazione. Se ritieni si tratti di un errore, contatta per favore il tuo amministratore."
     deprecated:
       new_signin: Seleziona un metodo per l'accesso al tuo account. Tutte le stanze collegate al tuo vecchio account saranno migrate al nuovo account.
       twitter_signin: "L'accesso via Twitter e' deprecato e verra' rimosso nella prossima release. Clicca <a href=\"%{link}\"> qui </a> per consentire al tuo account un nuovo metodo di autenticazione"

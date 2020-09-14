@@ -21,14 +21,14 @@ require "rails_helper"
 def random_valid_user_params
   pass = Faker::Internet.password(min_length: 8)
   {
-    user: {
-      name: Faker::Name.first_name,
-      email: Faker::Internet.email,
-      password: pass,
-      password_confirmation: pass,
-      accepted_terms: true,
-      email_verified: true,
-    },
+      user: {
+          name: Faker::Name.first_name,
+          email: Faker::Internet.email,
+          password: pass,
+          password_confirmation: pass,
+          accepted_terms: true,
+          email_verified: true,
+      },
   }
 end
 
@@ -41,9 +41,9 @@ describe PasswordResetsController, type: :controller do
         user = create(:user)
 
         params = {
-          password_reset: {
-            email: user.email,
-          },
+            password_reset: {
+                email: user.email,
+            },
         }
 
         post :create, params: params
@@ -52,9 +52,9 @@ describe PasswordResetsController, type: :controller do
 
       it "redirects to root with success flash if email does not exists" do
         params = {
-          password_reset: {
-            email: nil,
-          },
+            password_reset: {
+                email: nil,
+            },
         }
 
         post :create, params: params
@@ -85,10 +85,10 @@ describe PasswordResetsController, type: :controller do
         allow(controller).to receive(:check_expiration).and_return(nil)
 
         params = {
-          id: token,
-          user: {
-            password: nil,
-          },
+            id: token,
+            user: {
+                password: nil,
+            },
         }
 
         patch :update, params: params
@@ -101,11 +101,11 @@ describe PasswordResetsController, type: :controller do
         allow(controller).to receive(:check_expiration).and_return(nil)
 
         params = {
-          id: token,
-          user: {
-            password: :password,
-            password_confirmation: nil,
-          },
+            id: token,
+            user: {
+                password: :password,
+                password_confirmation: nil,
+            },
         }
 
         patch :update, params: params
@@ -119,11 +119,11 @@ describe PasswordResetsController, type: :controller do
         allow(controller).to receive(:check_expiration).and_return(nil)
 
         params = {
-          id: user.create_reset_digest,
-          user: {
-            password: :password,
-            password_confirmation: :password,
-          },
+            id: user.create_reset_digest,
+            user: {
+                password: :password,
+                password_confirmation: :password,
+            },
         }
 
         patch :update, params: params

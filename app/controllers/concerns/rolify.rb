@@ -29,10 +29,10 @@ module Rolify
     end
 
     @selected_role = if selected_role.nil?
-      @roles.find_by(name: 'user')
-    else
-      @roles.find(selected_role)
-    end
+                       @roles.find_by(name: 'user')
+                     else
+                       @roles.find(selected_role)
+                     end
 
     @roles
   end
@@ -119,8 +119,8 @@ module Rolify
 
     role_params = params.require(:role).permit(:name)
     permission_params = params.require(:role).permit(:can_create_rooms, :send_promoted_email,
-      :send_demoted_email, :can_edit_site_settings, :can_edit_roles, :can_manage_users,
-      :can_manage_rooms_recordings, :can_appear_in_share_list, :colour)
+                                                     :send_demoted_email, :can_edit_site_settings, :can_edit_roles, :can_manage_users,
+                                                     :can_manage_rooms_recordings, :can_appear_in_share_list, :colour)
 
     permission_params.transform_values! do |v|
       if v == "0"
@@ -137,7 +137,7 @@ module Rolify
 
     # Make sure if the user is updating the role name that the role name is valid
     if role.name != role_params[:name] && !Role.duplicate_name(role_params[:name], @user_domain) &&
-       !role_params[:name].strip.empty?
+        !role_params[:name].strip.empty?
       role.name = role_params[:name]
     elsif role.name != role_params[:name]
       return false

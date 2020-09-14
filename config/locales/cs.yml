@@ -94,7 +94,7 @@ cs:
       demoted: Uživatel byl úspěšně degradován
       invite: "Pozvánka úspěšně odeslána na %{email}"
       invite_email_verification: Zasílání e-mailů musí být povoleno pro použití této metody. Kontaktujte prosím administrátora tohoto systému.
-      merge_fail: Nastal problém se spojením uživatelských účtů. Prosím zkontrolujte vybrané uživatele a zkuste to ještě jednou 
+      merge_fail: Nastal problém se spojením uživatelských účtů. Prosím zkontrolujte vybrané uživatele a zkuste to ještě jednou
       merge_success: Spojení uživatelských účtů proběhlo úspěšně.
       perm_deleted: Uživatel byl permanentně smazán
       promoted: Uživatel byl úspěšně povýšen
@@ -124,7 +124,7 @@ cs:
       edit_site_settings: Povolit uživatelům s touto rolí měnit nastavení serveru
       edit_roles: Povolit uživatelům s touto rolí měnit jiné role
       manage_users: Povolit uživatelům s touto rolí spravovat uživatele
-      invalid_assignment: "Nastal problém s přiřazením role. Zkontrolujte nastavení a zkuste to znovu.\nNemůžete uživateli přidělit roli s vyšší prioritou, než je Vaše vlastní" 
+      invalid_assignment: "Nastal problém s přiřazením role. Zkontrolujte nastavení a zkuste to znovu.\nNemůžete uživateli přidělit roli s vyšší prioritou, než je Vaše vlastní"
       colour:
         title: Barva role
         info: Nastavte barvu role
@@ -456,7 +456,7 @@ cs:
       fail: "Váš účet zatím nebyl ověřen. Jestliže od Vaší registrace už uběhlo několik dní, kontaktujte prosím administrátora."
       signup: Váš účet byl úspěšně vytvořen. Byl odeslán administrátorovi ke schválení.
     banned:
-      fail: "Váš přístup k této aplikaci byl zakázán. Pokud si myslíte, že jde o omyl, kontaktujte prosím administrátora." 
+      fail: "Váš přístup k této aplikaci byl zakázán. Pokud si myslíte, že jde o omyl, kontaktujte prosím administrátora."
     deprecated:
       new_signin: Vyberte si nový způsob přihlašování pro Váš účet. Všechny místnosti Vašeho starého účtu budou přesunuty do nového účtu
       twitter_signin: "Přihlašování přes Twitter bylo pozastaveno a bude odstraněno v další verzi. Klikněte <a href=\"%{link}\"> sem </a> pro přesun Vašeho účtu na nový způsob přihlašování"

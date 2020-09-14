@@ -30,17 +30,17 @@ module Registrar
   # Returns a hash containing whether the user has been invited and if they
   # signed up with the same email that they were invited with
   def check_user_invited(email, token, domain)
-    return { present: true, verified: false } unless invite_registration
-    return { present: false, verified: false } if token.nil?
+    return {present: true, verified: false} unless invite_registration
+    return {present: false, verified: false} if token.nil?
 
     invite = Invitation.valid.find_by(invite_token: token, provider: domain)
     if invite.present?
       # Check if they used the same email to sign up
       same_email = email.casecmp(invite.email).zero?
       invite.destroy
-      { present: true, verified: same_email }
+      {present: true, verified: same_email}
     else
-      { present: false, verified: false }
+      {present: false, verified: false}
     end
   end
 

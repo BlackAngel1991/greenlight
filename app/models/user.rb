@@ -35,18 +35,18 @@ class User < ApplicationRecord
 
   belongs_to :role, required: false
 
-  validates :name, length: { maximum: 256 }, presence: true
+  validates :name, length: {maximum: 256}, presence: true
   validates :provider, presence: true
   validate :check_if_email_can_be_blank
-  validates :email, length: { maximum: 256 }, allow_blank: true,
-                    uniqueness: { case_sensitive: false, scope: :provider },
-                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :email, length: {maximum: 256}, allow_blank: true,
+            uniqueness: {case_sensitive: false, scope: :provider},
+            format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
 
-  validates :password, length: { minimum: 6 }, confirmation: true, if: :greenlight_account?, on: :create
+  validates :password, length: {minimum: 6}, confirmation: true, if: :greenlight_account?, on: :create
 
   # Bypass validation if omniauth
   validates :accepted_terms, acceptance: true,
-                             unless: -> { !greenlight_account? || !Rails.configuration.terms }
+            unless: -> { !greenlight_account? || !Rails.configuration.terms }
 
   # We don't want to require password validations on all accounts.
   has_secure_password(validations: false)
@@ -76,10 +76,10 @@ class User < ApplicationRecord
     active_database = Rails.configuration.database_configuration[Rails.env]["adapter"]
     # Postgres requires created_at to be cast to a string
     created_at_query = if active_database == "postgresql"
-      "created_at::text"
-    else
-      "created_at"
-    end
+                         "created_at::text"
+                       else
+                         "created_at"
+                       end
 
     search_query = "users.name LIKE :search OR email LIKE :search OR username LIKE :search" \
                   " OR users.#{created_at_query} LIKE :search OR users.provider LIKE :search" \
@@ -163,7 +163,8 @@ class User < ApplicationRecord
   end
 
   # role functions
-  def set_role(role) # rubocop:disable Naming/AccessorMethodName
+  def set_role(role)
+    # rubocop:disable Naming/AccessorMethodName
     return if has_role?(role)
 
     new_role = Role.find_by(name: role, provider: role_provider)
@@ -178,16 +179,17 @@ class User < ApplicationRecord
   end
 
   # This rule is disabled as the function name must be has_role?
-  def has_role?(role_name) # rubocop:disable Naming/PredicateName
+  def has_role?(role_name)
+    # rubocop:disable Naming/PredicateName
     role&.name == role_name.to_s
   end
 
   def self.with_role(role)
-    User.includes(:role).where(roles: { name: role })
+    User.includes(:role).where(roles: {name: role})
   end
 
   def self.without_role(role)
-    User.includes(:role).where.not(roles: { name: role })
+    User.includes(:role).where.not(roles: {name: role})
   end
 
   def create_home_room

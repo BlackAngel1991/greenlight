@@ -31,11 +31,11 @@ module UsersHelper
     # Admins are able to remove the admin role from other admins
     # For all other roles they can only add/remove roles with a higher priority
     disallowed_roles = if current_user_role.name == "admin"
-                          Role.editable_roles(@user_domain).where("priority < #{current_user_role.priority}")
-                              .pluck(:id)
-                        else
-                          Role.editable_roles(@user_domain).where("priority <= #{current_user_role.priority}")
-                              .pluck(:id)
+                         Role.editable_roles(@user_domain).where("priority < #{current_user_role.priority}")
+                             .pluck(:id)
+                       else
+                         Role.editable_roles(@user_domain).where("priority <= #{current_user_role.priority}")
+                             .pluck(:id)
                        end
 
     [user.role.id] + disallowed_roles
@@ -60,13 +60,13 @@ module UsersHelper
   # Parses markdown for rendering.
   def markdown(text)
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-      no_intra_emphasis: true,
-      fenced_code_blocks: true,
-      disable_indented_code_blocks: true,
-      autolink: true,
-      tables: true,
-      underline: true,
-      highlight: true)
+                                       no_intra_emphasis: true,
+                                       fenced_code_blocks: true,
+                                       disable_indented_code_blocks: true,
+                                       autolink: true,
+                                       tables: true,
+                                       underline: true,
+                                       highlight: true)
 
     markdown.render(text).html_safe
   end

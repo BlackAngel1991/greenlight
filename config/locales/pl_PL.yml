@@ -100,7 +100,7 @@ pl_PL:
       edit_site_settings: Pozwól użytkownikom z tą rolą na edycję ustawień strony
       edit_roles: Pozwól użytkownikom z tą rolą na edycję innych ról
       manage_users: Pozwól użytkownikom z tą rolą na zarządzanie innymi użytkownikami
-      invalid_assignment: Wystąpił problem z przydzieleniem roli użytkownikowi. Sprawdź czy wartości są poprawne i spróbuj ponownie. 
+      invalid_assignment: Wystąpił problem z przydzieleniem roli użytkownikowi. Sprawdź czy wartości są poprawne i spróbuj ponownie.
       colour:
         title: Kolor roli
         info: Ustaw kolor który będzie skojarzony z tą rolą
@@ -384,7 +384,7 @@ pl_PL:
       fail: "Twoje konto nie zostało jeszcze zatwierdzone. Jeśli minęło wiele dni od rejestracji, skontaktuj się z administratorem."
       signup: Twoje konto zostało pomyślnie utworzone. Został wysłany do administratora w celu zatwierdzenia.
     banned:
-      fail: "Nie masz dostępu do tej aplikacji. Jeśli uważasz, że to pomyłka, skontaktuj się z administratorem." 
+      fail: "Nie masz dostępu do tej aplikacji. Jeśli uważasz, że to pomyłka, skontaktuj się z administratorem."
     deprecated:
       new_signin: Wybierz nową metodę logowania dla swojego konta. Wszystkie twoje pokoje ze starego konta zostaną przeniesione na nowe konto
       twitter_signin: "Logowanie za pomocą Twittera jest w trakcie wycofywania z użytkowania i zostanie usunięte w następnej wersji. Kliknij <a href=\"%{link}\">tutaj</a> aby przenieść swoje konto do nowej metody uwierzytelniania."

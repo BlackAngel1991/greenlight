@@ -22,17 +22,17 @@ module Populator
   # Returns a list of users that are in the same context of the current user
   def manage_users_list
     initial_list = case @tab
-      when "active"
-        User.without_role([:pending, :denied])
-      when "deleted"
-        User.deleted
-      when "pending"
-        User.with_role(:pending)
-      when "denied"
-        User.with_role(:denied)
-      else
-        User.all
-    end
+                   when "active"
+                     User.without_role([:pending, :denied])
+                   when "deleted"
+                     User.deleted
+                   when "pending"
+                     User.with_role(:pending)
+                   when "denied"
+                     User.with_role(:denied)
+                   else
+                     User.all
+                   end
 
     initial_list = initial_list.with_role(@role.name) if @role.present?
 
@@ -41,14 +41,14 @@ module Populator
     initial_list = initial_list.where(provider: @user_domain) if Rails.configuration.loadbalanced_configuration
 
     initial_list.where.not(id: current_user.id)
-                .admins_search(@search)
-                .admins_order(@order_column, @order_direction)
+        .admins_search(@search)
+        .admins_order(@order_column, @order_direction)
   end
 
   # Returns a list of rooms that are in the same context of the current user
   def server_rooms_list
     if Rails.configuration.loadbalanced_configuration
-      Room.includes(:owner).where(users: { provider: @user_domain })
+      Room.includes(:owner).where(users: {provider: @user_domain})
           .admins_search(@search)
           .admins_order(@order_column, @order_direction, @running_room_bbb_ids)
     else
@@ -59,7 +59,7 @@ module Populator
   # Returns list of rooms needed to get the recordings on the server
   def rooms_list_for_recordings
     if Rails.configuration.loadbalanced_configuration
-      Room.includes(:owner).where(users: { provider: @user_domain }).pluck(:bbb_id)
+      Room.includes(:owner).where(users: {provider: @user_domain}).pluck(:bbb_id)
     else
       Room.pluck(:bbb_id)
     end

@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   include Errors
 
   before_action :block_unknown_hosts, :redirect_to_https, :set_user_domain, :set_user_settings, :maintenance_mode?,
-  :migration_error?, :user_locale, :check_admin_password, :check_user_role
+                :migration_error?, :user_locale, :check_admin_password, :check_user_role
 
   protect_from_forgery with: :exceptions
 
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
     if Rails.configuration.loadbalanced_configuration
       if @current_user && !@current_user.has_role?(:super_admin) &&
-         @current_user.provider != @user_domain
+          @current_user.provider != @user_domain
         @current_user = nil
         session.clear
       end
@@ -39,6 +39,7 @@ class ApplicationController < ActionController::Base
 
     @current_user
   end
+
   helper_method :current_user
 
   def bbb_server
@@ -78,11 +79,11 @@ class ApplicationController < ActionController::Base
   def maintenance_mode?
     if ENV["MAINTENANCE_MODE"] == "true"
       render "errors/greenlight_error", status: 503, formats: :html,
-        locals: {
-          status_code: 503,
-          message: I18n.t("errors.maintenance.message"),
-          help: I18n.t("errors.maintenance.help"),
-        }
+             locals: {
+                 status_code: 503,
+                 message: I18n.t("errors.maintenance.message"),
+                 help: I18n.t("errors.maintenance.help"),
+             }
     end
     if Rails.configuration.maintenance_window.present?
       unless cookies[:maintenance_window] == Rails.configuration.maintenance_window
@@ -99,10 +100,10 @@ class ApplicationController < ActionController::Base
   # Sets the appropriate locale.
   def user_locale(user = current_user)
     locale = if user && user.language != 'default'
-      user.language
-    else
-      http_accept_language.language_region_compatible_from(I18n.available_locales)
-    end
+               user.language
+             else
+               http_accept_language.language_region_compatible_from(I18n.available_locales)
+             end
 
     begin
       I18n.locale = locale.tr('-', '_') unless locale.nil?
@@ -116,10 +117,10 @@ class ApplicationController < ActionController::Base
   # Checks to make sure that the admin has changed his password from the default
   def check_admin_password
     if current_user&.has_role?(:admin) && current_user.email == "admin@example.com" &&
-       current_user&.greenlight_account? && current_user&.authenticate(Rails.configuration.admin_password_default)
+        current_user&.greenlight_account? && current_user&.authenticate(Rails.configuration.admin_password_default)
 
       flash.now[:alert] = I18n.t("default_admin",
-        edit_link: change_password_path(user_uid: current_user.uid)).html_safe
+                                 edit_link: change_password_path(user_uid: current_user.uid)).html_safe
     end
   end
 
@@ -127,10 +128,10 @@ class ApplicationController < ActionController::Base
   def check_user_role
     if current_user&.has_role? :denied
       session.delete(:user_id)
-      redirect_to root_path, flash: { alert: I18n.t("registration.banned.fail") }
+      redirect_to root_path, flash: {alert: I18n.t("registration.banned.fail")}
     elsif current_user&.has_role? :pending
       session.delete(:user_id)
-      redirect_to root_path, flash: { alert: I18n.t("registration.approval.fail") }
+      redirect_to root_path, flash: {alert: I18n.t("registration.approval.fail")}
     end
   end
 
@@ -138,6 +139,7 @@ class ApplicationController < ActionController::Base
   def relative_root
     Rails.configuration.relative_url_root || ""
   end
+
   helper_method :relative_root
 
   # Determines if the BigBlueButton endpoint is configured (or set to default).
@@ -145,6 +147,7 @@ class ApplicationController < ActionController::Base
     return false if Rails.configuration.loadbalanced_configuration
     Rails.configuration.bigbluebutton_endpoint_default == Rails.configuration.bigbluebutton_endpoint
   end
+
   helper_method :bigbluebutton_endpoint_default?
 
   def allow_greenlight_accounts?
@@ -160,12 +163,14 @@ class ApplicationController < ActionController::Base
       false
     end
   end
+
   helper_method :allow_greenlight_accounts?
 
   # Determine if Greenlight is configured to allow user signups.
   def allow_user_signup?
     Rails.configuration.allow_user_signup
   end
+
   helper_method :allow_user_signup?
 
   # Gets all configured omniauth providers.
@@ -174,12 +179,14 @@ class ApplicationController < ActionController::Base
       Rails.configuration.send("omniauth_#{provider}")
     end
   end
+
   helper_method :configured_providers
 
   # Indicates whether users are allowed to share rooms
   def shared_access_allowed
     @settings.get_value("Shared Access") == "true"
   end
+
   helper_method :shared_access_allowed
 
   # Returns the page that the logo redirects to when clicked on
@@ -188,6 +195,7 @@ class ApplicationController < ActionController::Base
     return current_user.main_room if current_user.role.get_permission("can_create_rooms")
     cant_create_rooms_path
   end
+
   helper_method :home_page
 
   # Parses the url for the user domain
@@ -221,12 +229,12 @@ class ApplicationController < ActionController::Base
 
       # Get the correct signin path
       path = if allow_greenlight_accounts?
-        signin_path
-      elsif Rails.configuration.loadbalanced_configuration
-        omniauth_login_url(:bn_launcher)
-      else
-        signin_path
-      end
+               signin_path
+             elsif Rails.configuration.loadbalanced_configuration
+               omniauth_login_url(:bn_launcher)
+             else
+               signin_path
+             end
 
       redirect_to path
     end
@@ -252,18 +260,18 @@ class ApplicationController < ActionController::Base
       @settings = Setting.find_or_create_by(provider: @user_domain)
 
       if e.message.eql? "No user with that id exists"
-        render "errors/greenlight_error", locals: { message: I18n.t("errors.not_found.user_not_found.message"),
-          help: I18n.t("errors.not_found.user_not_found.help") }
+        render "errors/greenlight_error", locals: {message: I18n.t("errors.not_found.user_not_found.message"),
+                                                   help: I18n.t("errors.not_found.user_not_found.help")}
       elsif e.message.eql? "Provider not included."
-        render "errors/greenlight_error", locals: { message: I18n.t("errors.not_found.user_missing.message"),
-          help: I18n.t("errors.not_found.user_missing.help") }
+        render "errors/greenlight_error", locals: {message: I18n.t("errors.not_found.user_missing.message"),
+                                                   help: I18n.t("errors.not_found.user_missing.help")}
       elsif e.message.eql? "That user has no configured provider."
-        render "errors/greenlight_error", locals: { status_code: 501,
-          message: I18n.t("errors.no_provider.message"),
-          help: I18n.t("errors.no_provider.help") }
+        render "errors/greenlight_error", locals: {status_code: 501,
+                                                   message: I18n.t("errors.no_provider.message"),
+                                                   help: I18n.t("errors.no_provider.help")}
       else
-        render "errors/greenlight_error", locals: { status_code: 500, message: I18n.t("errors.internal.message"),
-          help: I18n.t("errors.internal.help"), display_back: true }
+        render "errors/greenlight_error", locals: {status_code: 500, message: I18n.t("errors.internal.message"),
+                                                   help: I18n.t("errors.internal.help"), display_back: true}
       end
     end
   end

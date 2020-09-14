@@ -23,8 +23,8 @@ module RecordingsHelper
   def recording_date(date)
     #I18n.l date, format: "%B %d, %Y"
     #d = date.to_parsi
-    jldate = toJalaali(date.year,date.mon,date.mday)
-    j2s(jldate[:jy],jldate[:jm],jldate[:jd])
+    jldate = toJalaali(date.year, date.mon, date.mday)
+    j2s(jldate[:jy], jldate[:jm], jldate[:jd])
     #d.strftime "%A %d %B %Y"
   end
 
@@ -60,14 +60,14 @@ module RecordingsHelper
     url = "#{base}download/presentation/#{meeting_id}/output.webm"
     begin
       uri = URI.parse("#{base}download/presentation/#{meeting_id}/output.webm")
-       req = Net::HTTP.new(uri.host, uri.port)
-       req.use_ssl = true
-       res = req.request_head(uri.path)
-       if res.code == 200 || res.code == "200"
-         url
-       else
-         false
-       end
+      req = Net::HTTP.new(uri.host, uri.port)
+      req.use_ssl = true
+      res = req.request_head(uri.path)
+      if res.code == 200 || res.code == "200"
+        url
+      else
+        false
+      end
     rescue SocketError => e
       logger.error "Support: Error in removing room shared access: #{e}"
       #   # do the next thing

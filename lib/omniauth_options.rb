@@ -24,7 +24,7 @@ module OmniauthOptions
       protocol = Rails.env.production? ? "https" : env["rack.url_scheme"]
 
       customer_redirect_url = protocol + "://" + env["SERVER_NAME"] + ":" +
-                              env["SERVER_PORT"]
+          env["SERVER_PORT"]
       user_domain = parse_user_domain(env["SERVER_NAME"])
       env['omniauth.strategy'].options[:customer] = user_domain
       env['omniauth.strategy'].options[:customer_redirect_url] = customer_redirect_url
@@ -32,7 +32,7 @@ module OmniauthOptions
 
       # This is only used in the old launcher and should eventually be removed
       env['omniauth.strategy'].options[:checksum] = generate_checksum(user_domain, customer_redirect_url,
-        Rails.configuration.launcher_secret)
+                                                                      Rails.configuration.launcher_secret)
     elsif env['omniauth.strategy'].options[:name] == "google"
       set_hd(env, ENV['GOOGLE_OAUTH2_HD'])
     elsif env['omniauth.strategy'].options[:name] == "office365"
@@ -45,12 +45,12 @@ module OmniauthOptions
     if hd
       hd_opts = hd.split(',')
       env['omniauth.strategy'].options[:hd] = if hd_opts.empty?
-        nil
-      elsif hd_opts.length == 1
-        hd_opts[0]
-      else
-        hd_opts
-      end
+                                                nil
+                                              elsif hd_opts.length == 1
+                                                hd_opts[0]
+                                              else
+                                                hd_opts
+                                              end
     end
   end
 

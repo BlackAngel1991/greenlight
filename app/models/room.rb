@@ -32,10 +32,10 @@ class Room < ApplicationRecord
     active_database = Rails.configuration.database_configuration[Rails.env]["adapter"]
     # Postgres requires created_at to be cast to a string
     created_at_query = if active_database == "postgresql"
-      "created_at::text"
-    else
-      "created_at"
-    end
+                         "created_at::text"
+                       else
+                         "created_at"
+                       end
 
     search_query = "rooms.name LIKE :search OR rooms.uid LIKE :search OR users.email LIKE :search" \
     " OR users.#{created_at_query} LIKE :search"
@@ -114,7 +114,7 @@ class Room < ApplicationRecord
     full_chunk = SecureRandom.random_number(100000..999999)
 
     #[owner.name_chunk, full_chunk[0..2], full_chunk[3..5]].join("-")
-    [owner.name_chunk, full_chunk.to_s[0..2],full_chunk.to_s[3..5]].join("")
+    [owner.name_chunk, full_chunk.to_s[0..2], full_chunk.to_s[3..5]].join("")
   end
 
   # Generates a unique bbb_id based on uuid.

@@ -94,7 +94,7 @@ vi:
       demoted: Người dùng đã được hạ bậc thành công
       invite: "Lời mời đã được gửi tới %{email}"
       invite_email_verification: Email phải được bật để dùng phương thức này. Hãy liên hệ quản trị hệ thống của bạn.
-      merge_fail: Có vấn đề khi thử hợp nhất các tài khoản người dùng. Vui lòng kiểm tra những người dùng đã chọn và thử lại 
+      merge_fail: Có vấn đề khi thử hợp nhất các tài khoản người dùng. Vui lòng kiểm tra những người dùng đã chọn và thử lại
       merge_success: Đã hợp nhất thành công các tài khoản người dùng được chọn
       perm_deleted: Đã xóa người dùng
       promoted: Người dùng đã được thăng bậc thành công
@@ -124,7 +124,7 @@ vi:
       edit_site_settings: Cho phép những người dùng thuộc vai trò này sửa các thiết lập của website
       edit_roles: Cho phép những người dùng thuộc vai trò này sửa các vai trò khác
       manage_users: Cho phép những người dùng thuộc vai trò này quản lý người dùng
-      invalid_assignment: Có vấn đề khi chỉ định vai trò cho người dùng. Hãy kiểm tra lại các giá trị và thử lại 
+      invalid_assignment: Có vấn đề khi chỉ định vai trò cho người dùng. Hãy kiểm tra lại các giá trị và thử lại
       colour:
         title: Màu sắc của vai trò
         info: Thiết lập màu sử dụng cho vai trò
@@ -456,7 +456,7 @@ vi:
       fail: "Tài khoản của bạn chưa được phê duyệt. Nếu đã nhiều ngày trôi qua kể từ khi bạn đăng ký, vui lòng liên hệ với quản trị viên."
       signup: Tài khoản của bạn đã được tạo thành công. Nó đã được gửi đến một quản trị viên để phê duyệt.
     banned:
-      fail: "Bạn không có quyền truy cập vào ứng dụng này. Nếu bạn tin rằng đây là lỗi, vui lòng liên hệ với quản trị viên." 
+      fail: "Bạn không có quyền truy cập vào ứng dụng này. Nếu bạn tin rằng đây là lỗi, vui lòng liên hệ với quản trị viên."
     deprecated:
       new_signin: Chọn một phương thức đăng nhập mới cho tài khoản của bạn. Tất cả các phòng của bạn từ tài khoản cũ của bạn sẽ được chuyển sang tài khoản mới
       twitter_signin: "Đăng nhập qua Twitter đã không được chấp nhận và sẽ bị xóa trong phiên bản tiếp theo. Nhấn vào <a href=\"%{link}\">đây</a> để chuyển tài khoản của bạn sang một phương thức xác thực mới"

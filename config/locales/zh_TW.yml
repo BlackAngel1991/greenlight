@@ -94,7 +94,7 @@ zh_TW:
       demoted: 使用者已成功降級
       invite: "邀請已成功寄送到 %{email}"
       invite_email_verification: 必須啟用電子郵件才能使用此方法，請與系統管理員聯繫。
-      merge_fail: 合併使用者帳戶時出現問題，請檢查選定的使用者並重試。 
+      merge_fail: 合併使用者帳戶時出現問題，請檢查選定的使用者並重試。
       merge_success: 使用者帳戶成功合併
       perm_deleted: 使用者已被永久刪除
       promoted: 使用者已成功升級
@@ -123,7 +123,7 @@ zh_TW:
       edit_site_settings: 允許具有此角色的使用者編輯網站設定
       edit_roles: 允許具有此角色的使用者編輯其他角色
       manage_users: 允許具有此角色的使用者管理使用者
-      invalid_assignment: 將角色分配給使用者時出現問題，請檢查賦值並重試。 
+      invalid_assignment: 將角色分配給使用者時出現問題，請檢查賦值並重試。
       colour:
         title: 角色代表顏色
         info: 設定將與角色關聯的顏色
@@ -440,7 +440,7 @@ zh_TW:
       fail: 您的帳戶尚未批准，如果您註冊後已過多天，請與管理員聯繫。
       signup: 您的帳戶創建完成，稍後管理員會審批。
     banned:
-      fail: 您沒有訪問此應用程式的許可權。如果您認為這是一個錯誤，請聯繫您的管理員。 
+      fail: 您沒有訪問此應用程式的許可權。如果您認為這是一個錯誤，請聯繫您的管理員。
     deprecated:
       new_signin: 為您的帳戶選擇新的登錄方法。舊帳戶中的所有會議室都將遷移到新帳戶。
       twitter_signin: "通過Twitter登錄已被棄用並將在下一版本中刪除。 點擊 <a href=\"%{link}\"> 這裡 </a> 將您的帳戶移動到新的身份驗證方法。"

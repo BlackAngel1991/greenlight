@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     render("sessions/new") && return unless valid_user_or_captcha
 
     # Redirect to root if user token is either invalid or expired
-    return redirect_to root_path, flash: { alert: I18n.t("registration.invite.fail") } unless passes_invite_reqs
+    return redirect_to root_path, flash: {alert: I18n.t("registration.invite.fail")} unless passes_invite_reqs
 
     # User has passed all validations required
     @user.save
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       @user.set_role :pending
 
       return redirect_to root_path,
-        flash: { success: I18n.t("registration.approval.signup") } unless Rails.configuration.enable_email_verification
+                         flash: {success: I18n.t("registration.approval.signup")} unless Rails.configuration.enable_email_verification
     end
 
     send_registration_email
@@ -103,7 +103,7 @@ class UsersController < ApplicationController
       user_locale(@user)
 
       if update_roles(params[:user][:role_id])
-        return redirect_to redirect_path, flash: { success: I18n.t("info_update_success") }
+        return redirect_to redirect_path, flash: {success: I18n.t("info_update_success")}
       else
         flash[:alert] = I18n.t("administrator.roles.invalid_assignment")
       end
@@ -130,7 +130,7 @@ class UsersController < ApplicationController
 
     # Notify the user that their account has been updated.
     return redirect_to change_password_path,
-      flash: { success: I18n.t("info_update_success") } if @user.errors.empty? && @user.save
+                       flash: {success: I18n.t("info_update_success")} if @user.errors.empty? && @user.save
 
     # redirect_to change_password_path
     render :change_password
@@ -164,7 +164,7 @@ class UsersController < ApplicationController
         # Log the user out if they are deleting themself
         session.delete(:user_id) if self_delete
 
-        return redirect_to redirect_url, flash: { success: I18n.t("administrator.flash.delete") } unless self_delete
+        return redirect_to redirect_url, flash: {success: I18n.t("administrator.flash.delete")} unless self_delete
       else
         flash[:alert] = I18n.t("administrator.flash.delete_fail")
       end
@@ -180,7 +180,7 @@ class UsersController < ApplicationController
   def recordings
     if current_user && current_user.uid == params[:user_uid]
       @search, @order_column, @order_direction, recs =
-        all_recordings(current_user.rooms.pluck(:bbb_id), params.permit(:search, :column, :direction), true)
+          all_recordings(current_user.rooms.pluck(:bbb_id), params.permit(:search, :column, :direction), true)
       @pagy, @recordings = pagy_array(recs)
     else
       redirect_to root_path
@@ -210,7 +210,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :image, :password, :password_confirmation,
-      :new_password, :provider, :accepted_terms, :language)
+                                 :new_password, :provider, :accepted_terms, :language)
   end
 
   def send_registration_email
@@ -224,7 +224,7 @@ class UsersController < ApplicationController
   # Checks that the user is allowed to edit this user
   def check_admin_of
     redirect_to current_user.main_room if current_user &&
-                                          @user != current_user &&
-                                          !current_user.admin_of?(@user, "can_manage_users")
+        @user != current_user &&
+        !current_user.admin_of?(@user, "can_manage_users")
   end
 end

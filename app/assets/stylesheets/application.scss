@@ -48,6 +48,7 @@
 @import "utilities/fonts";
 @import "users";
 @import "rtl";
+
 * {
   outline: none !important;
 }
@@ -137,13 +138,14 @@ a {
 .cookies-banner {
   color: white;
   background-color: $button-color-blue;
+
   #cookies-agree-button {
     margin: 0;
   }
 }
 
 input:focus {
-    border-color: $primary !important;
+  border-color: $primary !important;
 }
 
 .list-group-item-action.active {
@@ -173,7 +175,7 @@ table {
   }
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 

@@ -94,7 +94,7 @@ tr:
       demoted: Kullanıcının yetkisi başarıyla azaltıldı.
       invite: "Davet %{email} adresine başarıyla gönderildi "
       invite_email_verification: Bu yöntemi kullanabilmek için e-postaların etkinleştirilmesi gerekir. Lütfen sistem yöneticinize başvurun.
-      merge_fail: Kullanıcı hesapları birleştirilirken bir sorun oluştu. Lütfen seçilen kullanıcıları kontrol edip tekrar deneyin 
+      merge_fail: Kullanıcı hesapları birleştirilirken bir sorun oluştu. Lütfen seçilen kullanıcıları kontrol edip tekrar deneyin
       merge_success: Kullanıcı hesapları başarıyla birleştirildi
       perm_deleted: Kullanıcı kalıcı olarak silindi
       promoted: Kullanıcı başarıyla tanıtıldı
@@ -124,7 +124,7 @@ tr:
       edit_site_settings: Bu yetkiye sahip kullanıcıların site ayarlarını düzenlemesine izin ver
       edit_roles: Bu yetkiye sahip kullanıcıların diğer yetkileri düzenlemesine izin ver
       manage_users: Bu yetkiye sahip kullanıcıların kullanıcıları yönetmesine izin ver
-      invalid_assignment: Kullanıcıya yetkiler atanırken bir sorun oluştu. Lütfen değerleri kontrol edip tekrar deneyin 
+      invalid_assignment: Kullanıcıya yetkiler atanırken bir sorun oluştu. Lütfen değerleri kontrol edip tekrar deneyin
       colour:
         title: Yetki Gruplarının Rengi
         info: Yetkilerle ilişkilendirilecek rengi ayarlayın
@@ -456,7 +456,7 @@ tr:
       fail: Hesabınız henüz onaylanmadı. Kaydolduğunuzdan bu yana birden fazla gün geçtiyse lütfen yöneticinize başvurun.
       signup: Hesabınız başarılı bir şekilde oluşturulmuştur. Onay için bir yöneticiye gönderildi.
     banned:
-      fail: "Bu uygulamaya erişiminiz yok. Bunun bir hata olduğunu düşünüyorsanız, lütfen yöneticinize başvurun." 
+      fail: "Bu uygulamaya erişiminiz yok. Bunun bir hata olduğunu düşünüyorsanız, lütfen yöneticinize başvurun."
     deprecated:
       new_signin: Hesabınız için yeni bir giriş yöntemi seçin. Eski hesabınızdaki tüm sınıflarınız yeni hesaba taşınacak
       twitter_signin: "Twitter üzerinden oturum açma onaylanmadı ve bir sonraki sürümde kaldırılacak. Hesabınızı yeni bir kimlik doğrulama yöntemine taşımak için <a href=\"%{link}\"> buraya </a> tıklayın"

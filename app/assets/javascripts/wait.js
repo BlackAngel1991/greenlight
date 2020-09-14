@@ -15,56 +15,58 @@
 // with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 
 // Handle client request to join when meeting starts.
-$(document).on("turbolinks:load", function(){
-  var controller = $("body").data('controller');
-  var action = $("body").data('action');
+$(document).on("turbolinks:load", function () {
+    var controller = $("body").data('controller');
+    var action = $("body").data('action');
 
-  if(controller == "rooms" && action == "join"){
-    App.waiting = App.cable.subscriptions.create({
-      channel: "WaitingChannel",
-      roomuid: $(".background").attr("room"),
-      useruid: $(".background").attr("user")
-    }, {
-      connected: function() {
-        console.log("connected");
-      },
+    if (controller == "rooms" && action == "join") {
+        App.waiting = App.cable.subscriptions.create({
+            channel: "WaitingChannel",
+            roomuid: $(".background").attr("room"),
+            useruid: $(".background").attr("user")
+        }, {
+            connected: function () {
+                console.log("connected");
+            },
 
-      disconnected: function(data) {
-        console.log("disconnected");
-        console.log(data);
-      },
+            disconnected: function (data) {
+                console.log("disconnected");
+                console.log(data);
+            },
 
-      rejected: function() {
-        console.log("rejected");
-      },
+            rejected: function () {
+                console.log("rejected");
+            },
 
-      received: function(data){
-        console.log(data);
-        if(data.action = "started"){
-          request_to_join_meeting();
-        }
-      }
-    });
-  }
+            received: function (data) {
+                console.log(data);
+                if (data.action = "started") {
+                    request_to_join_meeting();
+                }
+            }
+        });
+    }
 });
 
 var join_attempts = 0;
 
-var request_to_join_meeting = function(){
-  $.ajax({
-    url: window.location.pathname,
-    type: 'POST',
-    data: {
-      join_name: $(".background").attr("join-name")
-    },
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-    },
-    success: function(){
-      // Enqueue another trial just incase they didn't actually join.
-      if(join_attempts < 4){ setTimeout(request_to_join_meeting, 10000); }
-      join_attempts++;
-    }
-  });
+var request_to_join_meeting = function () {
+    $.ajax({
+        url: window.location.pathname,
+        type: 'POST',
+        data: {
+            join_name: $(".background").attr("join-name")
+        },
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function () {
+            // Enqueue another trial just incase they didn't actually join.
+            if (join_attempts < 4) {
+                setTimeout(request_to_join_meeting, 10000);
+            }
+            join_attempts++;
+        }
+    });
 }

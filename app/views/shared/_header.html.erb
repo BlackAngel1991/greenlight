@@ -97,7 +97,7 @@
       </div>
       <%= link_to (current_user ? home_page : root_path), class: "header-brand" do %>
         <% begin %>
-          <%= image_tag(logo_image, class: "header-brand-img m-0", alt:"") %>
+          <%= image_tag(logo_image, class: "header-brand-img m-0", alt: "") %>
         <% rescue %>
           <%= t("administrator.site_settings.branding.invalid") %>
         <% end %>

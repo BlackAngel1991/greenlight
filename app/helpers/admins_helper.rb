@@ -36,15 +36,15 @@ module AdminsHelper
     return "" if date.nil? # Handle invalid dates
 
     #I18n.l date, format: "%B %d, %Y %H:%M UTC"
-    jldate = toJalaali(date.year,date.mon,date.mday)
-    j2s(jldate[:jy],jldate[:jm],jldate[:jd])
+    jldate = toJalaali(date.year, date.mon, date.mday)
+    j2s(jldate[:jy], jldate[:jm], jldate[:jd])
   end
 
   # Site Settings
 
   def admin_invite_registration
     controller_name == "admins" && action_name == "index" &&
-      @settings.get_value("Registration Method") == Rails.configuration.registration_methods[:invite]
+        @settings.get_value("Registration Method") == Rails.configuration.registration_methods[:invite]
   end
 
   def room_authentication_string
@@ -74,12 +74,12 @@ module AdminsHelper
   def registration_method_string
     case @settings.get_value("Registration Method")
     when Rails.configuration.registration_methods[:open]
-        I18n.t("administrator.site_settings.registration.methods.open")
+      I18n.t("administrator.site_settings.registration.methods.open")
     when Rails.configuration.registration_methods[:invite]
-        I18n.t("administrator.site_settings.registration.methods.invite")
+      I18n.t("administrator.site_settings.registration.methods.invite")
     when Rails.configuration.registration_methods[:approval]
-        I18n.t("administrator.site_settings.registration.methods.approval")
-      end
+      I18n.t("administrator.site_settings.registration.methods.approval")
+    end
   end
 
   def log_level_string

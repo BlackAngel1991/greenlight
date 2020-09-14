@@ -18,7 +18,7 @@
 
 class HealthCheckController < ApplicationController
   skip_before_action :redirect_to_https, :set_user_domain, :set_user_settings, :maintenance_mode?, :migration_error?,
-  :user_locale, :check_admin_password, :check_user_role
+                     :user_locale, :check_admin_password, :check_user_role
 
   # GET /health_check
   def all

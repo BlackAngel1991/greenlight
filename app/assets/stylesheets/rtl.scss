@@ -57,8 +57,8 @@ body.rtl {
   height: auto;
 }
 
-body[data-controller="main"][data-action="index"] .wrapper ,
-body[data-controller="sessions"][data-action="new"] .wrapper ,
+body[data-controller="main"][data-action="index"] .wrapper,
+body[data-controller="sessions"][data-action="new"] .wrapper,
 body[data-controller="sessions"][data-action="signin"] .wrapper {
   display: flex;
   align-items: stretch;
@@ -155,17 +155,21 @@ body[data-controller="sessions"][data-action="signin"] .wrapper {
 .gradient-blue .room-title-box #room-title {
   border-bottom: 1px solid #79ab36;
 }
-.input-group.mob .input-group-append{
+
+.input-group.mob .input-group-append {
   width: 100%;
 }
-.loader{
+
+.loader {
   color: #41ffbf !important;
 }
-.full-height{
+
+.full-height {
   height: calc(100% - 65px);
 }
+
 @media (min-width: 768px) {
-  .input-group.mob .input-group-append{
+  .input-group.mob .input-group-append {
     width: auto;
   }
 }

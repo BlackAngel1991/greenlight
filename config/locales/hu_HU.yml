@@ -106,7 +106,7 @@ hu_HU:
       demoted: A felhasználót sikeresen lefokoztad
       invite: "A meghívót sikeresen elküldtük %{email}"
       invite_email_verification: "Ennek a használatához az e-maileket engedélyezni kell. Kérjük, ezt jelezd a rendszerüzemeltetőnek."
-      merge_fail: "Hiba történt a felhasználói fiókok összevonásakor. Kérem, ellenőrizd a felhasználókat, majd próbáld újra." 
+      merge_fail: "Hiba történt a felhasználói fiókok összevonásakor. Kérem, ellenőrizd a felhasználókat, majd próbáld újra."
       merge_success: A felhasználói fiókokat sikeresen összevontad
       perm_deleted: A felhasználót véglegesen törölted
       promoted: A felhasználót sikeresen előléptetted
@@ -136,7 +136,7 @@ hu_HU:
       edit_site_settings: Evvel a szereppel bírók módosíthatják az weboldal beállításait
       edit_roles: Ezen szerep tagjai módosíthatják a többi szerepet
       manage_users: Ezen szerep tagjai kezelhetik a felhasználókat
-      invalid_assignment: "Hiba a szerep felhasználóhoz rendelésekor. Kérem, ellenőrizd az értékeket és próbáld újra." 
+      invalid_assignment: "Hiba a szerep felhasználóhoz rendelésekor. Kérem, ellenőrizd az értékeket és próbáld újra."
       colour:
         title: Szerep színe
         info: Állítsd be a szerep színét
@@ -473,7 +473,7 @@ hu_HU:
       fail: "A fiókodat még nem hagyták jóvá. Ha már többi nap eltelt a regisztrációd óta, lépj kapcsolatba az üzemeltetőkkel."
       signup: "A fiókodat sikeresen létrehoztuk, várunk az üzemeltető jóváhagyására."
     banned:
-      fail: "Nincs hozzáférésed ehhez az alkalmazáshoz. Amennyiben úgy gondolod, hogy ez egy hiba, kérjük, jelezd az üzemeltetőnek." 
+      fail: "Nincs hozzáférésed ehhez az alkalmazáshoz. Amennyiben úgy gondolod, hogy ez egy hiba, kérjük, jelezd az üzemeltetőnek."
     deprecated:
       new_signin: Válassz a fiókodhoz egy új bejelentkezési módot. A régi fiókodból származó összes szobát áthelyezzük az új fiókodra.
       twitter_signin: "A Twitter-en keresztüli bejelentkezés elavult és nem lesz elérhető a következő verzióban. A fiókod átállításához egy új hitelesítési módszerre  kattints <a href=\"%{link}\"> erre linkre </a>."

@@ -100,7 +100,7 @@ hi_IN:
       edit_site_settings:
       edit_roles:
       manage_users:
-      invalid_assignment: 
+      invalid_assignment:
       colour:
         title:
         info:
@@ -384,7 +384,7 @@ hi_IN:
       fail:
       signup:
     banned:
-      fail: 
+      fail:
     deprecated:
       new_signin:
       twitter_signin:

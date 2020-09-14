@@ -101,7 +101,7 @@ module Emailer
       return unless Rails.configuration.enable_email_verification
       admin_emails = admin_emails()
       UserMailer.approval_user_signup(user, admins_url(tab: "pending"),
-      admin_emails, @settings).deliver_now unless admin_emails.empty?
+                                      admin_emails, @settings).deliver_now unless admin_emails.empty?
     rescue => e
       logger.error "Support: Error in email delivery: #{e}"
       flash[:alert] = I18n.t(params[:message], default: I18n.t("delivery_error"))
@@ -128,7 +128,7 @@ module Emailer
   end
 
   def admin_emails
-    roles = Role.where(provider: @user_domain, role_permissions: { name: "can_manage_users", value: "true" })
+    roles = Role.where(provider: @user_domain, role_permissions: {name: "can_manage_users", value: "true"})
                 .pluck(:name)
 
     admins = User.with_role(roles - ["super_admin"])

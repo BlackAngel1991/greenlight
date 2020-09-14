@@ -29,7 +29,7 @@
   box-shadow: 0 0 0 2px $primary-color-lighten !important;
 }
 
-.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-color: $primary-color !important;
   border-color: $primary-color !important;
   color: white !important;
@@ -82,15 +82,18 @@ a {
 
 .dropdown-item {
   color: #6e7687 !important;
+
   &:hover {
     color: $primary-color !important;
     background-color: $primary-color-lighten !important;
+
     &.sort-disabled {
       background: #e6e6e6 !important;
       color: rgb(110, 118, 135) !important;
       opacity: 0.9;
     }
   }
+
   &:active, &.active {
     color: $primary-color !important;
     background-color: $primary-color-lighten !important;
@@ -138,7 +141,7 @@ input:focus, select:focus {
 .pagination {
   .page-item {
     &.active a {
-      color:white !important;
+      color: white !important;
       background-color: $primary-color !important;
     }
 

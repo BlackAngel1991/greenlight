@@ -5,8 +5,8 @@ require 'bigbluebutton_api'
 namespace :room do
   desc "Removes all rooms for users that can't create rooms"
   task :remove, [:include_used] => :environment do |_task, args|
-    roles = Role.where(role_permissions: { name: "can_create_rooms", value: "false" }).pluck(:name, :priority)
-    other_roles = Role.where(role_permissions: { name: "can_create_rooms", value: "", enabled: "false" }).pluck(:name, :priority)
+    roles = Role.where(role_permissions: {name: "can_create_rooms", value: "false"}).pluck(:name, :priority)
+    other_roles = Role.where(role_permissions: {name: "can_create_rooms", value: "", enabled: "false"}).pluck(:name, :priority)
 
     roles_without_rooms = roles + other_roles
     roles_arr = []

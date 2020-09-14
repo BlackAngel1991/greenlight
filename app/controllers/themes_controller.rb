@@ -18,7 +18,7 @@
 
 class ThemesController < ApplicationController
   skip_before_action :block_unknown_hosts, :redirect_to_https, :maintenance_mode?, :migration_error?, :user_locale,
-    :check_admin_password, :check_user_role
+                     :check_admin_password, :check_user_role
 
   # GET /primary
   def index
@@ -33,7 +33,7 @@ class ThemesController < ApplicationController
     @compiled = SassC::Engine.new("$primary-color:#{color};" \
                                  "$primary-color-lighten:#{lighten_color};" \
                                  "$primary-color-darken:#{darken_color};" +
-                                 @file_contents, syntax: :scss).render
+                                      @file_contents, syntax: :scss).render
 
     respond_to do |format|
       format.css { render body: @compiled }

@@ -14,265 +14,263 @@
 // You should have received a copy of the GNU Lesser General Public License along
 // with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 
-$(document).on('turbolinks:load', function(){
-  var controller = $("body").data('controller');
-  var action = $("body").data('action');
+$(document).on('turbolinks:load', function () {
+    var controller = $("body").data('controller');
+    var action = $("body").data('action');
 
-  // Only run on the admins page.
-  if (controller == "admins") {
-    if(action == "index") {
-      //clear the role filter if user clicks on the x
-      $(".clear-role").click(function() {
-        var search = new URL(location.href).searchParams.get('search')
+    // Only run on the admins page.
+    if (controller == "admins") {
+        if (action == "index") {
+            //clear the role filter if user clicks on the x
+            $(".clear-role").click(function () {
+                var search = new URL(location.href).searchParams.get('search')
 
-        var url = window.location.pathname + "?page=1"
-      
-        if (search) {
-          url += "&search=" + search
-        }  
-      
-        window.location.replace(url);
-      })
+                var url = window.location.pathname + "?page=1"
 
-      // Handle selected user tags
-      $(".manage-users-tab").click(function() {
-        $(".manage-users-tab").removeClass("selected")
-        $(this).addClass("selected")
+                if (search) {
+                    url += "&search=" + search
+                }
 
-        updateTabParams(this.id)
-      })
+                window.location.replace(url);
+            })
 
-      $('.selectpicker').selectpicker({
-        liveSearchPlaceholder: getLocalizedString('javascript.search.start')
-      });
-      // Fixes turbolinks issue with bootstrap select
-      $(window).trigger('load.bs.select.data-api');
-      
-      // Display merge accounts modal with correct info
-      $(".merge-user").click(function() {
-        // Update the path of save button
-        $("#merge-save-access").attr("data-path", $(this).data("path"))
+            // Handle selected user tags
+            $(".manage-users-tab").click(function () {
+                $(".manage-users-tab").removeClass("selected")
+                $(this).addClass("selected")
 
-        let userInfo = $(this).data("info")
+                updateTabParams(this.id)
+            })
 
-        $("#merge-to").html("<span>" + userInfo.name + "</span>" + "<span class='text-muted d-block'>" + userInfo.email + "</span>" + "<span class='text-muted d-block'>" + userInfo.uid + "</span>")
- 
-      })
+            $('.selectpicker').selectpicker({
+                liveSearchPlaceholder: getLocalizedString('javascript.search.start')
+            });
+            // Fixes turbolinks issue with bootstrap select
+            $(window).trigger('load.bs.select.data-api');
 
-      $("#mergeUserModal").on("show.bs.modal", function() {
-        $(".selectpicker").selectpicker('val','')
-      })
-  
-      $(".bootstrap-select").on("click", function() {
-        $(".bs-searchbox").siblings().hide()
-      })
-  
-      $(".bs-searchbox input").on("input", function() {
-        if ($(".bs-searchbox input").val() == '' || $(".bs-searchbox input").val().length < 3) {
-          $(".bs-searchbox").siblings().hide()
-        } else {
-          $(".bs-searchbox").siblings().show()
+            // Display merge accounts modal with correct info
+            $(".merge-user").click(function () {
+                // Update the path of save button
+                $("#merge-save-access").attr("data-path", $(this).data("path"))
+
+                let userInfo = $(this).data("info")
+
+                $("#merge-to").html("<span>" + userInfo.name + "</span>" + "<span class='text-muted d-block'>" + userInfo.email + "</span>" + "<span class='text-muted d-block'>" + userInfo.uid + "</span>")
+
+            })
+
+            $("#mergeUserModal").on("show.bs.modal", function () {
+                $(".selectpicker").selectpicker('val', '')
+            })
+
+            $(".bootstrap-select").on("click", function () {
+                $(".bs-searchbox").siblings().hide()
+            })
+
+            $(".bs-searchbox input").on("input", function () {
+                if ($(".bs-searchbox input").val() == '' || $(".bs-searchbox input").val().length < 3) {
+                    $(".bs-searchbox").siblings().hide()
+                } else {
+                    $(".bs-searchbox").siblings().show()
+                }
+            })
+
+            // User selects an option from the Room Access dropdown
+            $(".bootstrap-select").on("changed.bs.select", function () {
+                // Get the uid of the selected user
+                let user = $(".selectpicker").selectpicker('val')
+                if (user != "") {
+                    let userInfo = JSON.parse(user)
+                    $("#merge-from").html("<span>" + userInfo.name + "</span>" + "<span class='text-muted d-block'>" + userInfo.email + "</span>" + "<span id='from-uid' class='text-muted d-block'>" + userInfo.uid + "</span>")
+                }
+            })
+        } else if (action == "site_settings") {
+            loadColourSelectors()
+        } else if (action == "roles") {
+            // Refreshes the new role modal
+            $("#newRoleButton").click(function () {
+                $("#createRoleName").val("")
+            })
+
+            // Updates the colour picker to the correct colour
+            let role_colour = $("#role-colorinput-regular").data("colour")
+            $("#role-colorinput-regular").css("background-color", role_colour);
+            $("#role-colorinput-regular").css("border-color", role_colour);
+
+            loadRoleColourSelector(role_colour, $("#role-colorinput-regular").data("disabled"));
+
+            // Loads the jquery sortable so users can manually sort roles
+            $("#rolesSelect").sortable({
+                items: "a:not(.sort-disabled)",
+                update: function () {
+                    $.ajax({
+                        url: $(this).data("url"),
+                        type: 'PATCH',
+                        data: $(this).sortable('serialize')
+                    });
+                }
+            });
         }
-      })
-
-      // User selects an option from the Room Access dropdown
-      $(".bootstrap-select").on("changed.bs.select", function(){
-        // Get the uid of the selected user
-        let user = $(".selectpicker").selectpicker('val')
-        if (user != "") {
-          let userInfo = JSON.parse(user)
-          $("#merge-from").html("<span>" + userInfo.name + "</span>" + "<span class='text-muted d-block'>" + userInfo.email + "</span>" + "<span id='from-uid' class='text-muted d-block'>" + userInfo.uid + "</span>")
-        }
-      })
     }
-    else if(action == "site_settings"){
-      loadColourSelectors()
-    }
-    else if (action == "roles"){
-      // Refreshes the new role modal
-      $("#newRoleButton").click(function(){
-        $("#createRoleName").val("")
-      })
-
-      // Updates the colour picker to the correct colour
-      let role_colour = $("#role-colorinput-regular").data("colour")
-      $("#role-colorinput-regular").css("background-color", role_colour);
-      $("#role-colorinput-regular").css("border-color", role_colour);
-
-      loadRoleColourSelector(role_colour, $("#role-colorinput-regular").data("disabled"));
-
-      // Loads the jquery sortable so users can manually sort roles
-      $("#rolesSelect").sortable({
-        items: "a:not(.sort-disabled)",
-        update: function() {
-          $.ajax({
-            url: $(this).data("url"),
-            type: 'PATCH',
-            data: $(this).sortable('serialize')
-          });
-        }
-      });
-    }
-  }
 });
 
 // Change the branding image to the image provided
 function changeBrandingImage(path) {
-  var url = $("#branding-url").val()
-  $.post(path, {value: url})
+    var url = $("#branding-url").val()
+    $.post(path, {value: url})
 }
 
 // Change the Legal URL to the one provided
 function changeLegalURL(path) {
-  var url = $("#legal-url").val()
-  $.post(path, {value: url})
+    var url = $("#legal-url").val()
+    $.post(path, {value: url})
 }
 
 // Change the Privacy Policy URL to the one provided
 function changePrivacyPolicyURL(path) {
-  var url = $("#privpolicy-url").val()
-  $.post(path, {value: url})
+    var url = $("#privpolicy-url").val()
+    $.post(path, {value: url})
 }
 
 function mergeUsers() {
-  let userToMerge = $("#from-uid").text()
-  $.post($("#merge-save-access").data("path"), {merge: userToMerge})
+    let userToMerge = $("#from-uid").text()
+    $.post($("#merge-save-access").data("path"), {merge: userToMerge})
 }
 
 // Filters by role
 function filterRole(role) {
-  var search = new URL(location.href).searchParams.get('search')
+    var search = new URL(location.href).searchParams.get('search')
 
-  var url = window.location.pathname + "?page=1" + "&role=" + role
+    var url = window.location.pathname + "?page=1" + "&role=" + role
 
-  if (search) {
-    url += "&search=" + search
-  }  
+    if (search) {
+        url += "&search=" + search
+    }
 
-  window.location.replace(url);
+    window.location.replace(url);
 }
 
 function updateTabParams(tab) {
-  var search_params = new URLSearchParams(window.location.search)
+    var search_params = new URLSearchParams(window.location.search)
 
-  if (window.location.href.includes("tab=")) {
-    search_params.set("tab", tab)
-  } else {
-    search_params.append("tab", tab)
-  }
+    if (window.location.href.includes("tab=")) {
+        search_params.set("tab", tab)
+    } else {
+        search_params.append("tab", tab)
+    }
 
-  search_params.delete("page")
+    search_params.delete("page")
 
-  window.location.search = search_params.toString()
+    window.location.search = search_params.toString()
 }
 
 function loadColourSelectors() {
-  const pickrRegular = new Pickr({
-    el: '#colorinput-regular',
-    theme: 'monolith',
-    useAsButton: true,
-    lockOpacity: true,
-    defaultRepresentation: 'HEX',
-    closeWithKey: 'Enter',
-    default: $("#colorinput-regular").css("background-color"),
+    const pickrRegular = new Pickr({
+        el: '#colorinput-regular',
+        theme: 'monolith',
+        useAsButton: true,
+        lockOpacity: true,
+        defaultRepresentation: 'HEX',
+        closeWithKey: 'Enter',
+        default: $("#colorinput-regular").css("background-color"),
 
-    components: {
-        palette: true,
-        preview: true,
-        hue: true,
-        interaction: {
-            input: true,
-            save: true,
+        components: {
+            palette: true,
+            preview: true,
+            hue: true,
+            interaction: {
+                input: true,
+                save: true,
+            },
         },
-    },
-  });
+    });
 
-  const pickrLighten = new Pickr({
-    el: '#colorinput-lighten',
-    theme: 'monolith',
-    useAsButton: true,
-    lockOpacity: true,
-    defaultRepresentation: 'HEX',
-    closeWithKey: 'Enter',
-    default: $("#colorinput-lighten").css("background-color"),
+    const pickrLighten = new Pickr({
+        el: '#colorinput-lighten',
+        theme: 'monolith',
+        useAsButton: true,
+        lockOpacity: true,
+        defaultRepresentation: 'HEX',
+        closeWithKey: 'Enter',
+        default: $("#colorinput-lighten").css("background-color"),
 
-    components: {
-        palette: true,
-        preview: true,
-        hue: true,
-        interaction: {
-            input: true,
-            save: true,
+        components: {
+            palette: true,
+            preview: true,
+            hue: true,
+            interaction: {
+                input: true,
+                save: true,
+            },
         },
-    },
-  });
+    });
 
-  const pickrDarken = new Pickr({
-    el: '#colorinput-darken',
-    theme: 'monolith',
-    useAsButton: true,
-    lockOpacity: true,
-    defaultRepresentation: 'HEX',
-    closeWithKey: 'Enter',
-    default: $("#colorinput-darken").css("background-color"),
+    const pickrDarken = new Pickr({
+        el: '#colorinput-darken',
+        theme: 'monolith',
+        useAsButton: true,
+        lockOpacity: true,
+        defaultRepresentation: 'HEX',
+        closeWithKey: 'Enter',
+        default: $("#colorinput-darken").css("background-color"),
 
-    components: {
-        palette: true,
-        preview: true,
-        hue: true,
-        interaction: {
-            input: true,
-            save: true,
+        components: {
+            palette: true,
+            preview: true,
+            hue: true,
+            interaction: {
+                input: true,
+                save: true,
+            },
         },
-    },
-  });
-
-  pickrRegular.on("save", (color, instance) => {
-    $.post($("#coloring-path-regular").val(), {value: color.toHEXA().toString()}).done(function() {
-      location.reload()
     });
-  })
 
-  pickrLighten.on("save", (color, instance) => {
-    $.post($("#coloring-path-lighten").val(), {value: color.toHEXA().toString()}).done(function() {
-      location.reload()
-    });
-  })
+    pickrRegular.on("save", (color, instance) => {
+        $.post($("#coloring-path-regular").val(), {value: color.toHEXA().toString()}).done(function () {
+            location.reload()
+        });
+    })
 
-  pickrDarken.on("save", (color, instance) => {
-    $.post($("#coloring-path-darken").val(), {value: color.toHEXA().toString()}).done(function() {
-      location.reload()
-    });
-  })
+    pickrLighten.on("save", (color, instance) => {
+        $.post($("#coloring-path-lighten").val(), {value: color.toHEXA().toString()}).done(function () {
+            location.reload()
+        });
+    })
+
+    pickrDarken.on("save", (color, instance) => {
+        $.post($("#coloring-path-darken").val(), {value: color.toHEXA().toString()}).done(function () {
+            location.reload()
+        });
+    })
 }
 
-function loadRoleColourSelector(role_colour, disabled) { 
-  if (!disabled) {
-    const pickrRoleRegular = new Pickr({
-      el: '#role-colorinput-regular',
-      theme: 'monolith',
-      useAsButton: true,
-      lockOpacity: true,
-      defaultRepresentation: 'HEX',
-      closeWithKey: 'Enter',
-      default: role_colour,
-  
-      components: {
-          palette: true,
-          preview: true,
-          hue: true,
-          interaction: {
-              input: true,
-              save: true,
-          },
-      },
-    });
-  
-    // On save update the colour input's background colour and update the role colour input
-    pickrRoleRegular.on("save", (color, instance) => {
-      $("#role-colorinput-regular").css("background-color", color.toHEXA().toString());
-      $("#role-colorinput-regular").css("border-color", color.toHEXA().toString());
-      $("#role-colour").val(color.toHEXA().toString());
-    });
-  }
+function loadRoleColourSelector(role_colour, disabled) {
+    if (!disabled) {
+        const pickrRoleRegular = new Pickr({
+            el: '#role-colorinput-regular',
+            theme: 'monolith',
+            useAsButton: true,
+            lockOpacity: true,
+            defaultRepresentation: 'HEX',
+            closeWithKey: 'Enter',
+            default: role_colour,
+
+            components: {
+                palette: true,
+                preview: true,
+                hue: true,
+                interaction: {
+                    input: true,
+                    save: true,
+                },
+            },
+        });
+
+        // On save update the colour input's background colour and update the role colour input
+        pickrRoleRegular.on("save", (color, instance) => {
+            $("#role-colorinput-regular").css("background-color", color.toHEXA().toString());
+            $("#role-colorinput-regular").css("border-color", color.toHEXA().toString());
+            $("#role-colour").val(color.toHEXA().toString());
+        });
+    }
 }

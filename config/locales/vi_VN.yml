@@ -100,7 +100,7 @@ vi_VN:
       edit_site_settings:
       edit_roles:
       manage_users:
-      invalid_assignment: 
+      invalid_assignment:
       colour:
         title:
         info:
@@ -384,7 +384,7 @@ vi_VN:
       fail:
       signup:
     banned:
-      fail: 
+      fail:
     deprecated:
       new_signin:
       twitter_signin:

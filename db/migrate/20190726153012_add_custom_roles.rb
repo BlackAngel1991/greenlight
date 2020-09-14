@@ -37,7 +37,7 @@ class AddCustomRoles < ActiveRecord::Migration[5.2]
       t.boolean :can_edit_site_settings, default: false
       t.boolean :can_edit_roles, default: false
       t.boolean :can_manage_users, default: false
-      t.string  :colour
+      t.string :colour
       t.string :provider
 
       t.timestamps
@@ -58,7 +58,7 @@ class AddCustomRoles < ActiveRecord::Migration[5.2]
         next
       end
 
-      new_assignment = { "user_id" => assignment["user_id"] }
+      new_assignment = {"user_id" => assignment["user_id"]}
       if assignment["role_id"] == super_admin_id
         new_assignment["new_role_id"] = generate_scoped_role(user, "super_admin")
       elsif assignment["role_id"] == user_id
