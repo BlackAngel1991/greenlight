@@ -82,6 +82,7 @@
           </div>
         <% else %>
           <% allow_greenlight_accounts = allow_greenlight_accounts? %>
+          <% show_user_signup = show_user_signup? %>
           <% if allow_greenlight_accounts %>
             <%= link_to t("login"), signin_path, :class => "btn btn-outline-primary mx-2 sign-in-button" %>
           <% elsif Rails.configuration.loadbalanced_configuration %>
@@ -90,7 +91,7 @@
             <%= link_to t("login"), signin_path, :class => "btn btn-outline-primary mx-2 sign-in-button" %>
           <% end %>
 
-          <% if allow_user_signup? && allow_greenlight_accounts %>
+          <% if allow_user_signup? && allow_greenlight_accounts && show_user_signup %>
             <%= link_to t("signup.title"), signup_path, :class => "btn btn-outline-primary mx-2 sign-in-button" %>
           <% end %>
         <% end %>

@@ -56,6 +56,8 @@ class Setting < ApplicationRecord
       Rails.configuration.primary_color_default
     when "Registration Method"
       Rails.configuration.registration_method_default
+    when "Hide Registration"
+      false
     when "Room Authentication"
       false
     when "Room Limit"

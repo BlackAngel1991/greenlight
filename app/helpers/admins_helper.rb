@@ -55,6 +55,14 @@ module AdminsHelper
     end
   end
 
+  def hide_registration_string
+    if @settings.get_value("Hide Registration") == "true"
+      I18n.t("administrator.site_settings.authentication.enabled")
+    else
+      I18n.t("administrator.site_settings.authentication.disabled")
+    end
+  end
+
   def shared_access_string
     if @settings.get_value("Shared Access") == "true"
       I18n.t("administrator.site_settings.authentication.enabled")

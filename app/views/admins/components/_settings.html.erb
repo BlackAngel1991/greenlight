@@ -130,6 +130,27 @@
 <div class="mb-6 row">
   <div class="col-12">
     <div class="form-group">
+      <label class="form-label"><%= t("administrator.site_settings.authentication.Hide.title") %></label>
+      <label class="form-label text-muted"><%= t("administrator.site_settings.authentication.Hide.info") %></label>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="room-auth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= room_authentication_string %>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="room-auth">
+          <%= button_to admin_update_settings_path(setting: "Hide Registration", value: "true"), class: "dropdown-item", "data-disable": "" do %>
+            <%= t("administrator.site_settings.authentication.enabled") %>
+          <% end %>
+          <%= button_to admin_update_settings_path(setting: "Hide Registration", value: "false"), class: "dropdown-item", "data-disable": "" do %>
+            <%= t("administrator.site_settings.authentication.disabled") %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mb-6 row">
+  <div class="col-12">
+    <div class="form-group">
       <label class="form-label"><%= t("administrator.site_settings.shared_access.title") %></label>
       <label class="form-label text-muted"><%= t("administrator.site_settings.shared_access.info") %></label>
       <div class="dropdown">

@@ -173,6 +173,12 @@ class ApplicationController < ActionController::Base
 
   helper_method :allow_user_signup?
 
+  # Determine if Greenlight is configured to show user signups.
+  def show_user_signup?
+    @settings.get_value("Hide Registration") == "false"
+  end
+  helper_method :show_user_signup?
+
   # Gets all configured omniauth providers.
   def configured_providers
     Rails.configuration.providers.select do |provider|
