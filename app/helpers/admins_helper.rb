@@ -57,9 +57,9 @@ module AdminsHelper
 
   def hide_registration_string
     if @settings.get_value("Hide Registration") == "true"
-      I18n.t("administrator.site_settings.authentication.enabled")
+      I18n.t("administrator.site_settings.hide_registration.enabled")
     else
-      I18n.t("administrator.site_settings.authentication.disabled")
+      I18n.t("administrator.site_settings.hide_registration.disabled")
     end
   end
 
