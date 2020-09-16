@@ -78,9 +78,9 @@ module RecordingsHelper
   # Returns length of the recording as a string
   def recording_length_string(len)
     if len > 60
-      "#{(len / 60).to_i} h #{len % 60} min"
+      "#{(len / 60).to_i} #{I18n.t('recording.h')} #{len % 60} #{I18n.t('recording.min')}"
     else
-      "#{len} min"
+      "#{len} #{I18n.t('recording.min')}"
     end
   end
 end
