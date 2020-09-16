@@ -36,7 +36,7 @@ module RecordingsHelper
       return recording_length_string(length) unless length.zero?
     end
     # Return '< 1 min' if length values are zero
-    "< 1 min"
+    "< 1 #{I18n.t('recording.min')}"
   end
 
   # Prevents single images from erroring when not passed as an array.
