@@ -59,11 +59,20 @@
   </td>
   <td>
     <% sorted_formats = recording[:playbacks].sort_by! { |p| p[:type] } %>
+    <% is_presentation = false %>
     <% sorted_formats.each do |p| %>
+      <% is_presentation = p[:type] == 'presentation' ? true : false %>
       <%= link_to t("recording.format.#{p[:type]}"), p[:url], class: "btn btn-sm btn-primary", target: "_blank" %>
     <% end %>
-    <% if recording_url(recording[:recordID]) != false %>
-      <%= link_to t("recording.format.download"), recording_url(recording[:recordID]), class: "btn btn-sm btn-primary", target: "_blank" %>
+    <% if is_presentation %>
+      <% if recording[:metadata][:download] %>
+        <%= link_to t("recording.format.download"), recording[:metadata][:download], class: "btn btn-sm btn-primary metadata", target: "_blank" %>
+      <% else %>
+        <% rec_url = recording_url(recording[:recordID]) %>
+        <% if rec_url != false %>
+          <%= link_to t("recording.format.download"), rec_url, class: "btn btn-sm btn-primary http-call", target: "_blank" %>
+        <% end %>
+      <% end %>
     <% end %>
   </td>
   <td class="text-center">

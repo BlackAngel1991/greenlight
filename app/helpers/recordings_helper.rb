@@ -55,8 +55,6 @@ module RecordingsHelper
 
   def recording_url(meeting_id)
     base = root_url.chomp("/")[/.*\//]
-
-
     url = "#{base}download/presentation/#{meeting_id}/output.webm"
     begin
       uri = URI.parse("#{base}download/presentation/#{meeting_id}/output.webm")
