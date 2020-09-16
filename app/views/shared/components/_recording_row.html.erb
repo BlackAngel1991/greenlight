@@ -75,9 +75,9 @@
     <% end %>
     <% if recording_url(recording[:recordID]) != false && is_presentation %>
       <% if recording[:metadata][:download] %>
-        <%= link_to t("recording.format.download"), recording[:metadata][:download], class: "btn btn-sm btn-primary", target: "_blank" %>
+        <%= link_to t("recording.format.download"), recording[:metadata][:download], class: "btn btn-sm btn-primary metadata", target: "_blank" %>
       <% else %>
-        <%= link_to t("recording.format.download"), recording_url(recording[:recordID]), class: "btn btn-sm btn-primary", target: "_blank" %>
+        <%= link_to t("recording.format.download"), recording_url(recording[:recordID]), class: "btn btn-sm btn-primary http-call", target: "_blank" %>
       <% end %>
     <% end %>
 
