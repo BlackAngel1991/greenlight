@@ -72,6 +72,8 @@ class Setting < ApplicationRecord
       room_config_setting("anyone-can-start")
     when "Room Configuration All Join Moderator"
       room_config_setting("all-join-moderator")
+    when "Room Configuration Allow Guest"
+      room_config_setting("allow-guest")
     end
   end
 

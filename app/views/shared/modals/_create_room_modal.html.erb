@@ -70,6 +70,15 @@
               </label>
             <% end %>
 
+            <% allow_guest = room_configuration("Room Configuration Allow Guest") %>
+            <% if allow_guest != "disabled" %>
+              <label class="custom-switch pr-0 mt-3 mb-3 w-100 text-right d-inline-block <%= "enabled-setting" if allow_guest == "enabled" %>">
+                <span class="custom-switch-description"><%= t("modal.room_settings.guest") %></span>
+                <%= f.check_box :allow_guest, class: "custom-switch-input", data: {default: allow_guest == "enabled"}, checked: false %>
+                <span class="custom-switch-indicator float-left cursor-pointer"></span>
+              </label>
+            <% end %>
+
             <% moderator = room_configuration("Room Configuration All Join Moderator") %>
             <% if moderator != "disabled" %>
               <label class="custom-switch pr-0 mt-3 mb-3 w-100 text-right d-inline-block <%= "enabled-setting" if moderator == "enabled" %>">

@@ -64,6 +64,8 @@ class RoomsController < ApplicationController
   def show
     @room_settings = @room[:room_settings]
     @anyone_can_start = room_setting_with_config("anyoneCanStart")
+
+
     @room_running = room_running?(@room.bbb_id)
     @shared_room = room_shared_with_user
 
@@ -291,6 +293,7 @@ class RoomsController < ApplicationController
         "requireModeratorApproval": options[:require_moderator_approval] == "1",
         "anyoneCanStart": options[:anyone_can_start] == "1",
         "joinModerator": options[:all_join_moderator] == "1",
+        "allowGuest": options[:allow_guest] == "1",
     }
 
     room_settings.to_json
@@ -300,6 +303,7 @@ class RoomsController < ApplicationController
     params.require(:room).permit(:name, :auto_join, :mute_on_join, :access_code,
                                  :require_moderator_approval, :anyone_can_start, :all_join_moderator)
   end
+
 
   # Find the room from the uid.
   def find_room

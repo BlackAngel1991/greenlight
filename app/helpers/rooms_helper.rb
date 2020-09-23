@@ -28,6 +28,10 @@ module RoomsHelper
         current_user.nil?
   end
 
+  def allow_guest_access
+    @room_settings_parsed = JSON.parse(@room[:room_settings])
+    @room_settings_parsed["allowGuest"]
+  end
   def current_room_exceeds_limit(room)
     # Get how many rooms need to be deleted to reach allowed room number
     limit = @settings.get_value("Room Limit").to_i

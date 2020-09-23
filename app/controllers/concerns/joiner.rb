@@ -106,6 +106,8 @@ module Joiner
                "Room Configuration All Join Moderator"
              when "anyoneCanStart"
                "Room Configuration Allow Any Start"
+             when "allowGuest"
+               "Room Configuration Allow Guest"
              end
 
     case @settings.get_value(config)
