@@ -350,9 +350,13 @@ class RoomsController < ApplicationController
   end
 
   def auth_required
-    @settings.get_value("Room Authentication") == "true" && current_user.nil?
+    @settings.get_value("Room Authentication") == "true" && current_user.nil? && !allow_guest
   end
 
+  def allow_guest
+    @room_settings_parsed_c = JSON.parse(@room[:room_settings])
+    @room_settings_parsed_c["allowGuest"]
+  end
   # Checks if the room is shared with the user and room sharing is enabled
   def room_shared_with_user
     shared_access_allowed ? @room.shared_with?(current_user) : false
