@@ -12,7 +12,19 @@
   # You should have received a copy of the GNU Lesser General Public License along
   # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
-
+<div>
+  <div class="mb-6 row">
+    <div class="col-12">
+      <div class="form-group">
+        <label class="form-label"><%= t("modal.room_settings.mute") %></label>
+        <label class="form-label text-muted"><%= t("administrator.room_configuration.mute.info") %></label>
+        <button id="branding-image" onclick="getServerInfo('<%= admin_get_server_info_path(setting: 'hdd') %>')" class="btn btn-primary" type="button">
+          <%= t("administrator.site_settings.branding.change") %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="form-group">
   <div class="row">
     <div class="col-12">

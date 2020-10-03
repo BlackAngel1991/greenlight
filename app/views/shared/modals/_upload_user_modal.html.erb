@@ -1,0 +1,26 @@
+<div class="modal fade" id="createUserModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-body">
+        <div class="card-body p-sm-6">
+
+          <%= form_for @user, url: import_users_path, method: :post do |f| %>
+            <div class="form-group">
+              <%= f.label :file, "Upload CSV File" %>
+              <%= f.file_field :file, class: 'form-control-file', required: true %>
+            </div>
+            <div class="card-footer px-0 pb-0">
+              <% if recaptcha_enabled? %>
+                <div class="form-group">
+                  <%= recaptcha_tags %>
+                  <div class="invalid-feedback d-block"><%= @user.errors.full_messages_for(:base).first %></div>
+                </div>
+              <% end %>
+              <%= f.submit t("signup.title"), class: "btn btn-primary btn-block signin-button" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

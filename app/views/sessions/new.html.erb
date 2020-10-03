@@ -46,7 +46,8 @@
               </div>
               <div class="form-group">
                 <%= f.label :email, t("email"), class: "form-label" %>
-                <%= f.email_field :email, class: "form-control #{form_is_invalid?(@user, :email)}", placeholder: t("email") %>
+                <%= f.text_field :username, class: "form-control", placeholder: t("email") %>
+                <%= f.hidden_field :email, class: "form-control #{form_is_invalid?(@user, :email)}", placeholder: t("email") %>
                 <div class="invalid-feedback d-block"><%= @user.errors.full_messages_for(:email).first %></div>
               </div>
               <div class="form-group">
@@ -89,6 +90,13 @@
     $(document).ready(function () {
         particlesJS.load('particles-js', '<%= asset_path 'particlesjs.json' %>', function () {
             console.log('callback - particles.js config loaded');
+        });
+
+        jQuery("#user_username").on('input',function (tar) {
+            let target = jQuery(this);
+            if(target.val().length === 10){
+                jQuery("#email").val(target.val()+"@asanlms.ir");
+            }
         });
     });
 </script>

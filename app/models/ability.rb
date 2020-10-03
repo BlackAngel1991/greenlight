@@ -28,7 +28,7 @@ class Ability
       highest_role = user.role
       if highest_role.get_permission("can_edit_site_settings")
         can [:site_settings, :room_configuration, :update_settings,
-             :update_room_configuration, :coloring, :registration_method], :admin
+             :update_room_configuration, :coloring, :registration_method, :server_actions, :get_server_info], :admin
       end
 
       if highest_role.get_permission("can_edit_roles")

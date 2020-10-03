@@ -63,6 +63,12 @@ module Greenlight
                                     config.bigbluebutton_secret_default
                                   end
 
+    config.ssh_ip = ENV['SSH_IP'] || "NO ADDRESS"
+    config.ssh_user = ENV['SSH_USER'] || "0"
+    config.ssh_pass = ENV['SSH_PASSWORD'] || "0"
+    config.ssh_key = ENV['SSH_KEY'] || nil
+    config.ssh_port = ENV['SSH_PORT'] || "22"
+
     # Fix endpoint format if required.
     config.bigbluebutton_endpoint += "/" unless config.bigbluebutton_endpoint.ends_with?('/')
     config.bigbluebutton_endpoint += "api/" if config.bigbluebutton_endpoint.ends_with?('bigbluebutton/')

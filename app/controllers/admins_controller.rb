@@ -15,6 +15,7 @@
 #
 # You should have received a copy of the GNU Lesser General Public License along
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+require 'net/ssh'
 
 class AdminsController < ApplicationController
   include Pagy::Backend
@@ -47,6 +48,11 @@ class AdminsController < ApplicationController
 
   # GET /admins/site_settings
   def site_settings
+  end
+
+  # GET /admins/server_actions
+  def server_actions
+    #redirect_back fallback_location: admins_path, flash: {success: I18n.t("administrator.flash.banned")}
   end
 
   # GET /admins/server_recordings
@@ -200,6 +206,63 @@ class AdminsController < ApplicationController
     end
 
     redirect_to admin_site_settings_path, flash: {success: flash_message}
+  end
+
+  # POST /admins/get_server_info
+  def get_server_info
+    ssh_ip = Rails.configuration.ssh_ip
+    ssh_user = Rails.configuration.ssh_user
+    ssh_pass = Rails.configuration.ssh_pass
+    ssh_key = Rails.configuration.ssh_key
+    ssh_port = Rails.configuration.ssh_port
+    if ssh_ip == "NO ADDRESS"
+      render inline: "Please set SSH info inside .env file"
+      return
+    end
+    ops = params[:setting]
+    home = "/usr/bin/"
+    binary_bbb = "/usr/bin/bbb-conf"
+    binary_bbb_rec = "/usr/bin/bbb-record"
+    binary_shel = "/bin/df"
+    case ops
+    when "hdd"
+      binary = binary_shel
+      cargs = "-H | grep -e '^/dev/' -e '^Filesystem' | grep -v '/boot'"
+    when "status"
+      binary = binary_bbb
+      cargs = "--status"
+    when "stop"
+      binary = binary_bbb
+      cargs = "--stop"
+    when "start"
+      binary = binary_bbb
+      cargs = "--start"
+    when "restart"
+      binary = binary_bbb
+      cargs = "--restart"
+    when "rebuild"
+      binary = binary_bbb_rec
+      cargs = "--rebuildall"
+    else
+      redirect_to admin_server_actions_path, flash: {alert: I18n.t("administrator.server_actions.invalid_command")}
+    end
+    if ssh_key.nil? || ssh_key.empty?
+      Net::SSH.start(ssh_ip, ssh_user, :password => ssh_pass, :port => ssh_port) do |ssh|
+        command = "#{binary} #{cargs}"
+        #command = "ls /root/greenlight"
+        output = ssh.exec!(command)
+        render inline: output
+      end
+    else
+      Net::SSH.start(ssh_ip, ssh_user, :host_key => "ssh-rsa",
+                     :encryption => "blowfish-cbc", :keys => [ssh_key], :compression => "zlib",
+                     :port => ssh_port) do |ssh|
+        command = "#{binary} #{cargs}"
+        #command = "ls /root/greenlight"
+        output = ssh.exec!(command)
+        render inline: output
+      end
+    end
   end
 
   # POST /admins/color

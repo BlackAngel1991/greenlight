@@ -1,0 +1,49 @@
+<div>
+  <div class="mb-6 row">
+    <div class="col-12">
+<!--      <div class="form-group">-->
+<!--        <label class="form-label"><%#= t("administrator.server_actions.server_info.title") %></label>-->
+<!--        <label class="form-label text-muted"><%#= t("administrator.server_actions.server_info.info") %></label>-->
+<!--        <div class="form-group">-->
+<!--          <label class="form-label text-muted"><%#= t("administrator.server_actions.server_info.ip_server") %></label>-->
+          <%#= f.text_field :ip, id: "create-room-name", class: "form-control", value: "", placeholder: t("administrator.server_actions.server_info.ip_server"), required: "" %>
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label class="form-label text-muted"><%#= t("administrator.server_actions.server_info.password") %></label>-->
+          <%#= f.text_field :password, id: "create-room-name", class: "form-control", value: "", placeholder: t("administrator.server_actions.server_info.password"), required: "" %>
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label class="form-label text-muted"><%#= t("administrator.server_actions.server_info.port") %></label>-->
+          <%#= f.text_field :port,  id: "create-room-name", class: "form-control", value: "", placeholder: t("administrator.server_actions.server_info.port"), required: "" %>
+<!--        </div>-->
+<!--      </div>-->
+      <div class="form-group">
+        <label class="form-label"><%= t("administrator.server_actions.title") %></label>
+        <label class="form-label text-muted"><%= t("administrator.server_actions.info") %></label>
+        <button id="server-hdd" onclick="getServerInfo(this,'<%= admin_get_server_info_path(setting: 'hdd') %>')" class="btn btn-primary" type="button">
+          <%= t("administrator.server_actions.hdd") %>
+        </button>
+        <button id="server-status" onclick="getServerInfo(this,'<%= admin_get_server_info_path(setting: 'status') %>')" class="btn btn-primary" type="button">
+          <%= t("administrator.server_actions.status") %>
+        </button>
+<!--        <button id="branding-image" onclick="getServerInfo('<%= admin_get_server_info_path(setting: 'stop') %>')" class="btn btn-primary" type="button">-->
+          <%#= t("administrator.server_actions.stop") %>
+<!--        </button>-->
+<!--        <button id="branding-image" onclick="getServerInfo('<%= admin_get_server_info_path(setting: 'start') %>')" class="btn btn-primary" type="button">-->
+          <%#= t("administrator.server_actions.start") %>
+<!--        </button>-->
+        <button id="server-restart" onclick="getServerInfo(this,'<%= admin_get_server_info_path(setting: 'restart') %>',true)" class="btn btn-primary" type="button">
+          <%= t("administrator.server_actions.restart") %>
+        </button>
+        <button id="server-rebuild" onclick="getServerInfo(this,'<%= admin_get_server_info_path(setting: 'rebuild') %>')" class="btn btn-primary" type="button">
+          <%= t("administrator.server_actions.rebuild") %>
+        </button>
+      </div>
+      <div class="shell">
+        <pre>
+
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>

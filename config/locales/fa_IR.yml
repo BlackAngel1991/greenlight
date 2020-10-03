@@ -30,6 +30,22 @@ fa_IR:
         user:
           confirmation: رمز عبور با هم یکسان نیستند
   administrator:
+    server_actions:
+      server_info:
+        title: اطلاعات سرور
+        info: اطلاعات ورود به سرور
+        ip_server: آدرس IP سرور
+        password: آدرس IP سرور
+        port: آدرس IP سرور
+      title: دستورات سرور
+      info: اجرای دستورات سرور تحت SHH
+      hdd: اطلاعات دیسک
+      status: وضعیت سرور
+      stop: توقف سرور
+      start: راه اندازی سرور
+      restart: راه اندازی مجدد سرور
+      rebuild: بازسازی تمام جلسات ضبط شده
+      invalid_command: دستور وارد شده معتبر نمی باشد
     site_settings:
       authentication:
         disabled: غیرفعال شده
@@ -273,6 +289,8 @@ fa_IR:
   invalid_login_method: ورود به دلیل عدم تطابق حساب کاربری با خطا مواجه شد. شما می بایست توسط مکانیزم omniauth وارد شوید.
   invite_message: "برای دعوت کسی به جلسه، این ادرس را برای آنها بفرستید"
   javascript:
+    recording:
+      confirm: بازسازی جلسات ضبط شده بسته به تعداد جلسات میتواند مدت زمان طولانی منابع سرور را درگیر نماید، آیا از این کار اطمینان دارید؟
     room:
       mailer:
         subject: 'شما را برای مشاهده جلسه ضبط شده دعوت کرده است.'

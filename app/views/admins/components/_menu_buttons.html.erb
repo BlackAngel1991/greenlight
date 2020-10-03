@@ -37,6 +37,11 @@
       <span class="icon ml-4"><i class="fas fa-sliders-h"></i></span><%= t("administrator.room_configuration.title") %>
     <% end %>
   <% end %>
+  <% if highest_role.get_permission("can_edit_site_settings") || highest_role.name == "super_admin" %>
+    <%= link_to admin_server_actions_path, class: "list-group-item list-group-item-action dropdown-item #{"active" if active_page == "server_actions"}" do %>
+      <span class="icon ml-4"><i class="fas fa-cogs"></i></span><%= t("administrator.server_actions.title") %>
+    <% end %>
+  <% end %>
   <% if highest_role.get_permission("can_edit_roles") || highest_role.name == "super_admin" %>
     <%= link_to admin_roles_path, class: "list-group-item list-group-item-action dropdown-item #{"active" if active_page == "roles"}" do %>
       <span class="icon ml-4"><i class="fas fa-user-tag"></i></span><%= t("administrator.roles.title") %>

@@ -86,6 +86,8 @@ $(document).on('turbolinks:load', function () {
             })
         } else if (action == "site_settings") {
             loadColourSelectors()
+        } else if (action == "server_actions") {
+            //loadColourSelectors()
         } else if (action == "roles") {
             // Refreshes the new role modal
             $("#newRoleButton").click(function () {
@@ -118,6 +120,56 @@ $(document).on('turbolinks:load', function () {
 function changeBrandingImage(path) {
     var url = $("#branding-url").val()
     $.post(path, {value: url})
+}
+
+function getServerInfo(ele, path, ping_api = false) {
+
+    let target = $(ele);
+    if (target.attr('id') == 'server-rebuild') {
+
+        let r = window.confirm(getLocalizedString('javascript.recording.confirm'));
+        if (r == false) {
+            return;
+        }
+    }
+
+    $.post(path).done(function (data) {
+        data = data.replace(/\n/g, "<br>");
+        if (data)
+            $(".shell pre").html(data);
+    });
+    if (ping_api) {
+        $(".shell pre").text(".");
+        setTimeout(function () {
+            ping("https://web.jedu.ir/bigbluebutton/api", $(".shell pre"), 0)
+        }, 3000);
+
+    }
+
+}
+
+function ping(url, target, counter = 0) {
+    let status;
+    $.ajax({
+        url: url,
+        timeout: 1000,
+        statusCode: {
+            200: function (response) {
+                target.append("\nOK");
+                status = true;
+            }
+        }
+    }).fail(function (jqXHR, textStatus) {
+        if (counter < 120) {
+            target.append(".");
+            setTimeout(function () {
+                ping(url, target, (counter + 1));
+            }, 3000);
+        } else {
+            target.append("\nServer is Unreachable, please use SSH connection to manually restart it");
+            status = false;
+        }
+    });
 }
 
 // Change the Legal URL to the one provided

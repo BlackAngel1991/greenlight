@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#signin', as: :signin
   get '/signup', to: 'sessions#new', as: :signup
   post '/signup', to: 'users#create', as: :create_user
+  post '/signup_by_admin', to: 'users#create_by_admin', as: :create_user_by_admin
+  post '/import', to: 'users#import', as: :import_users
   get '/ldap_signin', to: 'sessions#ldap_signin', as: :ldap_signin
 
   # Redirect to terms page
@@ -41,6 +43,7 @@ Rails.application.routes.draw do
     get '/rooms', to: 'admins#server_rooms', as: :admin_rooms
     get '/recordings', to: 'admins#server_recordings', as: :admin_recordings
     get '/site_settings', to: 'admins#site_settings', as: :admin_site_settings
+    get '/server_actions', to: 'admins#server_actions', as: :admin_server_actions
     get '/room_configuration', to: 'admins#room_configuration', as: :admin_room_configuration
     get '/roles', to: 'admins#roles', as: :admin_roles
     # Manage Users
@@ -54,6 +57,7 @@ Rails.application.routes.draw do
     post '/merge/:user_uid', to: 'admins#merge_user', as: :merge_user
     # Site Settings
     post '/update_settings', to: 'admins#update_settings', as: :admin_update_settings
+    post '/get_server_info', to: 'admins#get_server_info', as: :admin_get_server_info
     post '/registration_method', to: 'admins#registration_method', as: :admin_change_registration
     post '/coloring', to: 'admins#coloring', as: :admin_coloring
     post '/clear_cache', to: 'admins#clear_cache', as: :admin_clear_cache

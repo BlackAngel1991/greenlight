@@ -66,6 +66,51 @@ class UsersController < ApplicationController
 
     redirect_to root_path
   end
+  # POST /u
+  def create_by_admin
+    is_super_admin = current_user&.has_role? :super_admin
+    return redirect_to root_path, flash: {alert: I18n.t("errors.unauthorized.message")} unless is_super_admin
+    @user = User.new(user_params)
+    @user.provider = @user_domain
+    @user.set_role :user
+    # # User or recpatcha is not valid
+    # render("sessions/new") && return unless valid_user_or_captcha
+
+    # Redirect to root if user token is either invalid or expired
+    # return redirect_to root_path, flash: {alert: I18n.t("registration.invite.fail")} unless passes_invite_reqs
+
+    # User has passed all validations required
+    @user.save
+    logger.info "Support: #{@user.email} user has been created."
+    redirect_to admins_path
+  end
+
+  # POST /u
+  def import
+    is_super_admin = current_user&.has_role? :super_admin
+    return redirect_to root_path, flash: {alert: I18n.t("errors.unauthorized.message")} unless is_super_admin
+    csv_file = params[:user][:file]
+
+    CSV.foreach(file.path, headers: true) do |row|
+      user = User.new
+      user.name=row[0]
+      user.email=row[1]
+      user.password=row[2]
+      user.provider = @user_domain
+      user.set_role :user
+      user.save
+    end
+    # # User or recpatcha is not valid
+    # render("sessions/new") && return unless valid_user_or_captcha
+
+    # Redirect to root if user token is either invalid or expired
+    # return redirect_to root_path, flash: {alert: I18n.t("registration.invite.fail")} unless passes_invite_reqs
+
+    # User has passed all validations required
+    @user.save
+    logger.info "Support: #{@user.email} user has been created."
+    redirect_to admins_path
+  end
 
   # GET /u/:user_uid/edit
   def edit
